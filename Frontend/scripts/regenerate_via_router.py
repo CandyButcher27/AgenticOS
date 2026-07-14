@@ -75,16 +75,19 @@ def _render_screenshot(site_dir: Path, files: dict[str, str]) -> Path:
     html_path.write_text(html_content, encoding="utf-8")
 
     screenshot_path = site_dir / "_review_screenshot.png"
-    with sync_playwright() as pw:
-        browser = pw.chromium.launch()
-        page = browser.new_page(viewport={"width": 1440, "height": 900})
-        page.goto(html_path.resolve().as_uri(), wait_until="networkidle")
-        page.screenshot(path=str(screenshot_path), full_page=True)
-        browser.close()
-
-    for name in files:
-        (site_dir / f"_review_{name}").unlink(missing_ok=True)
-    html_path.unlink(missing_ok=True)
+    try:
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch()
+            try:
+                page = browser.new_page(viewport={"width": 1440, "height": 900})
+                page.goto(html_path.resolve().as_uri(), wait_until="networkidle")
+                page.screenshot(path=str(screenshot_path), full_page=True)
+            finally:
+                browser.close()
+    finally:
+        for name in files:
+            (site_dir / f"_review_{name}").unlink(missing_ok=True)
+        html_path.unlink(missing_ok=True)
     return screenshot_path
 
 
@@ -116,6 +119,7 @@ def _critique(screenshot_path: Path, design_spec: str) -> str:
             }
         ],
     )
+    print(f"    (critique by {vision_entry['id']})")
     return response.choices[0].message.content
 
 
