@@ -4,7 +4,10 @@ ROUTER_MODEL = "groq/llama-3.1-8b-instant"
 
 
 def _catalog_prompt(filtered_catalog: list[dict]) -> str:
-    lines = [f"- {e['id']}: {e['description']} (tags: {', '.join(e['tags'])})" for e in filtered_catalog]
+    lines = [
+        f"- {e['id']}: {e['description']} (tags: {', '.join(e['tags'])}, size: {e.get('size', 'unknown')})"
+        for e in filtered_catalog
+    ]
     return "\n".join(lines)
 
 
@@ -22,6 +25,13 @@ def select_model(prompt: str, filtered_catalog: list[dict], house_key: str) -> s
                     "role": "user",
                     "content": (
                         "Pick the single best model id for this user prompt. "
+                        "Each model's 'size' (small/medium/large/unknown) reflects its parameter "
+                        "count and roughly its output quality/capability. For demanding tasks "
+                        "(non-trivial code generation, long/detailed output, multi-file output, "
+                        "complex reasoning), prefer a medium or large model over a small one, "
+                        "even if a small model's tags also match. Only pick a small model when "
+                        "the task is simple (short answers, basic classification, quick lookups) "
+                        "or no medium/large model is available.\n"
                         "Reply with ONLY the model id, nothing else.\n\n"
                         f"Available models:\n{_catalog_prompt(filtered_catalog)}\n\n"
                         f"User prompt: {prompt}"
