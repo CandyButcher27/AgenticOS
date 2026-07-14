@@ -18,6 +18,7 @@ PROVIDER_KEY_ENV = {
     "groq": "GROQ_API_KEY",
     "openrouter": "OPENROUTER_API_KEY",
     "gemini": "GEMINI_API_KEY",
+    "ollama": "OLLAMA_API_KEY",
 }
 
 SERVER_KEYS = {

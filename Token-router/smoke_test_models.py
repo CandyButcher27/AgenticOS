@@ -15,10 +15,14 @@ if __name__ == "__main__":
             print(f"SKIP  {model_id} (no {PROVIDER_KEY_ENV.get(provider)} in env)", flush=True)
             continue
         try:
+            kwargs = {}
+            if provider == "ollama":
+                kwargs["api_base"] = "https://ollama.com"
             response = litellm.completion(
                 model=model_id,
                 api_key=key,
                 messages=[{"role": "user", "content": "Say OK."}],
+                **kwargs,
             )
             print(f"OK    {model_id} -> {response.choices[0].message.content!r}", flush=True)
         except Exception as e:
