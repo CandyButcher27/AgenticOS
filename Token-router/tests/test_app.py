@@ -1,7 +1,7 @@
 from unittest.mock import patch
 from fastapi.testclient import TestClient
 from app import app
-from chat_core import NoSupportedProviderError, AllModelsRateLimitedError
+from chat_core import NoSupportedProviderError, AllModelsRateLimitedError, PromptTooLargeError
 
 client = TestClient(app)
 
@@ -33,3 +33,10 @@ def test_completion_error_returns_502(mock_handle_chat):
     mock_handle_chat.side_effect = Exception("provider down")
     resp = client.post("/chat", json={"prompt": "hi", "keys": {"groq": "fake-key"}})
     assert resp.status_code == 502
+
+
+@patch("app.handle_chat")
+def test_prompt_too_large_returns_413(mock_handle_chat):
+    mock_handle_chat.side_effect = PromptTooLargeError("prompt too large for every available model")
+    resp = client.post("/chat", json={"prompt": "hi", "keys": {"groq": "fake-key"}})
+    assert resp.status_code == 413

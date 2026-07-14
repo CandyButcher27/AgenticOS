@@ -1,14 +1,14 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from chat_core import handle_chat, NoSupportedProviderError, AllModelsRateLimitedError
+from chat_core import handle_chat, NoSupportedProviderError, AllModelsRateLimitedError, PromptTooLargeError
 
 app = FastAPI()
 
 
 class ChatRequest(BaseModel):
     prompt: str
-    keys: dict[str, str]
+    keys: dict[str, str] = {}
     task_type: str | None = None
 
 
@@ -20,5 +20,7 @@ def chat(req: ChatRequest):
         raise HTTPException(status_code=400, detail=str(e))
     except AllModelsRateLimitedError as e:
         raise HTTPException(status_code=429, detail=str(e))
+    except PromptTooLargeError as e:
+        raise HTTPException(status_code=413, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=502, detail=str(e))

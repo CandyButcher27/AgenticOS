@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"), override=True)
+
 import litellm
 
 from catalog import load_catalog, filter_catalog
@@ -10,6 +14,18 @@ CATALOG = load_catalog()
 if os.environ.get("LANGSMITH_TRACING"):
     litellm.success_callback = ["langsmith"]
 
+PROVIDER_KEY_ENV = {
+    "groq": "GROQ_API_KEY",
+    "openrouter": "OPENROUTER_API_KEY",
+    "gemini": "GEMINI_API_KEY",
+}
+
+SERVER_KEYS = {
+    provider: os.environ[env_var]
+    for provider, env_var in PROVIDER_KEY_ENV.items()
+    if os.environ.get(env_var)
+}
+
 
 class NoSupportedProviderError(Exception):
     pass
@@ -17,6 +33,24 @@ class NoSupportedProviderError(Exception):
 
 class AllModelsRateLimitedError(Exception):
     pass
+
+
+class PromptTooLargeError(Exception):
+    pass
+
+
+def _fits_tpm(prompt: str, entry: dict) -> bool:
+    tpm = (entry.get("rate_limits") or {}).get("tpm")
+    if tpm is None:
+        return True
+    estimated_tokens = litellm.token_counter(
+        model=entry["id"], messages=[{"role": "user", "content": prompt}]
+    )
+    return estimated_tokens <= tpm
+
+
+def _prefilter_candidates(prompt: str, filtered: list[dict]) -> list[dict]:
+    return [e for e in filtered if rate_limiter.is_available(e) and _fits_tpm(prompt, e)]
 
 
 def _narrow_by_task_type(filtered: list[dict], task_type: str | None) -> list[dict]:
@@ -39,14 +73,21 @@ def _ranked_candidates(prompt: str, filtered: list[dict], house_key: str) -> lis
     return [chosen, *same_family, *rest]
 
 
-def handle_chat(prompt: str, keys: dict[str, str], task_type: str | None = None) -> dict:
+def handle_chat(prompt: str, keys: dict[str, str] | None = None, task_type: str | None = None) -> dict:
+    keys = {**SERVER_KEYS, **(keys or {})}
     filtered = filter_catalog(CATALOG, set(keys.keys()))
     filtered = _narrow_by_task_type(filtered, task_type)
     if not filtered:
         raise NoSupportedProviderError("no supported provider keys")
 
+    pre_filtered = _prefilter_candidates(prompt, filtered)
+    if not pre_filtered:
+        if any(not rate_limiter.is_available(e) for e in filtered):
+            raise AllModelsRateLimitedError("all matching models are rate-limited, try again later")
+        raise PromptTooLargeError("prompt too large for every available model's token-per-minute limit")
+
     house_key = os.environ.get("GROQ_API_KEY", "")
-    candidates = _ranked_candidates(prompt, filtered, house_key)
+    candidates = _ranked_candidates(prompt, pre_filtered, house_key)
 
     entry = next((e for e in candidates if rate_limiter.is_available(e)), None)
     if entry is None:
