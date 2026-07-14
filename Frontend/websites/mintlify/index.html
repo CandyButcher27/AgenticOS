@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mintlify — The intelligent Knowledge Platform</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="promo-banner">
+  <span>Introducing Mintlify Agent — docs that answer questions for you.</span>
+  <a href="#" class="promo-banner__link">Learn more &rarr;</a>
+</div>
+
+<header class="top-nav">
+  <div class="top-nav__inner">
+    <a href="#" class="wordmark" aria-label="Mintlify Home">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20V8l8-5 8 5v12" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 20v-7h6v7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      Mintlify
+    </a>
+    <nav class="top-nav__links">
+      <a href="#solutions">Solutions</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#customers">Customers</a>
+      <a href="#docs">Documentation</a>
+      <a href="#changelog">Changelog</a>
+    </nav>
+    <div class="top-nav__right">
+      <a href="#" class="btn btn-ghost">Talk to sales</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" id="hamburgerBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-drawer" id="mobileDrawer">
+    <a href="#solutions">Solutions</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#customers">Customers</a>
+    <a href="#docs">Documentation</a>
+    <a href="#changelog">Changelog</a>
+    <a href="#" class="btn btn-ghost">Talk to sales</a>
+    <a href="#" class="btn btn-primary">Get Started</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero-sky">
+    <div class="hero-sky__cloud hero-sky__cloud--1"></div>
+    <div class="hero-sky__cloud hero-sky__cloud--2"></div>
+    <div class="hero-sky__cloud hero-sky__cloud--3"></div>
+    <div class="hero-sky__content">
+      <h1 class="hero-display">The intelligent<br>Knowledge Platform</h1>
+      <p class="subtitle hero-sky__subtitle">Build beautiful documentation that answers questions, ranks in search,<br>and keeps every team in sync — powered by AI from day one.</p>
+      <div class="hero-sky__actions">
+        <a href="#" class="btn btn-accent-green">Get started</a>
+        <a href="#" class="btn btn-secondary">Talk to us</a>
+      </div>
+      <div class="hero-mockup">
+        <div class="hero-mockup__frame">
+          <div class="hero-mockup__sidebar">
+            <div class="mockup-search-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Search docs...
+            </div>
+            <div class="mockup-sidebar-section">Getting Started</div>
+            <div class="mockup-sidebar-item mockup-sidebar-item--active">Quickstart</div>
+            <div class="mockup-sidebar-item">Installation</div>
+            <div class="mockup-sidebar-item">Configuration</div>
+            <div class="mockup-sidebar-section">Components</div>
+            <div class="mockup-sidebar-item">Accordion</div>
+            <div class="mockup-sidebar-item">Tabs</div>
+            <div class="mockup-sidebar-item">Callout</div>
+          </div>
+          <div class="hero-mockup__body">
+            <div class="mockup-heading"></div>
+            <div class="mockup-line mockup-line--80"></div>
+            <div class="mockup-line mockup-line--60"></div>
+            <div class="mockup-code-block">
+              <div class="mockup-code-header">
+                <span></span><span></span><span></span>
+                <span class="mockup-code-lang">tabs.tsx</span>
+              </div>
+              <div class="mockup-code-body">
+                <span class="tok-tag">&lt;Tabs&gt;</span><br>
+                &nbsp;&nbsp;<span class="tok-tag">&lt;Tab</span> <span class="tok-attr">title</span>=<span class="tok-str">"Install"</span><span class="tok-tag">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;npm install mintlify<br>
+                &nbsp;&nbsp;<span class="tok-tag">&lt;/Tab&gt;</span><br>
+                <span class="tok-tag">&lt;/Tabs&gt;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="logo-wall" id="customers">
+    <p class="logo-wall__label">Trusted by the fastest-growing companies</p>
+    <div class="logo-wall__grid">
+      <span class="logo-wall__item">Anthropic</span>
+      <span class="logo-wall__item">Cognition</span>
+      <span class="logo-wall__item">Vercel</span>
+      <span class="logo-wall__item">react</span>
+      <span class="logo-wall__item">Lovable</span>
+      <span class="logo-wall__item">Stripe</span>
+    </div>
+  </section>
+
+  <section class="section-band" id="solutions">
+    <div class="section-head">
+      <h2 class="display-lg">Built for the intelligence age</h2>
+      <p class="subtitle section-head__sub">Every doc you ship becomes a source of truth your AI agents, your search engine, and your customers can all rely on.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card__icon feature-card__icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </div>
+        <h3 class="heading-4">AI-native from the start</h3>
+        <p class="body-md feature-card__desc">Every page is automatically indexed and made queryable by AI assistants, chat widgets, and search.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon feature-card__icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+        </div>
+        <h3 class="heading-4">Component-rich editor</h3>
+        <p class="body-md feature-card__desc">Tabs, accordions, callouts and code blocks with live syntax highlighting — all built in, no plugins.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon feature-card__icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg>
+        </div>
+        <h3 class="heading-4">Version-controlled</h3>
+        <p class="body-md feature-card__desc">Docs live in git alongside your code. Every change is reviewed, diffed, and deployed automatically.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon feature-card__icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3 class="heading-4">Real-time analytics</h3>
+        <p class="body-md feature-card__desc">See exactly which pages convert, where readers drop off, and what questions AI agents are asking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon feature-card__icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3 class="heading-4">API reference generation</h3>
+        <p class="body-md feature-card__desc">Point at an OpenAPI spec and get a fully interactive, type-annotated reference in minutes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon feature-card__icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        </div>
+        <h3 class="heading-4">Custom domains &amp; branding</h3>
+        <p class="body-md feature-card__desc">White-label your docs on your own domain, with full control over theme, color and typography.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band section-band--code">
+    <div class="section-head">
+      <h2 class="display-lg">Documentation, developer-grade</h2>
+      <p class="subtitle section-head__sub">Inter for prose. Geist Mono for code. A three-column layout built for long-form reading.</p>
+    </div>
+    <div class="docs-preview">
+      <aside class="docs-preview__sidebar">
+        <div class="sidebar-section-header">COMPONENTS</div>
+        <div class="sidebar-nav-item">Accordion</div>
+        <div class="sidebar-nav-item sidebar-nav-item--active">Tabs</div>
+        <div class="sidebar-nav-item">Callout</div>
+        <div class="sidebar-nav-item">Card</div>
+        <div class="sidebar-section-header">PRIMITIVES</div>
+        <div class="sidebar-nav-item">Frontmatter</div>
+        <div class="sidebar-nav-item">Reusable Snippets</div>
+      </aside>
+      <div class="docs-preview__prose">
+        <h3 class="heading-3">Tabs</h3>
+        <p class="body-md">Group related content using tabs so readers can switch between options without leaving the page.</p>
+        <div class="segmented-tabs">
+          <span class="segmented-tab segmented-tab--active">First tab</span>
+          <span class="segmented-tab">Second tab</span>
+          <span class="segmented-tab">Third tab</span>
+        </div>
+        <div class="property-row">
+          <div class="property-row__name">
+            <code class="code-inline">defaultIndex</code>
+            <span class="badge-type">number</span>
+            <span class="badge-required">REQUIRED</span>
+          </div>
+          <p class="body-sm property-row__desc">The index of the tab to display by default.</p>
+        </div>
+        <div class="property-row">
+          <div class="property-row__name">
+            <code class="code-inline">titles</code>
+            <span class="badge-type">string[]</span>
+          </div>
+          <p class="body-sm property-row__desc">Array of titles rendered as the visible tab labels.</p>
+        </div>
+        <p class="body-md">Use the <span class="badge-tag">&lt;Tabs&gt;</span> component inside any <code class="code-inline">.mdx</code> file.</p>
+      </div>
+      <aside class="docs-preview__toc">
+        <div class="doc-toc-label">ON THIS PAGE</div>
+        <div class="doc-toc-item doc-toc-item--active">Overview</div>
+        <div class="doc-toc-item">Props</div>
+        <div class="doc-toc-item">Examples</div>
+        <div class="doc-toc-item">Accessibility</div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-band">
+    <div class="testimonial-feature">
+      <div class="testimonial-feature__quote">
+        <p class="heading-3">"Every YC batch we consistently see the top performing startups use Mintlify to build their docs."</p>
+        <p class="body-sm-medium testimonial-feature__attribution">Founder, Cursor</p>
+      </div>
+      <div class="testimonial-feature__photo" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="section-band" id="pricing">
+    <div class="section-head">
+      <h2 class="heading-1">Pricing on your terms</h2>
+      <div class="pill-tabs">
+        <span class="pill-tab pill-tab--active">Pricing</span>
+        <span class="pill-tab">Roadmap</span>
+      </div>
+      <div class="toggle-monthly-yearly">
+        <span class="toggle-thumb toggle-thumb--active">Monthly</span>
+        <span class="toggle-thumb">Annual <span class="badge-discount">Save 20%</span></span>
+      </div>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3 class="heading-3">Free</h3>
+        <p class="body-sm pricing-card__tagline">For individuals just getting started.</p>
+        <p class="display-lg pricing-card__price">$0</p>
+        <a href="#" class="btn btn-secondary pricing-card__cta">Get started</a>
+        <ul class="pricing-card__features">
+          <li><span class="check-icon">&#10003;</span> 1 documentation site</li>
+          <li><span class="check-icon">&#10003;</span> Community support</li>
+          <li><span class="check-icon">&#10003;</span> Basic analytics</li>
+        </ul>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <h3 class="heading-3">Lift Off</h3>
+        <p class="body-sm pricing-card__tagline">For growing teams shipping fast.</p>
+        <p class="display-lg pricing-card__price">$150<span class="body-sm">/mo</span></p>
+        <a href="#" class="btn btn-accent-green pricing-card__cta">Get started</a>
+        <ul class="pricing-card__features">
+          <li><span class="check-icon">&#10003;</span> Unlimited team members</li>
+          <li><span class="check-icon">&#10003;</span> AI assistant included</li>
+          <li><span class="check-icon">&#10003;</span> Custom domain &amp; branding</li>
+          <li><span class="check-icon">&#10003;</span> Priority support</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h3 class="heading-3">Custom</h3>
+        <p class="body-sm pricing-card__tagline">For enterprises with advanced needs.</p>
+        <p class="display-lg pricing-card__price">Let's talk</p>
+        <a href="#" class="btn btn-secondary pricing-card__cta">Contact sales</a>
+        <ul class="pricing-card__features">
+          <li><span class="check-icon">&#10003;</span> SSO &amp; SAML</li>
+          <li><span class="check-icon">&#10003;</span> Dedicated support engineer</li>
+          <li><span class="check-icon">&#10003;</span> Custom SLAs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero-dark">
+    <div class="hero-dark__rocket" aria-hidden="true"></div>
+    <div class="hero-dark__content">
+      <h2 class="hero-display hero-dark__title">Apply to the Mintlify startup program</h2>
+      <p class="subtitle hero-dark__subtitle">Discounts, credits, and priority support for early-stage teams.</p>
+      <div class="hero-dark__actions">
+        <a href="#" class="btn btn-on-dark">Get started</a>
+        <a href="#" class="btn btn-ghost btn-ghost--on-dark">Learn more</a>
+      </div>
+    </div>
+    <div class="startup-perks">
+      <div class="startup-perk-card">
+        <div class="startup-perk-card__icon">%</div>
+        <h4 class="heading-5">Discounts and credits</h4>
+        <p class="body-sm startup-perk-card__desc">Save on your first year of Mintlify as you scale your docs.</p>
+      </div>
+      <div class="startup-perk-card">
+        <div class="startup-perk-card__icon">&#9889;</div>
+        <h4 class="heading-5">Priority support</h4>
+        <p class="body-sm startup-perk-card__desc">Skip the queue with a dedicated Slack channel to our team.</p>
+      </div>
+      <div class="startup-perk-card">
+        <div class="startup-perk-card__icon">&#128230;</div>
+        <h4 class="heading-5">Startup pack</h4>
+        <p class="body-sm startup-perk-card__desc">Templates, snippets, and a launch checklist to move fast.</p>
+      </div>
+      <div class="startup-perk-card">
+        <div class="startup-perk-card__icon">&#128101;</div>
+        <h4 class="heading-5">Founder community</h4>
+        <p class="body-sm startup-perk-card__desc">Connect with other founders shipping world-class docs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band">
+    <div class="section-head">
+      <h2 class="heading-2">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="true">
+          <span class="heading-5">Can I migrate from my existing docs tool?</span>
+          <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p class="body-md">Yes — Mintlify supports automated migration from most major documentation platforms, including full content and redirect mapping.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span class="heading-5">Does Mintlify support custom domains?</span>
+          <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p class="body-md">Every paid plan includes unlimited custom domains with automatic SSL and edge caching.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span class="heading-5">Is there a free trial for paid plans?</span>
+          <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p class="body-md">Yes, every paid tier starts with a 14-day trial — no credit card required to begin.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-item__question" aria-expanded="false">
+          <span class="heading-5">How does the AI assistant work?</span>
+          <svg class="faq-item__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-item__answer">
+          <p class="body-md">It indexes your published content and answers reader questions inline, citing the exact page and section it drew from.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <a href="#" class="wordmark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 20V8l8-5 8 5v12" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 20v-7h6v7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Mintlify
+      </a>
+      <p class="body-sm footer__tagline">The intelligent Knowledge Platform.</p>
+    </div>
+    <div class="footer__col">
+      <h5 class="body-sm-medium footer__heading">Explore</h5>
+      <a href="#" class="footer-link">Solutions</a>
+      <a href="#" class="footer-link">Customers</a>
+      <a href="#" class="footer-link">Startups</a>
+      <a href="#" class="footer-link">Enterprise</a>
+    </div>
+    <div class="footer__col">
+      <h5 class="body-sm-medium footer__heading">Resources</h5>
+      <a href="#" class="footer-link">Documentation</a>
+      <a href="#" class="footer-link">API Reference</a>
+      <a href="#" class="footer-link">Changelog</a>
+      <a href="#" class="footer-link">Community</a>
+    </div>
+    <div class="footer__col">
+      <h5 class="body-sm-medium footer__heading">Company</h5>
+      <a href="#" class="footer-link">About</a>
+      <a href="#" class="footer-link">Careers</a>
+      <a href="#" class="footer-link">Blog</a>
+      <a href="#" class="footer-link">Contact</a>
+    </div>
+    <div class="footer__col">
+      <h5 class="body-sm-medium footer__heading">Legal</h5>
+      <a href="#" class="footer-link">Privacy</a>
+      <a href="#" class="footer-link">Terms</a>
+      <a href="#" class="footer-link">Security</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span class="caption">&copy; 2026 Mintlify, Inc. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

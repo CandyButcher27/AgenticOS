@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW Corporate - Official Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="#" class="top-nav__logo" id="logo-nav">
+      <!-- BMW Circular Logo SVG -->
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" stroke="#262626" stroke-width="2" fill="#ffffff" />
+        <circle cx="50" cy="50" r="36" fill="#262626" />
+        <!-- Quadrant paths for blue/white quadrants -->
+        <path d="M50,50 L50,14 A36,36 0 0,1 86,50 Z" fill="#ffffff" />
+        <path d="M50,50 L86,50 A36,36 0 0,1 50,86 Z" fill="#1c69d4" />
+        <path d="M50,50 L50,86 A36,36 0 0,1 14,50 Z" fill="#ffffff" />
+        <path d="M50,50 L14,50 A36,36 0 0,1 50,14 Z" fill="#1c69d4" />
+        <!-- Lettering -->
+        <text x="50" y="30" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">M</text>
+        <text x="32" y="44" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle" transform="rotate(-45 32 44)">B</text>
+        <text x="68" y="44" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle" transform="rotate(45 68 44)">W</text>
+      </svg>
+      BMW
+    </a>
+
+    <ul class="top-nav__menu">
+      <li class="top-nav__item"><a class="top-nav__link active" data-target="home-view">Home</a></li>
+      <li class="top-nav__item"><a class="top-nav__link" data-target="configurator-view">Configurator</a></li>
+      <li class="top-nav__item"><a class="top-nav__link" data-target="inventory-view">Dealers &amp; Inventory</a></li>
+    </ul>
+
+    <div class="top-nav__actions">
+      <button class="top-nav__icon-btn" aria-label="Search">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      <button class="top-nav__icon-btn" aria-label="Cart">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+      </button>
+      <button class="top-nav__hamburger" id="hamburger-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav">
+    <ul class="mobile-nav-overlay__menu">
+      <li><a class="mobile-nav-overlay__link active" data-target="home-view">Home</a></li>
+      <li><a class="mobile-nav-overlay__link" data-target="configurator-view">Configurator</a></li>
+      <li><a class="mobile-nav-overlay__link" data-target="inventory-view">Dealers &amp; Inventory</a></li>
+    </ul>
+  </div>
+
+  <!-- Main View Container -->
+  <main>
+    
+    <!-- 1. HOME VIEW -->
+    <section id="home-view" class="view-section active">
+      
+      <!-- Hero Band Dark -->
+      <header class="hero-band-dark">
+        <div class="container hero-band-dark__grid">
+          <div class="hero-band-dark__content">
+            <span class="hero-band-dark__tagline">The First-Ever Fully Electric</span>
+            <h1 class="hero-band-dark__title display-xl">BMW i7</h1>
+            <p class="hero-band-dark__description">This is Forwardism. Reimagined luxury meets state-of-the-art electric performance, offering up to 387 miles of zero-emission driving range.</p>
+            <div class="hero-band-dark__actions">
+              <button class="button-primary" id="hero-btn-config">Design Yours</button>
+              <button class="button-secondary-on-dark" id="hero-btn-explore">Explore Specifications</button>
+            </div>
+          </div>
+          <div class="hero-band-dark__image-container">
+            <img src="assets/hero.png" alt="BMW i7 Sedan" class="hero-band-dark__image">
+          </div>
+        </div>
+      </header>
+
+      <!-- Model Card Grid Section -->
+      <section class="model-grid-section">
+        <div class="container">
+          <div class="model-grid-section__header">
+            <span class="caption" style="text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Find Your Drive</span>
+            <h2 class="display-lg" style="margin-top: 8px;">Explore All Models</h2>
+          </div>
+          <div class="model-grid">
+            <!-- Card 1: BMW iX -->
+            <div class="model-card" id="card-ix">
+              <div class="model-card-photo">
+                <img src="assets/ix_white.png" alt="BMW iX">
+              </div>
+              <div class="model-card__content">
+                <h3 class="model-card__title title-md">BMW iX</h3>
+                <p class="model-card__tagline body-sm">Fully Electric SUV. Bold presence.</p>
+                <button class="button-text-link" data-action="go-config" data-model="ix">LEARN MORE</button>
+              </div>
+            </div>
+
+            <!-- Card 2: BMW i7 -->
+            <div class="model-card" id="card-i7">
+              <div class="model-card-photo">
+                <img src="assets/i7_black.png" alt="BMW i7">
+              </div>
+              <div class="model-card__content">
+                <h3 class="model-card__title title-md">BMW i7</h3>
+                <p class="model-card__tagline body-sm">Luxurious Electric Sedan. Forwardism.</p>
+                <button class="button-text-link" data-action="go-config" data-model="i7">LEARN MORE</button>
+              </div>
+            </div>
+
+            <!-- Card 3: BMW iX3 -->
+            <div class="model-card" id="card-ix3">
+              <div class="model-card-photo">
+                <img src="assets/ix_white.png" alt="BMW iX3" style="filter: hue-rotate(60deg);">
+              </div>
+              <div class="model-card__content">
+                <h3 class="model-card__title title-md">BMW iX3</h3>
+                <p class="model-card__tagline body-sm">The electric pioneer of everyday utility.</p>
+                <button class="button-text-link" data-action="go-config" data-model="ix3">LEARN MORE</button>
+              </div>
+            </div>
+
+            <!-- Card 4: BMW 5 Series -->
+            <div class="model-card" id="card-5series">
+              <div class="model-card-photo">
+                <img src="assets/i7_white.png" alt="BMW 5 Series" style="filter: grayscale(1) brightness(0.95);">
+              </div>
+              <div class="model-card__content">
+                <h3 class="model-card__title title-md">BMW 5 Series</h3>
+                <p class="model-card__tagline body-sm">The ultimate business athletic sedan.</p>
+                <button class="button-text-link" data-action="go-config" data-model="5series">LEARN MORE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hero Photo Band (Showcase) -->
+      <section class="hero-photo-band">
+        <div class="container hero-photo-band__grid">
+          <div class="hero-photo-band__image-container">
+            <img src="assets/i7_white.png" alt="BMW Studio Render" class="hero-photo-band__image">
+          </div>
+          <div class="hero-photo-band__content">
+            <span class="hero-photo-band__tagline">Engineering Excellence</span>
+            <h2 class="hero-photo-band__title display-lg">Designed for Precision</h2>
+            <p class="hero-photo-band__description">Every BMW is designed around the driver, emphasizing clean geometric layouts, high-contrast surfaces, and advanced technology integrations. No decorative elements clutter the interface, allowing true performance to stand out.</p>
+            <div class="hero-photo-band__actions">
+              <button class="button-primary" id="btn-home-inventory">Find Retailer Inventory</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Section -->
+      <section class="feature-section">
+        <div class="container">
+          <div class="feature-grid">
+            <div class="feature-photo-card">
+              <div class="feature-photo-card__image-container">
+                <img src="assets/hero.png" alt="Charging at Home" style="filter: brightness(0.85) contrast(1.15);">
+              </div>
+              <h3 class="feature-photo-card__title title-md">Smarter Home Charging</h3>
+              <p class="feature-photo-card__excerpt body-sm">Charge your BMW at home overnight using the Wallbox charger. Achieve full battery capacity in under 8 hours with zero effort.</p>
+              <a href="#" class="text-link">Explore charging systems</a>
+            </div>
+
+            <div class="feature-photo-card">
+              <div class="feature-photo-card__image-container">
+                <img src="assets/ix_white.png" alt="Driving Assistance Systems" style="filter: contrast(1.1) brightness(0.9);">
+              </div>
+              <h3 class="feature-photo-card__title title-md">CoPilot Assistance Systems</h3>
+              <p class="feature-photo-card__excerpt body-sm">Experience semi-autonomous driving features, adaptive cruise control, and self-parking capabilities designed to elevate every journey.</p>
+              <a href="#" class="text-link">Read about safety systems</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pre-Footer CTA -->
+      <section class="cta-band-photo" style="background-image: url('assets/hero.png');">
+        <div class="container cta-band-photo__container">
+          <h2 class="cta-band-photo__title display-md">Experience BMW In Person</h2>
+          <p class="body-md" style="color: var(--colors-on-dark-soft); max-width: 600px;">Schedule a test drive at your nearest retailer and feel the engineering precision firsthand.</p>
+          <button class="button-secondary-on-dark" id="btn-cta-testdrive">Book Test Drive</button>
+        </div>
+      </section>
+    </section>
+
+
+    <!-- 2. CONFIGURATOR VIEW -->
+    <section id="configurator-view" class="view-section">
+      <div class="container configurator-section">
+        <div class="configurator-grid">
+          
+          <!-- Sticky Car Preview (Left) -->
+          <div class="configurator-preview">
+            <h2 class="display-sm" id="config-car-title" style="align-self: flex-start; margin-bottom: var(--spacing-xs);">BMW i7 xDrive60</h2>
+            <span class="caption" id="config-car-category" style="align-self: flex-start; margin-bottom: var(--spacing-md); text-transform: uppercase;">Sedan · Fully Electric</span>
+            <img src="assets/i7_black.png" alt="BMW i7 Configurator Preview" class="configurator-preview__image" id="config-preview-img">
+            
+            <div class="configurator-preview__specs">
+              <div style="text-align: center;">
+                <div class="title-sm" id="spec-range">Up to 387 mi</div>
+                <div class="caption">ELECTRIC RANGE</div>
+              </div>
+              <div style="text-align: center;">
+                <div class="title-sm" id="spec-acceleration">3.5s</div>
+                <div class="caption">0-60 MPH</div>
+              </div>
+              <div style="text-align: center;">
+                <div class="title-sm" id="spec-power">536 hp</div>
+                <div class="caption">MAX POWER</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Configurator Control Panel (Right) -->
+          <div class="configurator-panel">
+            <div class="configurator-panel__header">
+              <span class="caption" style="text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Design Studio</span>
+              <h1 class="display-md" style="margin-top: 4px;">Customize Your BMW</h1>
+              
+              <!-- Tab Selector for Models inside Configurator -->
+              <div class="configurator-panel__model-selector">
+                <button class="category-tab category-tab-active" data-model="i7">BMW i7</button>
+                <button class="category-tab" data-model="ix">BMW iX</button>
+              </div>
+            </div>
+
+            <!-- Option Group: Exterior Paint -->
+            <div class="configurator-option-group">
+              <h3 class="configurator-option-group__title">1. Exterior Metallic Paint</h3>
+              <div class="configurator-option-grid" id="paint-options">
+                <button class="configurator-option-tile configurator-option-tile-selected" data-paint="carbon-black" data-image="assets/i7_black.png" data-price="0">
+                  <div class="configurator-option-tile__color-dot" style="background-color: #11151c;"></div>
+                  <span class="title-sm" style="font-size: 14px;">Carbon Black Metallic</span>
+                  <span class="caption">Included</span>
+                </button>
+                <button class="configurator-option-tile" data-paint="mineral-white" data-image="assets/i7_white.png" data-price="650">
+                  <div class="configurator-option-tile__color-dot" style="background-color: #f7f7f7;"></div>
+                  <span class="title-sm" style="font-size: 14px;">Mineral White Metallic</span>
+                  <span class="caption">+$650</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Option Group: Wheels -->
+            <div class="configurator-option-group">
+              <h3 class="configurator-option-group__title">2. Aerodynamic Wheels</h3>
+              <div class="configurator-option-grid" id="wheel-options">
+                <button class="configurator-option-tile configurator-option-tile-selected" data-wheels="20-inch" data-price="0">
+                  <span class="title-sm" style="font-size: 14px;">20" Aerodynamic Wheels</span>
+                  <span class="caption">Style 906 Gunmetal Gray</span>
+                </button>
+                <button class="configurator-option-tile" data-wheels="21-inch" data-price="1300">
+                  <span class="title-sm" style="font-size: 14px;">21" M Aerodynamic Wheels</span>
+                  <span class="caption">Style 909 Bicolor · +$1,300</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Option Group: Upholstery -->
+            <div class="configurator-option-group">
+              <h3 class="configurator-option-group__title">3. Interior Upholstery</h3>
+              <div class="configurator-option-grid" id="upholstery-options">
+                <button class="configurator-option-tile configurator-option-tile-selected" data-upholstery="leather-black" data-price="0">
+                  <div class="configurator-option-tile__color-dot" style="background-color: #1a1a1a;"></div>
+                  <span class="title-sm" style="font-size: 14px;">Extended Merino Leather</span>
+                  <span class="caption">Black · Included</span>
+                </button>
+                <button class="configurator-option-tile" data-upholstery="leather-smoke-white" data-price="1500">
+                  <div class="configurator-option-tile__color-dot" style="background-color: #eaeaea;"></div>
+                  <span class="title-sm" style="font-size: 14px;">Full Merino Leather</span>
+                  <span class="caption">Smoke White · +$1,500</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Pricing Summary -->
+            <div class="configurator-summary">
+              <div class="configurator-summary__row">
+                <span class="body-md">Base MSRP</span>
+                <span class="title-sm" id="base-msrp-value">$124,200</span>
+              </div>
+              <div class="configurator-summary__row">
+                <span class="body-md">Selected Options</span>
+                <span class="title-sm" id="options-total-value">$0</span>
+              </div>
+              <div class="configurator-summary__row" style="border-top: 1px solid var(--colors-hairline-strong); padding-top: var(--spacing-sm);">
+                <span class="title-md">Total Price</span>
+                <span class="title-md" id="total-price-value" style="color: var(--colors-primary); font-size: 24px;">$124,200</span>
+              </div>
+              <button class="button-primary" style="width: 100%; margin-top: var(--spacing-xs);" id="btn-order-config">Reserve Vehicle</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 3. INVENTORY VIEW -->
+    <section id="inventory-view" class="view-section">
+      <div class="container inventory-section">
+        <div class="inventory-layout">
+          
+          <!-- Filter Sidebar (Left) -->
+          <aside class="inventory-filters">
+            <div>
+              <h2 class="title-sm" style="margin-bottom: var(--spacing-xs);">Search Dealer Inventory</h2>
+              <input type="text" class="text-input" placeholder="Search by model or variant..." id="search-input">
+            </div>
+
+            <div>
+              <h3 class="inventory-filters__group-title">Body Style</h3>
+              <div class="inventory-filters__chips" id="filter-body-style">
+                <button class="filter-chip filter-chip-active" data-filter="all">All</button>
+                <button class="filter-chip" data-filter="sedan">Sedan</button>
+                <button class="filter-chip" data-filter="suv">SUV</button>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="inventory-filters__group-title">Fuel Type</h3>
+              <div class="inventory-filters__chips" id="filter-fuel-type">
+                <button class="filter-chip filter-chip-active" data-filter="all">All</button>
+                <button class="filter-chip" data-filter="electric">Electric</button>
+                <button class="filter-chip" data-filter="hybrid">Plug-in Hybrid</button>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="inventory-filters__group-title">Price Range</h3>
+              <div class="inventory-filters__chips" id="filter-price-range">
+                <button class="filter-chip filter-chip-active" data-filter="all">Any Price</button>
+                <button class="filter-chip" data-filter="under-100k">Under $100k</button>
+                <button class="filter-chip" data-filter="over-100k">$100k +</button>
+              </div>
+            </div>
+            
+            <button class="button-secondary" id="btn-reset-filters" style="margin-top: var(--spacing-sm);">Clear Filters</button>
+          </aside>
+
+          <!-- Vehicle Catalog Grid (Right) -->
+          <div class="inventory-grid-container">
+            <div class="inventory-grid-header">
+              <span class="caption" id="inventory-count">Showing 4 vehicles</span>
+              <span class="caption">Filter status: Live updates</span>
+            </div>
+
+            <div class="inventory-grid" id="inventory-card-grid">
+              
+              <!-- Vehicle 1: BMW i7 xDrive60 -->
+              <article class="inventory-card" data-model="i7" data-body="sedan" data-fuel="electric" data-price="124200" data-name="BMW i7 xDrive60">
+                <div class="inventory-card__image-container">
+                  <img src="assets/i7_black.png" alt="BMW i7 Black">
+                </div>
+                <div class="inventory-card__details">
+                  <span class="caption" style="text-transform: uppercase;">Electric · In Stock</span>
+                  <h3 class="title-sm">BMW i7 xDrive60</h3>
+                  <p class="body-sm" style="color: var(--colors-muted);">Black Sapphire Metallic · 20" Wheels</p>
+                  <h4 class="title-sm inventory-card__price">$124,200</h4>
+                </div>
+                <button class="button-primary" style="height: 40px; padding: 0;" data-action="reserve" data-model="i7">Reserve</button>
+              </article>
+
+              <!-- Vehicle 2: BMW iX xDrive50 -->
+              <article class="inventory-card" data-model="ix" data-body="suv" data-fuel="electric" data-price="87250" data-name="BMW iX xDrive50">
+                <div class="inventory-card__image-container">
+                  <img src="assets/ix_white.png" alt="BMW iX White">
+                </div>
+                <div class="inventory-card__details">
+                  <span class="caption" style="text-transform: uppercase;">Electric · In Stock</span>
+                  <h3 class="title-sm">BMW iX xDrive50</h3>
+                  <p class="body-sm" style="color: var(--colors-muted);">Mineral White · 21" Wheels</p>
+                  <h4 class="title-sm inventory-card__price">$87,250</h4>
+                </div>
+                <button class="button-primary" style="height: 40px; padding: 0;" data-action="reserve" data-model="ix">Reserve</button>
+              </article>
+
+              <!-- Vehicle 3: BMW iX M60 -->
+              <article class="inventory-card" data-model="ix" data-body="suv" data-fuel="electric" data-price="111500" data-name="BMW iX M60">
+                <div class="inventory-card__image-container">
+                  <!-- Custom M tricolor accent representation inside image container for M variant -->
+                  <div class="m-stripe-divider" style="margin: 0; position: absolute; top: 0; left: 0; height: 3px; z-index: 10;">
+                    <div class="m-stripe-divider__blue-light"></div>
+                    <div class="m-stripe-divider__blue-dark"></div>
+                    <div class="m-stripe-divider__red"></div>
+                  </div>
+                  <img src="assets/ix_white.png" alt="BMW iX White M" style="filter: brightness(0.9) contrast(1.1);">
+                </div>
+                <div class="inventory-card__details" style="position: relative;">
+                  <span class="caption" style="text-transform: uppercase; color: var(--colors-m-red); font-weight: 700;">M Performance · Available</span>
+                  <h3 class="title-sm">BMW iX M60</h3>
+                  <p class="body-sm" style="color: var(--colors-muted);">Alpine White · 22" M Wheels</p>
+                  <h4 class="title-sm inventory-card__price">$111,500</h4>
+                </div>
+                <button class="button-primary" style="height: 40px; padding: 0;" data-action="reserve" data-model="ix-m">Reserve</button>
+              </article>
+
+              <!-- Vehicle 4: BMW 530e Hybrid -->
+              <article class="inventory-card" data-model="5series" data-body="sedan" data-fuel="hybrid" data-price="58600" data-name="BMW 530e Sedan">
+                <div class="inventory-card__image-container">
+                  <img src="assets/i7_white.png" alt="BMW 5 Series White" style="filter: grayscale(1) brightness(0.9);">
+                </div>
+                <div class="inventory-card__details">
+                  <span class="caption" style="text-transform: uppercase;">Plug-In Hybrid · Arriving Soon</span>
+                  <h3 class="title-sm">BMW 530e Sedan</h3>
+                  <p class="body-sm" style="color: var(--colors-muted);">Mineral White · 19" Wheels</p>
+                  <h4 class="title-sm inventory-card__price">$58,600</h4>
+                </div>
+                <button class="button-primary" style="height: 40px; padding: 0;" data-action="reserve" data-model="5series">Reserve</button>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-col__title">Models</h4>
+        <ul class="footer-col__links">
+          <li><a href="#" class="footer-col__link" data-action="go-config" data-model="i7">BMW i7</a></li>
+          <li><a href="#" class="footer-col__link" data-action="go-config" data-model="ix">BMW iX</a></li>
+          <li><a href="#" class="footer-col__link" data-action="go-config" data-model="ix3">BMW iX3</a></li>
+          <li><a href="#" class="footer-col__link" data-action="go-config" data-model="5series">BMW 5 Series</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Services</h4>
+        <ul class="footer-col__links">
+          <li><a href="#" class="footer-col__link">Build Your Own</a></li>
+          <li><a href="#" class="footer-col__link">Financial Services</a></li>
+          <li><a href="#" class="footer-col__link">BMW ConnectedDrive</a></li>
+          <li><a href="#" class="footer-col__link">Mobile Service App</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Retailers</h4>
+        <ul class="footer-col__links">
+          <li><a href="#" class="footer-col__link">Find a Retailer</a></li>
+          <li><a href="#" class="footer-col__link">Dealer Inventory</a></li>
+          <li><a href="#" class="footer-col__link">Book a Test Drive</a></li>
+          <li><a href="#" class="footer-col__link">Special Offers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">About BMW</h4>
+        <ul class="footer-col__links">
+          <li><a href="#" class="footer-col__link">BMW Group</a></li>
+          <li><a href="#" class="footer-col__link">Sustainability</a></li>
+          <li><a href="#" class="footer-col__link">Careers</a></li>
+          <li><a href="#" class="footer-col__link">News &amp; Events</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <span class="footer-bottom__copy">&copy; 2026 BMW AG. All rights reserved.</span>
+      <div class="footer-bottom__legal">
+        <a href="#" class="footer-bottom__legal-link">Privacy Policy</a>
+        <a href="#" class="footer-bottom__legal-link">Cookie Settings</a>
+        <a href="#" class="footer-bottom__legal-link">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent-card" id="cookie-banner">
+    <div class="cookie-consent-card__content">
+      <h4 class="title-sm" style="margin-bottom: var(--spacing-xxs);">Cookie Consent</h4>
+      <p class="body-sm">We use cookies (including third-party cookies) to provide you with the best possible online experience and to tailor content to your interests. By clicking "Accept All", you agree to the use of cookies.</p>
+    </div>
+    <div class="cookie-consent-card__actions">
+      <button class="button-secondary" id="cookie-decline-btn" style="height: 40px; padding: 0 16px;">Decline</button>
+      <button class="button-primary" id="cookie-accept-btn" style="height: 40px; padding: 0 16px;">Accept All</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

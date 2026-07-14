@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expo | Develop apps for every device</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-row">
+      <a class="brand" href="#top" aria-label="Expo home">Expo</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-menu" id="main-menu">
+        <a href="#platform">Platform</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#docs">Docs</a>
+        <div class="menu-actions">
+          <a class="btn btn-ghost" href="#">Sign in</a>
+          <a class="btn btn-primary" href="#">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="platform">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-copy">
+        <h1>Build universal apps with React Native and one toolchain.</h1>
+        <p>From local development to app store release, Expo gives teams a clean workflow with dependable updates and native capabilities when needed.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#">Start building</a>
+          <a class="btn btn-secondary" href="#docs">Read docs</a>
+        </div>
+      </div>
+      <div class="container device-wrap" aria-label="Device mockup panel">
+        <div class="laptop">
+          <div class="screen">
+            <p>$ npx expo start</p>
+            <p class="ok">Metro running on port 8081</p>
+            <p class="muted">Scan QR with Expo Go to launch</p>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="screen small">
+            <p>Expo Go</p>
+            <p class="ok">Project connected</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="container feature-grid">
+        <article class="feature-card">
+          <h2>Fast refresh</h2>
+          <p>Iterate instantly with live updates while preserving native app behavior.</p>
+        </article>
+        <article class="feature-card dark">
+          <h2>Cloud builds</h2>
+          <p>Build iOS and Android binaries in the cloud without local native setup.</p>
+        </article>
+        <article class="feature-card">
+          <h2>OTA updates</h2>
+          <p>Ship JavaScript and asset updates directly to users with controlled rollouts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container pricing-grid">
+        <article class="price-card">
+          <h3>Free</h3>
+          <strong>$0</strong>
+          <p>Perfect for prototypes and personal projects.</p>
+        </article>
+        <article class="price-card featured">
+          <h3>Production</h3>
+          <strong>$99</strong>
+          <p>CI builds, updates, and team workflows for shipped apps.</p>
+        </article>
+        <article class="price-card">
+          <h3>Enterprise</h3>
+          <strong>Custom</strong>
+          <p>Security controls and support for large mobile organizations.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="docs">
+    <div class="container footer-grid">
+      <div>
+        <h4>Platform</h4>
+        <a href="#platform">Core</a>
+        <a href="#workflow">Workflow</a>
+      </div>
+      <div>
+        <h4>Developers</h4>
+        <a href="#docs">Documentation</a>
+        <a href="#">Guides</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+      </div>
+      <p class="copyright">&copy; 2026 Expo</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

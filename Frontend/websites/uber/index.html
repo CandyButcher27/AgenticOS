@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uber | Go anywhere with confidence</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-row">
+      <a class="brand" href="#top" aria-label="Uber home">Uber</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-menu" id="main-menu">
+        <a href="#ride">Ride</a>
+        <a href="#drive">Drive</a>
+        <a href="#business">Business</a>
+        <a href="#safety">Safety</a>
+        <div class="menu-actions">
+          <a class="pill pill-light" href="#">Log in</a>
+          <a class="pill pill-dark" href="#">Sign up</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="ride">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Go anywhere with Uber</h1>
+          <p>Request a ride, reserve for later, or move around the city your way. One app for everyday travel and big moments.</p>
+          <div class="cta-row">
+            <a class="pill pill-dark" href="#">Request now</a>
+            <a class="pill pill-subtle" href="#">Schedule for later</a>
+          </div>
+        </div>
+        <div class="request-card">
+          <div class="request-tabs" role="tablist" aria-label="Trip mode">
+            <button class="tab-btn is-active" type="button" data-tab="ride" role="tab" aria-selected="true">Ride</button>
+            <button class="tab-btn" type="button" data-tab="reserve" role="tab" aria-selected="false">Reserve</button>
+          </div>
+          <div class="tab-panel is-active" data-panel="ride">
+            <label for="pickup">Pickup location</label>
+            <input id="pickup" type="text" placeholder="Enter pickup location">
+            <label for="dropoff">Dropoff location</label>
+            <input id="dropoff" type="text" placeholder="Enter destination">
+            <button class="pill pill-dark action-btn" type="button">See prices</button>
+          </div>
+          <div class="tab-panel" data-panel="reserve" hidden>
+            <label for="from-time">From</label>
+            <input id="from-time" type="text" placeholder="Tomorrow, 9:30 AM">
+            <label for="to-time">To</label>
+            <input id="to-time" type="text" placeholder="Friday, 4:00 PM">
+            <button class="pill pill-dark action-btn" type="button">Find reserve rides</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section cards" id="business">
+      <div class="container card-grid">
+        <article class="info-card">
+          <h2>Ride with confidence</h2>
+          <p>Features like PIN verification, emergency assistance, and trusted contacts make each trip safer by default.</p>
+          <a href="#">Explore safety</a>
+        </article>
+        <article class="info-card">
+          <h2>Uber for Business</h2>
+          <p>Centralize rides, meals, and travel spend for your team with one policy-aware dashboard.</p>
+          <a href="#">Get started</a>
+        </article>
+        <article class="info-card soft">
+          <h2>Plan for later</h2>
+          <p>Reserve rides up to 90 days in advance and keep your schedule moving without the rush.</p>
+          <a href="#">Reserve now</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark-band" id="drive">
+      <div class="container dark-content">
+        <div>
+          <p class="eyebrow">Drive with Uber</p>
+          <h2>Set your own schedule and earn on your time.</h2>
+          <p>Whether it is one trip a day or a full weekend shift, you decide when and how often you drive.</p>
+          <a class="pill pill-light" href="#">Get started</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="safety">
+      <div class="container faq">
+        <h2>Safety, simplified</h2>
+        <div class="faq-row">
+          <span>How does ride verification work?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-row">
+          <span>Can I share my trip with family?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-row">
+          <span>What support is available during a trip?</span>
+          <span>+</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Company</h3>
+        <a href="#">About us</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div>
+        <h3>Products</h3>
+        <a href="#ride">Ride</a>
+        <a href="#drive">Drive</a>
+      </div>
+      <div>
+        <h3>Global citizenship</h3>
+        <a href="#safety">Safety</a>
+        <a href="#">Sustainability</a>
+      </div>
+      <p class="copyright">&copy; 2026 Uber Technologies Inc.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

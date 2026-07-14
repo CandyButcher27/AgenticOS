@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cal.com — Scheduling infrastructure for everyone</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="top-nav__inner">
+    <a href="#" class="logo" aria-label="Cal.com Home">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+      <span>cal.com</span>
+    </a>
+    <nav class="top-nav__center">
+      <a href="#" class="active">Product</a>
+      <a href="#">Solutions</a>
+      <a href="#">Resources</a>
+      <a href="#">Pricing</a>
+      <a href="#">Enterprise</a>
+    </nav>
+    <div class="top-nav__right">
+      <a href="#" class="text-link">Sign in</a>
+      <a href="#" class="btn btn-primary">Sign up free</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <div class="nav-pill-group" role="tablist">
+          <button class="category-tab category-tab--active" role="tab" aria-selected="true">Personal</button>
+          <button class="category-tab" role="tab" aria-selected="false">Teams</button>
+          <button class="category-tab" role="tab" aria-selected="false">Enterprise</button>
+        </div>
+        <h1 class="display-xl">The better way<br>to schedule your<br>meetings</h1>
+        <p class="body-md hero__sub">Cal.com connects your calendars, automates availability, and gives every meeting a booking page that just works — free forever for individuals.</p>
+        <div class="hero__actions">
+          <a href="#" class="btn btn-primary">Get started</a>
+          <a href="#" class="btn btn-secondary">See how it works</a>
+        </div>
+        <div class="hero__proof">
+          <div class="avatar-stack">
+            <span class="avatar-circle" style="background:#fb923c">JM</span>
+            <span class="avatar-circle" style="background:#ec4899">AR</span>
+            <span class="avatar-circle" style="background:#8b5cf6">KD</span>
+            <span class="avatar-circle" style="background:#34d399">TS</span>
+          </div>
+          <span class="caption muted">Trusted by 40,000+ teams scheduling every day</span>
+        </div>
+      </div>
+
+      <div class="hero-app-mockup-card">
+        <div class="mockup__header">
+          <span class="title-sm">30 Min Meeting</span>
+          <span class="badge-pill">Available</span>
+        </div>
+        <div class="mockup__body">
+          <div class="mockup__calendar">
+            <div class="mockup__cal-header">
+              <span class="title-sm">July 2026</span>
+              <div class="mockup__cal-nav">
+                <button class="button-icon-circular" aria-label="Previous month">‹</button>
+                <button class="button-icon-circular" aria-label="Next month">›</button>
+              </div>
+            </div>
+            <div class="mockup__cal-grid">
+              <span class="caption muted">S</span><span class="caption muted">M</span><span class="caption muted">T</span><span class="caption muted">W</span><span class="caption muted">T</span><span class="caption muted">F</span><span class="caption muted">S</span>
+              <span></span><span></span><span class="cal-day">1</span><span class="cal-day">2</span><span class="cal-day">3</span><span class="cal-day">4</span><span class="cal-day">5</span>
+              <span class="cal-day">6</span><span class="cal-day">7</span><span class="cal-day">8</span><span class="cal-day">9</span><span class="cal-day">10</span><span class="cal-day">11</span><span class="cal-day">12</span>
+              <span class="cal-day">13</span><span class="cal-day cal-day--today">14</span><span class="cal-day">15</span><span class="cal-day">16</span><span class="cal-day">17</span><span class="cal-day">18</span><span class="cal-day">19</span>
+            </div>
+          </div>
+          <div class="mockup__slots">
+            <span class="caption muted">Tuesday, July 14</span>
+            <button class="time-slot">9:00 AM</button>
+            <button class="time-slot time-slot--active">9:30 AM</button>
+            <button class="time-slot">10:00 AM</button>
+            <button class="time-slot">10:30 AM</button>
+            <button class="btn btn-primary mockup__confirm">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section logo-strip">
+    <div class="section__inner">
+      <span class="caption muted logo-strip__label">Powering scheduling at</span>
+      <div class="logo-strip__row">
+        <span class="logo-strip__item">Vercel</span>
+        <span class="logo-strip__item">Supabase</span>
+        <span class="logo-strip__item">Loom</span>
+        <span class="logo-strip__item">Raycast</span>
+        <span class="logo-strip__item">Linear</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section features">
+    <div class="section__inner">
+      <h2 class="display-lg">Your all-purpose scheduling app</h2>
+      <p class="body-md section__sub">One tool for every kind of meeting — solo bookings, round robins, or company-wide events.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">📅</div>
+          <h3 class="title-md">Smart availability</h3>
+          <p class="body-md">Sync every calendar you use and Cal.com finds the open slots automatically — no more back-and-forth emails.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔁</div>
+          <h3 class="title-md">Workflow automation</h3>
+          <p class="body-md">Trigger reminders, follow-ups, and CRM updates the moment a booking is confirmed or cancelled.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔗</div>
+          <h3 class="title-md">Embeds &amp; integrations</h3>
+          <p class="body-md">Drop a booking widget straight into your product, site, or app with a few lines of code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section product-showcase">
+    <div class="section__inner product-showcase__grid">
+      <div class="product-mockup-card">
+        <div class="mockup__header">
+          <span class="title-sm">Workflow: New booking</span>
+          <span class="badge-pill" style="background:#34d399">Active</span>
+        </div>
+        <div class="workflow-diagram">
+          <div class="workflow-node">Booking created</div>
+          <div class="workflow-line"></div>
+          <div class="workflow-node">Send confirmation email</div>
+          <div class="workflow-line"></div>
+          <div class="workflow-node">Notify Slack channel</div>
+          <div class="workflow-line"></div>
+          <div class="workflow-node workflow-node--accent">Add to CRM</div>
+        </div>
+      </div>
+      <div class="product-showcase__copy">
+        <h2 class="display-md">Automate the busywork around every meeting</h2>
+        <p class="body-md">Build workflows that fire on booking, reschedule, or cancellation — email reminders, SMS, Slack pings, and webhook calls to anything else in your stack.</p>
+        <a href="#" class="text-link product-showcase__link">Explore workflows →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section integrations">
+    <div class="section__inner">
+      <h2 class="display-lg">Connects with the tools you already use</h2>
+      <p class="body-md section__sub">Two-way calendar sync, video conferencing, payments, and CRMs — all in one place.</p>
+      <div class="integration-grid">
+        <div class="integration-tile"><span class="integration-tile__icon">🗓️</span><span class="title-sm">Google Calendar</span></div>
+        <div class="integration-tile"><span class="integration-tile__icon">📆</span><span class="title-sm">Outlook</span></div>
+        <div class="integration-tile"><span class="integration-tile__icon">🎥</span><span class="title-sm">Zoom</span></div>
+        <div class="integration-tile"><span class="integration-tile__icon">💬</span><span class="title-sm">Slack</span></div>
+        <div class="integration-tile"><span class="integration-tile__icon">💳</span><span class="title-sm">Stripe</span></div>
+        <div class="integration-tile"><span class="integration-tile__icon">🧩</span><span class="title-sm">Zapier</span></div>
+        <div class="integration-tile"><span class="integration-tile__icon">📈</span><span class="title-sm">HubSpot</span></div>
+        <div class="integration-tile"><span class="integration-tile__icon">🔔</span><span class="title-sm">Webhooks</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials">
+    <div class="section__inner">
+      <h2 class="display-lg">Loved by teams that live in their calendars</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <span class="avatar-circle" style="background:#fb923c">JM</span>
+            <div>
+              <span class="title-sm">Jamie Morales</span>
+              <span class="caption muted">Head of Sales, Northbeam</span>
+            </div>
+          </div>
+          <div class="rating-stars">★★★★★</div>
+          <p class="body-md">"Cal.com cut our scheduling overhead in half. The workflow automations alone paid for the Teams plan in a month."</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <span class="avatar-circle" style="background:#8b5cf6">KD</span>
+            <div>
+              <span class="title-sm">Kavi Desai</span>
+              <span class="caption muted">Founder, Loopwork</span>
+            </div>
+          </div>
+          <div class="rating-stars">★★★★★</div>
+          <p class="body-md">"We embed the booking widget directly in our product. Customers book onboarding calls without ever leaving our app."</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__top">
+            <span class="avatar-circle" style="background:#ec4899">AR</span>
+            <div>
+              <span class="title-sm">Ana Reyes</span>
+              <span class="caption muted">Ops Lead, Fieldstack</span>
+            </div>
+          </div>
+          <div class="rating-stars">★★★★★</div>
+          <p class="body-md">"Round-robin routing across 30 reps used to be a spreadsheet nightmare. Now it's just... handled."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing">
+    <div class="section__inner">
+      <h2 class="display-lg">Simple, transparent pricing</h2>
+      <p class="body-md section__sub">Start free. Upgrade when your team needs more.</p>
+      <div class="pricing-grid">
+        <div class="pricing-tier-card">
+          <span class="title-lg">Individual</span>
+          <div class="display-sm pricing-tier-card__price">Free</div>
+          <p class="body-sm muted">Forever, for one user</p>
+          <ul class="pricing-tier-card__list">
+            <li>Unlimited bookings</li>
+            <li>Calendar sync</li>
+            <li>Custom booking page</li>
+          </ul>
+          <a href="#" class="btn btn-primary pricing-tier-card__cta">Get started</a>
+        </div>
+        <div class="pricing-tier-card pricing-tier-card--featured">
+          <span class="title-lg">Teams</span>
+          <div class="display-sm pricing-tier-card__price">$15<span class="pricing-tier-card__period">/seat/mo</span></div>
+          <p class="body-sm">Everything in Individual, plus</p>
+          <ul class="pricing-tier-card__list">
+            <li>Round robin routing</li>
+            <li>Team workflows</li>
+            <li>Managed event types</li>
+          </ul>
+          <a href="#" class="btn btn-secondary pricing-tier-card__cta">Start free trial</a>
+        </div>
+        <div class="pricing-tier-card">
+          <span class="title-lg">Organization</span>
+          <div class="display-sm pricing-tier-card__price">$37<span class="pricing-tier-card__period">/seat/mo</span></div>
+          <p class="body-sm muted">Everything in Teams, plus</p>
+          <ul class="pricing-tier-card__list">
+            <li>Multi-team management</li>
+            <li>Advanced routing forms</li>
+            <li>SSO &amp; domain verification</li>
+          </ul>
+          <a href="#" class="btn btn-primary pricing-tier-card__cta">Start free trial</a>
+        </div>
+        <div class="pricing-tier-card">
+          <span class="title-lg">Enterprise</span>
+          <div class="display-sm pricing-tier-card__price">Custom</div>
+          <p class="body-sm muted">For large-scale deployments</p>
+          <ul class="pricing-tier-card__list">
+            <li>Dedicated support</li>
+            <li>Custom contracts</li>
+            <li>Onboarding &amp; migration</li>
+          </ul>
+          <a href="#" class="btn btn-primary pricing-tier-card__cta">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="section__inner">
+      <div class="cta-band-light">
+        <h2 class="display-sm">Smarter, simpler scheduling</h2>
+        <p class="body-md">Join thousands of teams who gave up spreadsheets and email chains for good.</p>
+        <a href="#" class="btn btn-primary">Sign up free</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="section__inner section__inner--narrow">
+      <h2 class="display-lg">Frequently asked questions</h2>
+      <div class="faq-list">
+        <button class="faq-row" aria-expanded="false">
+          <span>Is Cal.com really free for individuals?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <div class="faq-row__panel">
+          <p class="body-md muted">Yes — the Individual plan is free forever, with unlimited bookings and full calendar sync.</p>
+        </div>
+        <button class="faq-row" aria-expanded="false">
+          <span>Can I self-host Cal.com?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <div class="faq-row__panel">
+          <p class="body-md muted">Cal.com is open source. You can self-host the entire platform or use our managed cloud.</p>
+        </div>
+        <button class="faq-row" aria-expanded="false">
+          <span>Does it support round robin scheduling?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <div class="faq-row__panel">
+          <p class="body-md muted">Yes, round robin and collective event routing are available on the Teams plan and above.</p>
+        </div>
+        <button class="faq-row" aria-expanded="false">
+          <span>What integrations are supported?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <div class="faq-row__panel">
+          <p class="body-md muted">Google Calendar, Outlook, Zoom, Slack, Stripe, Zapier, HubSpot, and webhooks, with more added regularly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <a href="#" class="logo logo--dark">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+        <span>cal.com</span>
+      </a>
+    </div>
+    <div class="footer__columns">
+      <div class="footer__col">
+        <h4>Product</h4>
+        <a href="#">Booking pages</a>
+        <a href="#">Workflows</a>
+        <a href="#">Routing forms</a>
+        <a href="#">API &amp; embeds</a>
+      </div>
+      <div class="footer__col">
+        <h4>Solutions</h4>
+        <a href="#">Sales teams</a>
+        <a href="#">Recruiting</a>
+        <a href="#">Customer success</a>
+        <a href="#">Agencies</a>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+        <a href="#">Open source</a>
+      </div>
+      <div class="footer__col">
+        <h4>Resources</h4>
+        <a href="#">Documentation</a>
+        <a href="#">Help center</a>
+        <a href="#">Status</a>
+        <a href="#">Community</a>
+      </div>
+    </div>
+    <div class="footer__fine-print">
+      <span>© 2026 Cal.com, Inc. All rights reserved.</span>
+      <div class="footer__fine-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

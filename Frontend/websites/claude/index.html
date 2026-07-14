@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude — Meet your thinking partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== Top Nav ===== -->
+<nav class="top-nav">
+  <div class="container">
+    <a href="#" class="brand"><span class="spike"></span> Claude</a>
+    <ul class="nav-menu">
+      <li><a href="#product">Product</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#connectors">Use Cases</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#company">Company</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#" class="btn btn-text-link">Sign in</a>
+      <a href="#" class="btn btn-primary">Try Claude</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero-band">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1 class="display-xl">Meet your thinking partner</h1>
+      <p>Claude is a family of AI models built by Anthropic, designed to help you think, write, and build — with judgment you can trust.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Try Claude</a>
+        <a href="#" class="btn btn-secondary">View pricing</a>
+      </div>
+    </div>
+    <div class="hero-illustration-card">
+      <div class="code-window">
+        <div class="code-window-header">
+          <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
+        </div>
+        <div class="code-body">
+<pre><span class="code-line-num">1</span><span class="tok-kw">import</span> anthropic
+
+<span class="code-line-num">2</span>client = anthropic.Client()
+
+<span class="code-line-num">3</span><span class="tok-cm"># Ask Claude anything</span>
+<span class="code-line-num">4</span>response = client.<span class="tok-fn">messages</span>.create(
+<span class="code-line-num">5</span>    model=<span class="tok-str">"claude-sonnet-5"</span>,
+<span class="code-line-num">6</span>    messages=[...]
+<span class="code-line-num">7</span>)</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Feature cards (cream) ===== -->
+<section class="section" id="product">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge-pill">Capabilities</span>
+      <h2 class="display-lg" style="margin-top:16px;">Built for depth of thought</h2>
+      <p>Claude brings careful reasoning to every conversation, every codebase, every document.</p>
+    </div>
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="icon"><span class="spike"></span></div>
+        <h3 class="title-md">Careful reasoning</h3>
+        <p class="body-md">Claude thinks through problems step by step, showing its work and reasoning transparently.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon"><span class="spike"></span></div>
+        <h3 class="title-md">Long context</h3>
+        <p class="body-md">Work with entire codebases, lengthy documents, and multi-turn conversations without losing the thread.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon"><span class="spike"></span></div>
+        <h3 class="title-md">Agentic workflows</h3>
+        <p class="body-md">Claude can use tools, browse, write and run code, and complete multi-step tasks on its own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Product mockup dark ===== -->
+<section class="section section-dark" id="solutions">
+  <div class="container">
+    <div class="product-mockup-card-dark mockup-grid">
+      <div class="mockup-copy">
+        <span class="badge-coral">Claude Code</span>
+        <h2 class="display-md" style="margin-top:16px;">Write, refactor, and ship code with an agent that reads the room</h2>
+        <p>Claude Code plans, edits across files, runs your tests, and explains its reasoning at every step — right from your terminal.</p>
+        <a href="#" class="btn btn-secondary-on-dark">Explore Claude Code</a>
+      </div>
+      <div class="code-window">
+        <div class="code-window-header">
+          <span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span>
+        </div>
+        <div class="code-body">
+<pre><span class="code-line-num">1</span><span class="tok-cm">// refactor: extract validation logic</span>
+<span class="code-line-num">2</span><span class="tok-kw">function</span> <span class="tok-fn">validateInput</span>(data) {
+<span class="code-line-num">3</span>  <span class="tok-kw">if</span> (!data.email) {
+<span class="code-line-num">4</span>    <span class="tok-kw">throw new</span> Error(<span class="tok-str">"Email required"</span>);
+<span class="code-line-num">5</span>  }
+<span class="code-line-num">6</span>  <span class="tok-kw">return</span> <span class="tok-kw">true</span>;
+<span class="code-line-num">7</span>}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Model comparison ===== -->
+<section class="section section-soft" id="research">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="display-lg">Which problem are you up against?</h2>
+      <p>Three models, one family. Pick the balance of intelligence, speed, and cost your task needs.</p>
+    </div>
+    <div class="grid-3">
+      <div class="model-comparison-card">
+        <span class="badge-coral">Most capable</span>
+        <h3 class="display-sm" style="margin-top:16px;">Opus</h3>
+        <p>For the hardest problems — deep research, complex agents, and frontier reasoning.</p>
+        <a href="#" class="text-link">Learn more →</a>
+      </div>
+      <div class="model-comparison-card">
+        <span class="badge-pill">Balanced</span>
+        <h3 class="display-sm" style="margin-top:16px;">Sonnet</h3>
+        <p>The default for most work — strong reasoning and coding at practical speed and cost.</p>
+        <a href="#" class="text-link">Learn more →</a>
+      </div>
+      <div class="model-comparison-card">
+        <span class="badge-pill">Fastest</span>
+        <h3 class="display-sm" style="margin-top:16px;">Haiku</h3>
+        <p>Near-instant responses for high-volume, latency-sensitive applications.</p>
+        <a href="#" class="text-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pricing ===== -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="display-lg">Plans for every kind of work</h2>
+      <p>Start free. Upgrade when you need more.</p>
+    </div>
+    <div class="grid-pricing">
+      <div class="pricing-tier-card">
+        <span class="plan-name title-lg">Free</span>
+        <span class="price display-sm">$0</span>
+        <ul>
+          <li>Access to Claude</li>
+          <li>Limited daily messages</li>
+          <li>Standard response speed</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Get started</a>
+      </div>
+      <div class="pricing-tier-card pricing-tier-card-featured">
+        <span class="badge-coral" style="margin-bottom:12px;">Most popular</span>
+        <span class="plan-name title-lg">Pro</span>
+        <span class="price display-sm">$20<span class="body-sm">/mo</span></span>
+        <ul>
+          <li>5x more usage than Free</li>
+          <li>Access to Claude Code</li>
+          <li>Priority access at high traffic</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Try Pro</a>
+      </div>
+      <div class="pricing-tier-card">
+        <span class="plan-name title-lg">Team</span>
+        <span class="price display-sm">$30<span class="body-sm">/mo/user</span></span>
+        <ul>
+          <li>Higher usage limits</li>
+          <li>Central billing &amp; admin controls</li>
+          <li>Shared projects &amp; workspaces</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Contact sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Connectors ===== -->
+<section class="section section-soft" id="connectors">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="display-lg">Connect Claude to your tools</h2>
+      <p>Bring your data and workflows into every conversation.</p>
+    </div>
+    <div class="category-tabs">
+      <button class="category-tab active">All</button>
+      <button class="category-tab">Productivity</button>
+      <button class="category-tab">Development</button>
+      <button class="category-tab">Data</button>
+      <button class="category-tab">Communication</button>
+    </div>
+    <div class="grid-connectors">
+      <div class="connector-tile"><div class="logo">G</div><h4>Google Drive</h4><p>Search and reference files</p></div>
+      <div class="connector-tile"><div class="logo">S</div><h4>Slack</h4><p>Summarize channels</p></div>
+      <div class="connector-tile"><div class="logo">N</div><h4>Notion</h4><p>Read and update pages</p></div>
+      <div class="connector-tile"><div class="logo">GH</div><h4>GitHub</h4><p>Review code and issues</p></div>
+      <div class="connector-tile"><div class="logo">J</div><h4>Jira</h4><p>Track and update tickets</p></div>
+      <div class="connector-tile"><div class="logo">Z</div><h4>Zapier</h4><p>Automate multi-step flows</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Coral CTA ===== -->
+<section class="section" id="company">
+  <div class="container">
+    <div class="cta-band-coral">
+      <h2 class="display-sm">Ready to think with Claude?</h2>
+      <p>Start a conversation, free — no credit card required.</p>
+      <div class="btn-row">
+        <a href="#" class="btn btn-on-coral">Try Claude</a>
+        <a href="#" class="btn btn-secondary-on-dark" style="background:rgba(255,255,255,0.15); color:#fff;">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand"><span class="spike"></span> Anthropic</div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#">Claude</a></li>
+          <li><a href="#">Claude Code</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Usage policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Anthropic PBC</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Cookie consent ===== -->
+<div class="cookie-consent-card" id="cookieCard">
+  <button class="cookie-close" id="cookieClose">×</button>
+  <p>We use cookies to improve your experience and analyze site usage.</p>
+  <div class="cookie-buttons">
+    <a href="#" class="btn btn-primary" id="cookieAccept" style="height:36px;padding:8px 16px;">Accept</a>
+    <a href="#" class="btn btn-secondary-on-dark" style="height:36px;padding:8px 16px;">Manage</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

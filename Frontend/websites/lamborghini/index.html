@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automobili Lamborghini</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <button class="nav__menu" aria-label="Open menu">
+      <span class="nav__menu-icon">
+        <span></span><span></span><span></span>
+      </span>
+      <span class="nav__menu-label">Menu</span>
+    </button>
+    <a href="#" class="nav__logo" aria-label="Lamborghini Home">
+      <svg viewBox="0 0 100 100" width="34" height="34" fill="none" stroke="currentColor" stroke-width="4">
+        <polygon points="50,6 90,50 50,94 10,50"/>
+        <polygon points="50,24 74,50 50,76 26,50"/>
+      </svg>
+    </a>
+    <div class="nav__actions">
+      <button class="nav__icon" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="nav__icon" aria-label="Bookmarks">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="hero">
+    <div class="hero__media"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="display-hero">Temerario</h1>
+      <div class="hero__actions">
+        <a href="#configure" class="btn btn-accent btn-large">Start Configuration</a>
+        <a href="#models" class="btn btn-ghost">Discover More</a>
+      </div>
+    </div>
+    <button class="hero__pause" aria-label="Pause video">
+      <svg viewBox="0 0 40 40" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="20,2 35,11 35,29 20,38 5,29 5,11"/>
+        <rect x="15" y="14" width="3" height="12"/>
+        <rect x="22" y="14" width="3" height="12"/>
+      </svg>
+    </button>
+    <div class="hero__progress"><span></span></div>
+  </section>
+
+  <section class="section models" id="models">
+    <div class="section__inner">
+      <p class="label">The Range</p>
+      <h2 class="display-2">Super Sports Cars</h2>
+      <div class="model-grid">
+        <article class="model-card">
+          <div class="model-card__media model-card__media--temerario"></div>
+          <div class="model-card__body">
+            <h3 class="card-title">Temerario</h3>
+            <p class="body-md">The new V8 hybrid super sports car — 907 hp of uncompromising engineering.</p>
+            <a href="#configure" class="btn btn-ghost btn-small">Discover More</a>
+          </div>
+        </article>
+        <article class="model-card">
+          <div class="model-card__media model-card__media--revuelto"></div>
+          <div class="model-card__body">
+            <h3 class="card-title">Revuelto</h3>
+            <p class="body-md">The first V12 hybrid super sports car. A new era of the fighting bull begins.</p>
+            <a href="#configure" class="btn btn-ghost btn-small">Discover More</a>
+          </div>
+        </article>
+        <article class="model-card">
+          <div class="model-card__media model-card__media--urus"></div>
+          <div class="model-card__body">
+            <h3 class="card-title">Urus SE</h3>
+            <p class="card-title">Super Utility Vehicle. Plug-in hybrid performance without compromise.</p>
+            <a href="#configure" class="btn btn-ghost btn-small">Discover More</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="campaign" id="configure">
+    <div class="campaign__media"></div>
+    <div class="campaign__overlay"></div>
+    <div class="campaign__content">
+      <p class="label">Personalization</p>
+      <h2 class="display-2">Build Your Own</h2>
+      <p class="body-lg">Configure every detail — from body color to stitching — and make it uncompromisingly yours.</p>
+      <a href="#" class="btn btn-accent btn-large">Start Configuration</a>
+    </div>
+  </section>
+
+  <section class="section world" id="world">
+    <div class="section__inner">
+      <p class="label">Lamborghini World</p>
+      <h2 class="display-2">Beyond the Car</h2>
+      <div class="world-grid">
+        <article class="world-card">
+          <div class="world-card__media world-card__media--museum"></div>
+          <span class="badge">Sant'Agata Bolognese</span>
+          <h3 class="feature-heading">MUDETEC Museum</h3>
+          <p class="body-md">Trace six decades of engineering audacity at the heart of the factory.</p>
+        </article>
+        <article class="world-card">
+          <div class="world-card__media world-card__media--esperienza"></div>
+          <span class="badge">Track Experience</span>
+          <h3 class="feature-heading">Accademia</h3>
+          <p class="body-md">Master the fighting bull on some of the world's most demanding circuits.</p>
+        </article>
+        <article class="world-card">
+          <div class="world-card__media world-card__media--squadra"></div>
+          <span class="badge">Motorsport</span>
+          <h3 class="feature-heading">Squadra Corse</h3>
+          <p class="body-md">GT3, Super Trofeo, and endurance racing — competition is in the blood.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section news" id="news">
+    <div class="section__inner">
+      <p class="label">News</p>
+      <h2 class="display-2">Latest Stories</h2>
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="news-card__media news-card__media--1"></div>
+          <p class="caption">27 JUN 2026</p>
+          <h3 class="feature-heading">Temerario Sets New Nürburgring Benchmark</h3>
+          <a href="#" class="link-underline">Read More</a>
+        </article>
+        <article class="news-card">
+          <div class="news-card__media news-card__media--2"></div>
+          <p class="caption">14 MAY 2026</p>
+          <h3 class="feature-heading">Lamborghini Arena Returns for 2026</h3>
+          <a href="#" class="link-underline">Read More</a>
+        </article>
+        <article class="news-card">
+          <div class="news-card__media news-card__media--3"></div>
+          <p class="caption">02 APR 2026</p>
+          <h3 class="feature-heading">Squadra Corse Wins Season Opener</h3>
+          <a href="#" class="link-underline">Read More</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section newsletter">
+    <div class="section__inner section__inner--narrow">
+      <h2 class="display-2">Stay Ahead</h2>
+      <p class="body-lg">Subscribe for exclusive updates on new models, events, and the world of Lamborghini.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Email Address" aria-label="Email Address" required>
+        <button type="submit" class="btn btn-accent btn-large">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="section__inner section__inner--narrow">
+      <h2 class="display-2">FAQs</h2>
+      <div class="faq-list">
+        <button class="faq-row" aria-expanded="false">
+          <span>How do I start a vehicle configuration?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span>Where is my nearest dealership?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span>How can I book an Accademia experience?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span>What warranty coverage applies to my vehicle?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__columns">
+      <div class="footer__col">
+        <h4>Models</h4>
+        <a href="#">Temerario</a>
+        <a href="#">Revuelto</a>
+        <a href="#">Urus SE</a>
+        <a href="#">Configurator</a>
+      </div>
+      <div class="footer__col">
+        <h4>World</h4>
+        <a href="#">Museum</a>
+        <a href="#">Accademia</a>
+        <a href="#">Squadra Corse</a>
+        <a href="#">Lamborghini Arena</a>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">News</a>
+        <a href="#">Careers</a>
+        <a href="#">Sustainability</a>
+      </div>
+      <div class="footer__col">
+        <h4>Ownership</h4>
+        <a href="#">Find a Dealer</a>
+        <a href="#">Genuine Parts</a>
+        <a href="#">Financial Services</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
+    <div class="footer__fine-print">
+      <span>&copy; 2026 Automobili Lamborghini S.p.A. All Rights Reserved</span>
+      <div class="footer__fine-links">
+        <a href="#">Legal Notice</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

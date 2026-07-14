@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ollama — Get up and running with open models</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="primary-nav">
+  <div class="primary-nav__inner">
+    <a href="#" class="logo" aria-label="Ollama Home">
+      <svg viewBox="0 0 48 48" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 20c-1-6 2-12 8-12s9 6 8 12c3 1 4 4 3 7-1 4-4 6-7 6h-1v4c0 1-1 2-2 2s-2-1-2-2v-4h-1c-3 0-6-2-7-6-1-3 0-6 3-7z"/>
+        <circle cx="19" cy="21" r="1.4" fill="currentColor" stroke="none"/>
+        <circle cx="29" cy="21" r="1.4" fill="currentColor" stroke="none"/>
+        <path d="M20 27c1.2 1 2.8 1 4 0"/>
+      </svg>
+    </a>
+    <nav class="primary-nav__center">
+      <a href="#">Models</a>
+      <a href="#">Docs</a>
+      <a href="#" class="active">Pricing</a>
+    </nav>
+    <div class="primary-nav__search search-pill">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search models" aria-label="Search models">
+    </div>
+    <div class="primary-nav__right">
+      <a href="#" class="btn btn-secondary">Sign in</a>
+      <a href="#" class="btn btn-primary">Download</a>
+    </div>
+    <button class="nav-burger" aria-label="Open menu" id="navBurger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-drawer" id="navDrawer">
+    <a href="#">Models</a>
+    <a href="#">Docs</a>
+    <a href="#">Pricing</a>
+    <a href="#">Sign in</a>
+    <a href="#" class="btn btn-primary">Download</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero section">
+    <div class="section__inner hero__inner">
+      <svg class="llama-mascot llama-mascot--hero" viewBox="0 0 48 48" width="96" height="96" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M16 20c-1-6 2-12 8-12s9 6 8 12c3 1 4 4 3 7-1 4-4 6-7 6h-1v4c0 1-1 2-2 2s-2-1-2-2v-4h-1c-3 0-6-2-7-6-1-3 0-6 3-7z"/>
+        <circle cx="19" cy="21" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="29" cy="21" r="1.2" fill="currentColor" stroke="none"/>
+        <path d="M20 27c1.2 1 2.8 1 4 0"/>
+        <path d="M14 34c-2 2-3 5-2 8M34 34c2 2 3 5 2 8"/>
+      </svg>
+      <h1 class="display-xl">The easiest way to build with open models</h1>
+      <div class="install-snippet" id="installSnippet">
+        <code>curl -fsSL https://ollama.com/install.sh | sh</code>
+        <button class="copy-btn" aria-label="Copy install command" id="copyBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        </button>
+      </div>
+      <p class="hero__subhead">Power OpenClaw with Ollama</p>
+    </div>
+  </section>
+
+  <section class="section automate">
+    <div class="section__inner automate__grid">
+      <div class="automate__text">
+        <h2 class="heading-lg">Automate your work</h2>
+        <p class="body-md">Run models locally with a single command, then wire them straight into your scripts, agents, and terminal workflows. No cloud dependency, no API keys to manage — just a model and a prompt.</p>
+        <div class="command-tag"><code>ollama launch openclaw</code></div>
+      </div>
+      <div class="terminal-card">
+        <div class="terminal-card__header">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <div class="terminal-card__body">
+          <p><span class="mute">$</span> ollama run llama3.3</p>
+          <p class="mute"># pulling manifest</p>
+          <p class="mute"># verifying sha256 digest</p>
+          <p><span class="mute">&gt;&gt;&gt;</span> Send a message (/? for help)</p>
+          <p><span class="mute">$</span> ollama launch openclaw</p>
+          <p class="mute"># starting agent runtime on localhost:11434</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section start-scale">
+    <div class="section__inner start-scale__grid">
+      <div class="start-scale__card">
+        <h3 class="heading-lg">Start local.</h3>
+        <p class="body-md">Download Ollama and run any open model on your own machine in minutes. Your prompts and your data never leave your hardware.</p>
+        <div class="install-snippet install-snippet--sm">
+          <code>ollama pull llama3.3</code>
+        </div>
+      </div>
+      <div class="start-scale__card">
+        <h3 class="heading-lg">Scale cloud.</h3>
+        <p class="body-md">When you outgrow local hardware, move the same models to Ollama Cloud and keep the identical CLI and API surface — nothing in your code changes.</p>
+        <div class="install-snippet install-snippet--sm">
+          <code>ollama run llama3.3 --cloud</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section privacy">
+    <div class="section__inner privacy__inner">
+      <svg class="lock-icon" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="5" y="11" width="14" height="9" rx="2"/>
+        <path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+      </svg>
+      <h2 class="heading-lg">Your data stays yours</h2>
+      <p class="body-md">Ollama runs models on your own hardware by default. Nothing you type is sent anywhere unless you explicitly opt into cloud execution. No training on your prompts, no telemetry on your conversations.</p>
+    </div>
+  </section>
+
+  <section class="section pricing" id="pricing">
+    <div class="section__inner">
+      <h2 class="display-lg pricing__title">Pricing</h2>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <svg class="llama-mascot llama-mascot--card" viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 20c-1-6 2-12 8-12s9 6 8 12c3 1 4 4 3 7-1 4-4 6-7 6h-1v4c0 1-1 2-2 2s-2-1-2-2v-4h-1c-3 0-6-2-7-6-1-3 0-6 3-7z"/>
+          </svg>
+          <h3 class="heading-md">Free</h3>
+          <p class="body-sm-strong pricing-card__eyebrow">Run open models on your own hardware</p>
+          <p class="display-lg pricing-card__price">$0</p>
+          <a href="#" class="btn btn-primary pricing-card__cta">Get started</a>
+          <div class="pricing-card__divider"></div>
+          <p class="body-sm-strong">Everything in Free, plus:</p>
+          <ul class="feature-list">
+            <li class="feature-bullet"><span class="check">✓</span>Unlimited local model downloads</li>
+            <li class="feature-bullet"><span class="check">✓</span>Full CLI and REST API access</li>
+            <li class="feature-bullet"><span class="check">✓</span>Community Discord support</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <svg class="llama-mascot llama-mascot--card" viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 20c-1-6 2-12 8-12s9 6 8 12c3 1 4 4 3 7-1 4-4 6-7 6h-1v4c0 1-1 2-2 2s-2-1-2-2v-4h-1c-3 0-6-2-7-6-1-3 0-6 3-7z"/>
+          </svg>
+          <h3 class="heading-md">Pro</h3>
+          <p class="body-sm-strong pricing-card__eyebrow">Solve harder tasks, faster</p>
+          <p class="display-lg pricing-card__price">$20<span class="pricing-card__period">/mo</span></p>
+          <a href="#" class="btn btn-primary pricing-card__cta">Get Pro</a>
+          <div class="pricing-card__divider"></div>
+          <p class="body-sm-strong">Everything in Free, plus:</p>
+          <ul class="feature-list">
+            <li class="feature-bullet"><span class="check">✓</span>Access larger models on data-center-grade hardware</li>
+            <li class="feature-bullet"><span class="check">✓</span>Priority queueing on Ollama Cloud</li>
+            <li class="feature-bullet"><span class="check">✓</span>Higher rate limits on the hosted API</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card pricing-card--dark">
+          <svg class="llama-mascot llama-mascot--card" viewBox="0 0 48 48" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 20c-1-6 2-12 8-12s9 6 8 12c3 1 4 4 3 7-1 4-4 6-7 6h-1v4c0 1-1 2-2 2s-2-1-2-2v-4h-1c-3 0-6-2-7-6-1-3 0-6 3-7z"/>
+          </svg>
+          <h3 class="heading-md">Max</h3>
+          <p class="body-sm-strong pricing-card__eyebrow">For teams running at scale</p>
+          <p class="display-lg pricing-card__price">$200<span class="pricing-card__period">/mo</span></p>
+          <a href="#" class="btn btn-pill-on-dark pricing-card__cta">Get Max</a>
+          <div class="pricing-card__divider"></div>
+          <p class="body-sm-strong">Everything in Pro, plus:</p>
+          <ul class="feature-list">
+            <li class="feature-bullet"><span class="check">✓</span>Dedicated data-center capacity</li>
+            <li class="feature-bullet"><span class="check">✓</span>Team seats and shared billing</li>
+            <li class="feature-bullet"><span class="check">✓</span>Direct support channel</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="section__inner">
+      <h2 class="display-lg">Frequently asked questions</h2>
+
+      <div class="faq-row">
+        <h3 class="heading-sm">What is Ollama?</h3>
+        <p class="body-md">Ollama is a tool for running open large language models on your own hardware, with a simple CLI, a local REST API, and an optional cloud tier when you need more compute than your machine can provide.</p>
+      </div>
+      <div class="faq-row">
+        <h3 class="heading-sm">Which models can I run?</h3>
+        <p class="body-md">Ollama supports Llama, Qwen, Mistral, Gemma, DeepSeek, and dozens of other open-weight model families. Browse the full catalog on the Models page and pull any of them with a single command.</p>
+      </div>
+      <div class="faq-row">
+        <h3 class="heading-sm">Do you train on my data?</h3>
+        <p class="body-md">No. Local runs never leave your machine, and cloud runs are not used for training. See <a href="mailto:hello@ollama.com" class="link-mute">hello@ollama.com</a> if you have questions about a specific workload.</p>
+      </div>
+      <div class="faq-row">
+        <h3 class="heading-sm">Can I cancel Pro or Max anytime?</h3>
+        <p class="body-md">Yes. Plans are billed monthly with no long-term commitment, and you can downgrade to Free at any time from your account settings.</p>
+      </div>
+      <div class="faq-row">
+        <h3 class="heading-sm">Is there a free trial for Max?</h3>
+        <p class="body-md">Pro includes everything most individual developers need. Reach out at <a href="mailto:hello@ollama.com" class="link-mute">hello@ollama.com</a> to talk about a Max trial for your team.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-close">
+    <div class="section__inner cta-strip-dark">
+      <span class="heading-lg">Ready to get started?</span>
+      <a href="#" class="btn btn-pill-on-dark">Download Ollama</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer-section">
+  <div class="footer-section__inner">
+    <nav class="footer-section__links">
+      <a href="#">Download</a>
+      <a href="#">Blog</a>
+      <a href="#">Docs</a>
+      <a href="#">GitHub</a>
+      <a href="#">Discord</a>
+      <a href="#">X</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </nav>
+    <p class="footer-section__copy">© 2026 Ollama</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

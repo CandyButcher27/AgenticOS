@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentry | Fix what breaks before customers notice</title>
+    <meta
+      name="description"
+      content="Static marketing site inspired by Sentry's observability design language."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero__stars"></div>
+        <nav class="nav">
+          <a class="brand" href="#top" aria-label="Sentry home">
+            <span class="brand__mark">S</span>
+            <span class="brand__word">Sentry</span>
+          </a>
+          <div class="nav__links">
+            <a href="#platform">Platform</a>
+            <a href="#workflow">Workflow</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="nav__actions">
+            <a class="button button--ghost" href="#contact">Get Demo</a>
+            <a class="button button--inverted" href="#pricing">Get Started</a>
+          </div>
+        </nav>
+
+        <section class="hero__content" id="top">
+          <div class="hero__copy">
+            <p class="eyebrow">Developer-first application monitoring</p>
+            <h1 class="hero__title">
+              Find the <span class="highlight">bug</span> before it becomes the outage.
+            </h1>
+            <p class="hero__lede">
+              Error tracking, tracing, logs, and release health tuned for teams who want
+              console-grade clarity without losing speed. The signal stays sharp, the UI
+              stays opinionated, and the issue gets assigned before the customer writes in.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--inverted button--glow" href="#contact">Start free</a>
+              <a class="button button--ghost" href="#platform">See platform</a>
+            </div>
+            <div class="hero__stats">
+              <div>
+                <span class="stat__label">Issue routing</span>
+                <strong>Under 90 sec</strong>
+              </div>
+              <div>
+                <span class="stat__label">Release context</span>
+                <strong>Every deploy</strong>
+              </div>
+              <div>
+                <span class="stat__label">Noise removed</span>
+                <strong>43% less triage</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__visual">
+            <div class="sticker sticker--monster" aria-hidden="true">
+              <span class="sticker__eye"></span>
+              <span class="sticker__eye"></span>
+              <span class="sticker__mouth"></span>
+            </div>
+            <article class="console-window">
+              <div class="console-window__bar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="console-window__body">
+                <div class="console-window__row console-window__row--alert">
+                  <span>Unhandled exception</span>
+                  <span>checkout.tsx:118</span>
+                </div>
+                <div class="console-window__stack">
+                  <p><span>TypeError</span> cannot read property <em>"currency"</em></p>
+                  <p>release: <span>frontend@2026.07.14.4</span></p>
+                  <p>user: anon-7fd1 | browser: Safari 18 | route: /billing</p>
+                </div>
+                <div class="console-window__trace">
+                  <div class="trace-card">
+                    <span class="trace-card__label">Suspect commit</span>
+                    <strong>3f8a0d4</strong>
+                    <p>added fallback path to payment summary</p>
+                  </div>
+                  <div class="trace-card trace-card--lime">
+                    <span class="trace-card__label">Impact</span>
+                    <strong>1,284 failed checkouts</strong>
+                    <p>regression detected 11 min after deploy</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <div class="sticker sticker--cone" aria-hidden="true">
+              <span class="sticker__stripe"></span>
+              <span class="sticker__stripe"></span>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section class="section section--dark" id="platform">
+          <div class="section__intro">
+            <p class="eyebrow">One event, full context</p>
+            <h2>All the telemetry your debugger wishes it had.</h2>
+            <p>
+              Sentry's best surfaces feel like a product screenshot crashed into a sketchbook.
+              This page keeps that tension: strict data layout, then a mascot cutting across
+              the seam so the product never turns sterile.
+            </p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="pill">Error Monitoring</span>
+              <h3>Stack traces that lead with the root cause, not the drama.</h3>
+              <p>
+                Collapse duplicate noise, surface the release, environment, device, and owner,
+                and pin suspect commits right beside the event.
+              </p>
+            </article>
+            <article class="feature-card feature-card--violet">
+              <span class="pill">Session Replay</span>
+              <h3>Replay the path into failure without leaving the same screen.</h3>
+              <p>
+                Watch the exact clicks, route changes, and UI dead-ends that produced the
+                exception while the trace stays visible in parallel.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="pill">Performance</span>
+              <h3>Trace slow spans across frontend, queue, and service boundaries.</h3>
+              <p>
+                When a request stalls, the waterfall tells you which span ballooned, what
+                shipped with it, and whether the regression belongs to code or infrastructure.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section--dark section--workflow" id="workflow">
+          <div class="workflow">
+            <div class="workflow__copy">
+              <p class="eyebrow">Built for the incident loop</p>
+              <h2>Debug in one pass instead of opening six tabs.</h2>
+              <p>
+                The Sentry rhythm is simple: capture the event, attach the release, correlate
+                the trace, and route the fix. This layout mirrors that cadence with a narrative
+                rail on the left and a tilted product mock on the right.
+              </p>
+              <ul class="workflow__list">
+                <li>Capture every crash with code-level ownership and release tagging.</li>
+                <li>Correlate errors with traces, logs, and replay in the same incident frame.</li>
+                <li>Ship the fix, verify the regression is gone, and watch health recover.</li>
+              </ul>
+            </div>
+            <article class="workflow__panel">
+              <div class="workflow__panel-head">
+                <span>incident.timeline</span>
+                <span>live</span>
+              </div>
+              <div class="workflow__step">
+                <strong>01</strong>
+                <div>
+                  <h3>Deploy lands</h3>
+                  <p>Release monitor flags a checkout latency spike in 4 minutes.</p>
+                </div>
+              </div>
+              <div class="workflow__step">
+                <strong>02</strong>
+                <div>
+                  <h3>Issue fans out</h3>
+                  <p>Errors, replays, and suspect commits converge around the same function.</p>
+                </div>
+              </div>
+              <div class="workflow__step">
+                <strong>03</strong>
+                <div>
+                  <h3>Owner ships patch</h3>
+                  <p>Regression rate drops and the release health badge turns stable again.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section--light" id="pricing">
+          <div class="section__intro section__intro--light">
+            <p class="eyebrow eyebrow--dark">Pricing plans for dev teams of all sizes</p>
+            <h2>Choose the tier that matches your incident volume, not your optimism.</h2>
+          </div>
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <p class="pricing-card__name">Developer</p>
+              <p class="pricing-card__price">$0</p>
+              <p class="pricing-card__meta">For one project and fast local feedback.</p>
+              <ul>
+                <li>5K errors per month</li>
+                <li>Basic tracing</li>
+                <li>Deploy tracking</li>
+              </ul>
+              <a class="button button--primary" href="#contact">Start free</a>
+            </article>
+            <article class="pricing-card">
+              <p class="pricing-card__name">Team</p>
+              <p class="pricing-card__price">$29</p>
+              <p class="pricing-card__meta">For product squads closing issues together.</p>
+              <ul>
+                <li>Cross-project alerts</li>
+                <li>Ownership rules</li>
+                <li>90-day retention</li>
+              </ul>
+              <a class="button button--primary" href="#contact">Start team</a>
+            </article>
+            <article class="pricing-card pricing-card--featured">
+              <p class="pricing-card__name">Business</p>
+              <p class="pricing-card__price">$89</p>
+              <p class="pricing-card__meta">For teams that need replay, tracing, and uptime signal.</p>
+              <ul>
+                <li>Session replay</li>
+                <li>Dynamic sampling</li>
+                <li>Priority support</li>
+              </ul>
+              <a class="button button--inverted" href="#contact">Book demo</a>
+            </article>
+            <article class="pricing-card">
+              <p class="pricing-card__name">Enterprise</p>
+              <p class="pricing-card__price">Custom</p>
+              <p class="pricing-card__meta">For regulated orgs and deeply instrumented stacks.</p>
+              <ul>
+                <li>SSO and audit controls</li>
+                <li>Security review support</li>
+                <li>Dedicated success team</li>
+              </ul>
+              <a class="button button--primary" href="#contact">Talk to sales</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section--light section--contact" id="contact">
+          <div class="contact">
+            <div class="contact__copy">
+              <p class="eyebrow eyebrow--dark">Bring your ugliest production issue</p>
+              <h2>We'll show you where the failure starts and how the team sees it.</h2>
+              <p>
+                The light-surface contact area keeps the transactional moment dense and direct,
+                matching the brief's split between atmospheric marketing and high-clarity action.
+              </p>
+              <div class="contact__tags">
+                <span class="token">Tracing</span>
+                <span class="token">Logs</span>
+                <span class="token">Replay</span>
+              </div>
+            </div>
+            <form class="contact__form">
+              <div class="field-row">
+                <label>
+                  First name
+                  <input type="text" name="first-name" placeholder="Ada" />
+                </label>
+                <label>
+                  Last name
+                  <input type="text" name="last-name" placeholder="Lovelace" />
+                </label>
+              </div>
+              <label>
+                Work email
+                <input type="email" name="email" placeholder="team@company.com" />
+              </label>
+              <label>
+                Team size
+                <select name="team-size">
+                  <option>1-10 engineers</option>
+                  <option>11-50 engineers</option>
+                  <option>51-200 engineers</option>
+                  <option>200+ engineers</option>
+                </select>
+              </label>
+              <label>
+                What are you trying to catch?
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Checkout regressions, mobile crashes, queue latency..."
+                ></textarea>
+              </label>
+              <button class="button button--primary" type="submit">Get Started</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__squiggle" aria-hidden="true">
+          <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+            <path
+              d="M0 24C71 24 71 8 141 8S212 30 282 30 353 10 424 10s71 18 141 18 71-18 141-18 71 20 141 20 71-16 141-16 71 14 141 14 71-8 141-8"
+            />
+          </svg>
+        </div>
+        <div class="footer__grid">
+          <div>
+            <a class="brand brand--footer" href="#top">
+              <span class="brand__mark">S</span>
+              <span class="brand__word">Sentry</span>
+            </a>
+            <p>
+              Performance monitoring and error tracking for software teams who ship in public.
+            </p>
+          </div>
+          <div>
+            <h3>Platform</h3>
+            <a href="#platform">Error Monitoring</a>
+            <a href="#workflow">Release Health</a>
+            <a href="#contact">Session Replay</a>
+          </div>
+          <div>
+            <h3>Company</h3>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+            <a href="#top">Docs</a>
+          </div>
+          <div>
+            <h3>Channels</h3>
+            <a href="#top">GitHub</a>
+            <a href="#top">Discord</a>
+            <a href="#top">Status</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p>(c) 2026 Sentry static concept. Built without dependencies.</p>
+          <p>Observability with a midnight canvas and a lime syntax chip.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

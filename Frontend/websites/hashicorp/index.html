@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HashiCorp Platform Operations</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="HashiCorp home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="brand-name">HashiCorp</span>
+      </a>
+      <nav class="nav-links" id="site-nav" aria-label="Primary">
+        <a href="#platform">Platform</a>
+        <a href="#products">Products</a>
+        <a href="#operating-model">Operating model</a>
+        <a href="#resources">Resources</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="button button-secondary" href="#resources">Read docs</a>
+        <a class="button button-primary" href="#cta">Start free</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <div class="container mobile-menu-inner">
+        <a href="#platform">Platform</a>
+        <a href="#products">Products</a>
+        <a href="#operating-model">Operating model</a>
+        <a href="#resources">Resources</a>
+        <a class="button button-secondary" href="#resources">Read docs</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Infrastructure lifecycle platform</p>
+          <h1>Operate cloud infrastructure with one control plane for provisioning, security, and runtime.</h1>
+          <p class="hero-body">
+            Standardize delivery across teams with product-aware workflows for Terraform, Vault, Nomad, Consul, and Boundary.
+            Policy, identity, and change visibility stay close to the work instead of getting bolted on later.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#products">Explore products</a>
+            <a class="button button-secondary" href="#operating-model">See the workflow</a>
+          </div>
+          <div class="signal-strip" aria-label="Platform highlights">
+            <div class="signal-card">
+              <span class="signal-value">38%</span>
+              <span class="signal-label">faster environment delivery</span>
+            </div>
+            <div class="signal-card">
+              <span class="signal-value">7</span>
+              <span class="signal-label">products working from one policy model</span>
+            </div>
+            <div class="signal-card">
+              <span class="signal-value">24/7</span>
+              <span class="signal-label">runtime and secrets coverage</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-stack">
+            <article class="visual-card visual-card-terraform">
+              <p class="visual-label">Terraform</p>
+              <h2>Provision</h2>
+              <p>Reusable infrastructure blueprints with policy checks built into every run.</p>
+            </article>
+            <article class="visual-card visual-card-vault">
+              <p class="visual-label">Vault</p>
+              <h2>Protect</h2>
+              <p>Dynamic secrets, encryption, and identity workflows for every service boundary.</p>
+            </article>
+            <article class="visual-card visual-card-nomad">
+              <p class="visual-label">Nomad</p>
+              <h2>Run</h2>
+              <p>Schedule batch, service, and edge workloads from the same operating surface.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="platform">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Platform overview</p>
+          <h2>One dark-canvas system, multiple product identities, no stitched-together handoff.</h2>
+          <p>
+            The platform stays intentionally technical: black canvas, charcoal lift, white type, and product color used as
+            meaning rather than decoration. Each layer exists to make platform work easier to scan under pressure.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <p class="feature-kicker">Policy</p>
+            <h3>Guardrails move with the change</h3>
+            <p>Codify cost, security, and compliance checks once, then apply them consistently from plan to production.</p>
+          </article>
+          <article class="feature-card">
+            <p class="feature-kicker">Identity</p>
+            <h3>Secrets and access stay contextual</h3>
+            <p>Issue short-lived credentials when workloads need them and retire static secrets from day-to-day operations.</p>
+          </article>
+          <article class="feature-card">
+            <p class="feature-kicker">Runtime</p>
+            <h3>Coordinate workloads across environments</h3>
+            <p>Move from bootstrap to placement, service networking, and failover without switching mental models.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Product lineup</p>
+          <h2>Every section quietly signals which tool owns the work.</h2>
+        </div>
+        <div class="product-grid">
+          <article class="product-card product-card-terraform">
+            <p class="product-pill">Terraform</p>
+            <h3>Provision cloud foundations</h3>
+            <p>Compose modules for landing zones, databases, and network edges with drift visibility and enforced review paths.</p>
+            <a class="product-link" href="#cta">Launch workflows</a>
+          </article>
+          <article class="product-card product-card-vault">
+            <p class="product-pill product-pill-dark">Vault</p>
+            <h3>Secure secrets and cryptography</h3>
+            <p>Broker machine identity, rotate credentials automatically, and centralize sensitive operations without slowing teams.</p>
+            <a class="product-link product-link-dark" href="#cta">Protect services</a>
+          </article>
+          <article class="product-card product-card-consul">
+            <p class="product-pill">Consul</p>
+            <h3>Connect service traffic cleanly</h3>
+            <p>Discover, authorize, and observe east-west traffic with service mesh patterns that respect existing topologies.</p>
+            <a class="product-link" href="#cta">Map traffic</a>
+          </article>
+          <article class="product-card product-card-waypoint">
+            <p class="product-pill product-pill-dark">Waypoint</p>
+            <h3>Ship apps with shared release patterns</h3>
+            <p>Give developers a consistent path from source to deployment while platform teams keep the golden path current.</p>
+            <a class="product-link product-link-dark" href="#cta">Standardize delivery</a>
+          </article>
+          <article class="product-card product-card-boundary">
+            <p class="product-pill">Boundary</p>
+            <h3>Access infrastructure without VPN sprawl</h3>
+            <p>Authorize sessions based on identity and target, then audit access without exposing the underlying network.</p>
+            <a class="product-link" href="#cta">Control access</a>
+          </article>
+          <article class="product-card product-card-vagrant">
+            <p class="product-pill">Vagrant</p>
+            <h3>Keep local environments aligned</h3>
+            <p>Package reproducible developer environments that mirror platform expectations before code reaches shared systems.</p>
+            <a class="product-link" href="#cta">Align local setup</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section operating-model" id="operating-model">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Operating model</p>
+          <h2>A sequence teams can actually follow when infrastructure changes are moving fast.</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-row">
+            <div class="timeline-step">01</div>
+            <div class="timeline-content">
+              <h3>Define the stack</h3>
+              <p>Platform teams publish reusable modules and environment contracts so application teams are not starting from raw APIs.</p>
+            </div>
+            <div class="timeline-tag timeline-tag-terraform">Terraform</div>
+          </article>
+          <article class="timeline-row">
+            <div class="timeline-step">02</div>
+            <div class="timeline-content">
+              <h3>Attach policy and identity</h3>
+              <p>Secrets issuance, approvals, and policy evaluations happen before deployment windows become incident windows.</p>
+            </div>
+            <div class="timeline-tag timeline-tag-vault">Vault</div>
+          </article>
+          <article class="timeline-row">
+            <div class="timeline-step">03</div>
+            <div class="timeline-content">
+              <h3>Place and connect workloads</h3>
+              <p>Runtime scheduling and service routing stay visible in the same operating rhythm instead of disappearing into separate tools.</p>
+            </div>
+            <div class="timeline-tag timeline-tag-nomad">Nomad</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section resources" id="resources">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Resources</p>
+          <h2>Dense, practical material for platform teams.</h2>
+        </div>
+        <div class="resource-grid">
+          <article class="resource-card">
+            <p class="resource-type">Guide</p>
+            <h3>Platform blueprint for multi-cloud foundations</h3>
+            <p>How to structure reusable stacks, review boundaries, and drift visibility across business units.</p>
+          </article>
+          <article class="resource-card">
+            <p class="resource-type">Reference</p>
+            <h3>Secrets lifecycle patterns for application teams</h3>
+            <p>Short-lived credentials, service identity, and operator workflows that reduce secret exposure.</p>
+          </article>
+          <article class="resource-card">
+            <p class="resource-type">Workshop</p>
+            <h3>Operating Nomad and Consul at runtime scale</h3>
+            <p>Cluster placement, service topology, and failure handling patterns teams can adopt incrementally.</p>
+          </article>
+          <article class="resource-card">
+            <p class="resource-type">Video</p>
+            <h3>Golden paths without blocking developers</h3>
+            <p>What successful platform programs standardize, and what they intentionally leave flexible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cta">
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <p class="eyebrow">Get started</p>
+            <h2>Build one operating surface for infrastructure instead of another layer of glue.</h2>
+          </div>
+          <div class="cta-actions">
+            <a class="button button-primary" href="#top">Start free</a>
+            <a class="button button-secondary" href="#resources">Talk to platform engineering</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">HashiCorp</span>
+        <p>Infrastructure cloud tooling for provisioning, securing, connecting, and running modern systems.</p>
+      </div>
+      <div>
+        <p class="footer-title">Products</p>
+        <a href="#products">Terraform</a>
+        <a href="#products">Vault</a>
+        <a href="#products">Nomad</a>
+      </div>
+      <div>
+        <p class="footer-title">Platform</p>
+        <a href="#platform">Overview</a>
+        <a href="#operating-model">Workflow</a>
+        <a href="#resources">Resources</a>
+      </div>
+      <div>
+        <p class="footer-title">Company</p>
+        <a href="#cta">Start free</a>
+        <a href="#resources">Documentation</a>
+        <a href="#top">Contact sales</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

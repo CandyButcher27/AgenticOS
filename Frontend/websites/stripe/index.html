@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stripi — Financial infrastructure for the internet</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav-bar-on-mesh">
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="Stripi Home">
+      <svg viewBox="0 0 60 25" width="52" height="22" fill="currentColor" aria-hidden="true">
+        <path d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v3.32a8.33 8.33 0 0 1-4.56 1.1c-4 0-6.8-2.5-6.8-7.48 0-4.19 2.31-7.52 6.1-7.52 3.78 0 5.76 3.33 5.76 7.55 0 .4-.04 1.26-.07 1.43zm-5.7-5.72c-1.03 0-2.17.77-2.17 2.6h4.24c0-1.83-1.06-2.6-2.07-2.6z"/>
+        <path d="M40.95 7.7c-1.11 0-1.82.53-2.22.9l-.15-.71h-3.9v18.6l4.43-.94.02-4.52c.64.46 1.58 1.12 3.12 1.12 3.16 0 6.04-2.53 6.04-8.14 0-5.14-2.94-8.14-6.34-8.14zm-1.09 12.51c-1.04 0-1.66-.37-2.09-.83l-.03-6.5c.46-.51 1.1-.87 2.12-.87 1.62 0 2.74 1.82 2.74 4.09 0 2.32-1.1 4.11-2.74 4.11z"/>
+        <path d="M23.75 6.83l4.44-.95V2.5l-4.44.94v3.39z"/>
+        <path d="M23.75 8.35h4.44v14.9h-4.44z"/>
+        <path d="M18.98 9.66l-.28-1.3h-3.83v14.9h4.43v-10.1c1.05-1.37 2.82-1.12 3.38-.92V8.36c-.58-.22-2.68-.62-3.7 1.3z"/>
+        <path d="M9.9 4.6l-4.32.92-.02 14.19c0 2.62 1.97 4.55 4.6 4.55 1.45 0 2.52-.27 3.1-.58v-3.6c-.57.23-3.36 1.04-3.36-1.57v-6.1h3.36V8.35H9.87z"/>
+        <path d="M4.42 12.4c0-.69.57-.96 1.5-.96 1.36 0 3.07.41 4.43 1.14V8.5a11.75 11.75 0 0 0-4.43-.82C2.83 7.68 0 9.55 0 12.66c0 4.85 6.68 4.08 6.68 6.17 0 .82-.71 1.08-1.7 1.08-1.47 0-3.36-.6-4.85-1.42v4.13c1.65.71 3.32 1.01 4.85 1.01 3.19 0 6.13-1.62 6.13-4.77 0-5.23-6.69-4.3-6.69-6.46z"/>
+      </svg>
+    </a>
+    <nav class="nav-center">
+      <a href="#">Products</a>
+      <a href="#">Solutions</a>
+      <a href="#">Developers</a>
+      <a href="#" class="active">Pricing</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#" class="link-on-light">Sign in</a>
+      <a href="#" class="btn btn-primary-pill">Contact sales</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="gradient-mesh" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <span class="pill-tag-soft">New — Stripi Billing 2.0</span>
+      <h1 class="display-xxl">Financial infrastructure<br>to grow your revenue</h1>
+      <p class="body-lg hero-sub">Join the millions of companies that use Stripi to accept payments, automate revenue management, and build a thriving internet business.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary-pill">Start now</a>
+        <a href="#" class="btn btn-secondary">Contact sales &rarr;</a>
+      </div>
+
+      <div class="card-dashboard-mockup dashboard-composite">
+        <div class="mockup-panel mockup-panel--code">
+          <div class="mockup-panel__dots"><span></span><span></span><span></span></div>
+          <pre class="mockup-code"><span class="tok-key">const</span> <span class="tok-var">payment</span> = <span class="tok-key">await</span> <span class="tok-fn">stripi</span>.<span class="tok-fn">charges</span>.<span class="tok-fn">create</span>({
+  <span class="tok-prop">amount</span>: <span class="tok-num">2000</span>,
+  <span class="tok-prop">currency</span>: <span class="tok-str">'usd'</span>,
+  <span class="tok-prop">source</span>: <span class="tok-str">'tok_visa'</span>,
+  <span class="tok-prop">description</span>: <span class="tok-str">'Order #4192'</span>
+});</pre>
+        </div>
+        <div class="mockup-panel mockup-panel--table">
+          <div class="mockup-panel__header">
+            <span class="heading-sm">Balance</span>
+            <span class="pill-tag-soft">Live</span>
+          </div>
+          <div class="mockup-table-row">
+            <span class="body-md">Today</span>
+            <span class="body-tabular">$48,204.12</span>
+          </div>
+          <div class="mockup-table-row">
+            <span class="body-md">Volume, MTD</span>
+            <span class="body-tabular">$612,930.44</span>
+          </div>
+          <div class="mockup-table-row">
+            <span class="body-md">Net revenue</span>
+            <span class="body-tabular">$589,102.67</span>
+          </div>
+          <div class="mockup-chart" aria-hidden="true">
+            <span style="--h:38%"></span><span style="--h:52%"></span><span style="--h:44%"></span>
+            <span style="--h:66%"></span><span style="--h:58%"></span><span style="--h:74%"></span>
+            <span style="--h:69%"></span><span style="--h:82%"></span><span style="--h:77%"></span>
+            <span style="--h:91%"></span>
+          </div>
+        </div>
+        <div class="mockup-panel mockup-panel--chart">
+          <span class="heading-sm">Transactions</span>
+          <div class="mockup-tx-row"><span class="dot dot--ruby"></span><span class="body-md">Acme Co.</span><span class="body-tabular">$1,204.00</span></div>
+          <div class="mockup-tx-row"><span class="dot dot--indigo"></span><span class="body-md">Globex Ltd</span><span class="body-tabular">$390.50</span></div>
+          <div class="mockup-tx-row"><span class="dot dot--magenta"></span><span class="body-md">Initech</span><span class="body-tabular">$2,980.19</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section logos">
+    <div class="section-inner">
+      <p class="caption logos-label">Trusted by ambitious companies of every size</p>
+      <div class="logos-row">
+        <span class="logo-mark">Amazon</span>
+        <span class="logo-mark">Google</span>
+        <span class="logo-mark">Shopify</span>
+        <span class="logo-mark">Salesforce</span>
+        <span class="logo-mark">Zoom</span>
+        <span class="logo-mark">Marriott</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section features">
+    <div class="section-inner">
+      <span class="pill-tag-soft">Payments</span>
+      <h2 class="display-xl">A fully integrated suite of financial and payments products</h2>
+      <div class="feature-grid">
+        <article class="card-feature-light">
+          <div class="feature-icon feature-icon--indigo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <h3 class="heading-md">Payments</h3>
+          <p class="body-md">Accept payments online, in person, and around the world with a single integration.</p>
+          <a href="#" class="link-on-light">Learn more &rarr;</a>
+        </article>
+        <article class="card-feature-light">
+          <div class="feature-icon feature-icon--indigo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14 3v5h5"/></svg>
+          </div>
+          <h3 class="heading-md">Billing</h3>
+          <p class="body-md">Automate recurring revenue with subscription and invoicing tools that scale with you.</p>
+          <a href="#" class="link-on-light">Learn more &rarr;</a>
+        </article>
+        <article class="card-feature-light">
+          <div class="feature-icon feature-icon--indigo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l4-4 4 4 6-6 4 4"/><path d="M3 20h18"/></svg>
+          </div>
+          <h3 class="heading-md">Connect</h3>
+          <p class="body-md">Route payments and payouts to third parties with a fully managed marketplace platform.</p>
+          <a href="#" class="link-on-light">Learn more &rarr;</a>
+        </article>
+        <article class="card-feature-light">
+          <div class="feature-icon feature-icon--indigo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3 class="heading-md">Radar</h3>
+          <p class="body-md">Fight fraud with machine learning that's trained on data from millions of businesses.</p>
+          <a href="#" class="link-on-light">Learn more &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cream-interlude">
+    <div class="section-inner cream-grid">
+      <div class="card-cream-band">
+        <span class="pill-tag-soft">Global reach</span>
+        <h3 class="display-md">Accept payments in 195 countries and 135+ currencies</h3>
+        <p class="body-md">A single integration gives customers access to over 100 payment methods and optimized checkout flows built for local conversion.</p>
+      </div>
+      <div class="card-cream-band">
+        <span class="pill-tag-soft">Built for scale</span>
+        <h3 class="display-md">Infrastructure that handles your busiest day like any other</h3>
+        <p class="body-md">Stripi processes hundreds of billions of dollars a year for companies of every size, from startups to Fortune 500s.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dashboard-track">
+    <div class="section-inner">
+      <span class="pill-tag-soft pill-tag-soft--on-dark">Dashboard</span>
+      <h2 class="display-xl heading-on-dark">Run your business from one dashboard</h2>
+      <p class="body-lg heading-on-dark-sub">Every metric that matters — balance, payouts, disputes, and revenue trends — in one dark, focused workspace.</p>
+
+      <div class="card-dashboard-mockup dashboard-app-shell">
+        <div class="app-shell-sidebar">
+          <span class="app-shell-item app-shell-item--active">Home</span>
+          <span class="app-shell-item">Balance</span>
+          <span class="app-shell-item">Transactions</span>
+          <span class="app-shell-item">Customers</span>
+          <span class="app-shell-item">Payouts</span>
+        </div>
+        <div class="app-shell-main">
+          <div class="app-shell-stats">
+            <div class="app-shell-stat">
+              <span class="caption">Gross volume</span>
+              <span class="display-md app-stat-value">$2.43M</span>
+              <span class="micro app-stat-delta app-stat-delta--up">+18.2%</span>
+            </div>
+            <div class="app-shell-stat">
+              <span class="caption">Net volume</span>
+              <span class="display-md app-stat-value">$2.11M</span>
+              <span class="micro app-stat-delta app-stat-delta--up">+12.4%</span>
+            </div>
+            <div class="app-shell-stat">
+              <span class="caption">New customers</span>
+              <span class="display-md app-stat-value">1,204</span>
+              <span class="micro app-stat-delta app-stat-delta--down">-3.1%</span>
+            </div>
+          </div>
+          <div class="mockup-chart mockup-chart--large" aria-hidden="true">
+            <span style="--h:30%"></span><span style="--h:44%"></span><span style="--h:38%"></span>
+            <span style="--h:60%"></span><span style="--h:52%"></span><span style="--h:70%"></span>
+            <span style="--h:64%"></span><span style="--h:80%"></span><span style="--h:74%"></span>
+            <span style="--h:88%"></span><span style="--h:82%"></span><span style="--h:95%"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing" id="pricing">
+    <div class="section-inner">
+      <span class="pill-tag-soft">Pricing</span>
+      <h2 class="display-xl">Simple, pay-as-you-go pricing</h2>
+      <p class="body-lg">No setup fees, monthly fees, or hidden fees. Only pay for what you use.</p>
+
+      <div class="pricing-grid">
+        <article class="card-pricing">
+          <h3 class="heading-lg">Starter</h3>
+          <p class="display-md pricing-price">2.9% <span class="body-md pricing-price-suffix">+ 30&cent;</span></p>
+          <p class="body-md pricing-desc">per successful card charge</p>
+          <ul class="pricing-list">
+            <li>Online payments</li>
+            <li>Standard checkout</li>
+            <li>Email support</li>
+          </ul>
+          <a href="#" class="btn btn-secondary pricing-cta">Get started</a>
+        </article>
+
+        <article class="card-pricing-featured">
+          <span class="pill-tag-soft pill-tag-soft--on-dark">Most popular</span>
+          <h3 class="heading-lg">Scale</h3>
+          <p class="display-md pricing-price">2.5% <span class="body-md pricing-price-suffix">+ 25&cent;</span></p>
+          <p class="body-md pricing-desc">per successful card charge</p>
+          <ul class="pricing-list">
+            <li>Everything in Starter</li>
+            <li>Custom checkout &amp; branding</li>
+            <li>Radar fraud protection</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#" class="btn btn-on-dark pricing-cta">Get started</a>
+        </article>
+
+        <article class="card-pricing">
+          <h3 class="heading-lg">Enterprise</h3>
+          <p class="display-md pricing-price">Custom</p>
+          <p class="body-md pricing-desc">volume-based pricing</p>
+          <ul class="pricing-list">
+            <li>Everything in Scale</li>
+            <li>Dedicated account manager</li>
+            <li>Custom contracts &amp; SLAs</li>
+          </ul>
+          <a href="#" class="btn btn-secondary pricing-cta">Contact sales</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="section-inner section-inner--narrow">
+      <h2 class="display-md">Frequently asked questions</h2>
+      <div class="faq-list">
+        <button class="faq-row" aria-expanded="false">
+          <span class="heading-sm">How quickly can I start accepting payments?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span class="heading-sm">Does Stripi support international currencies?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span class="heading-sm">Is there a monthly fee?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span class="heading-sm">Can I cancel my subscription at any time?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="section-inner cta-inner">
+      <h2 class="display-xl">Ready to get started?</h2>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary-pill">Start now</a>
+        <a href="#" class="btn btn-secondary">Contact sales &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer-light">
+  <div class="footer-inner">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4 class="heading-sm">Products</h4>
+        <a href="#">Payments</a>
+        <a href="#">Billing</a>
+        <a href="#">Connect</a>
+        <a href="#">Radar</a>
+        <a href="#">Terminal</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="heading-sm">Solutions</h4>
+        <a href="#">E-commerce</a>
+        <a href="#">SaaS</a>
+        <a href="#">Marketplaces</a>
+        <a href="#">Platforms</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="heading-sm">Developers</h4>
+        <a href="#">Documentation</a>
+        <a href="#">API Reference</a>
+        <a href="#">SDKs</a>
+        <a href="#">Status</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="heading-sm">Company</h4>
+        <a href="#">About</a>
+        <a href="#">Customers</a>
+        <a href="#">Jobs</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="heading-sm">Support</h4>
+        <a href="#">Support Center</a>
+        <a href="#">Contact Sales</a>
+        <a href="#">Guides</a>
+      </div>
+    </div>
+    <div class="footer-fine-print">
+      <span class="micro">&copy; 2026 Stripi, Inc. All rights reserved.</span>
+      <div class="footer-fine-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

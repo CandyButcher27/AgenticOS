@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Framer — The web builder for creative teams</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="top-nav__inner">
+    <a href="#" class="wordmark" aria-label="Framer Home">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 0h16v8h-8v8h8v8H12v-8H4V8h8V0H4z"/></svg>
+      Framer
+    </a>
+    <nav class="top-nav__links">
+      <a href="#features">Features</a>
+      <a href="#ai">AI</a>
+      <a href="#templates">Templates</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="top-nav__actions">
+      <a href="#" class="btn btn-secondary">Sign in</a>
+      <a href="#" class="btn btn-primary">Get started for free</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#features">Features</a>
+    <a href="#ai">AI</a>
+    <a href="#templates">Templates</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#" class="btn btn-primary">Get started for free</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <p class="eyebrow">The web builder for creative teams</p>
+    <h1 class="display-xxl">Build sites<br>that feel alive.</h1>
+    <p class="hero-sub">Design, animate, and publish production-ready sites — visually, with no code, at the speed of thought.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">Get started for free</a>
+      <a href="#" class="link-accent">See how it works &rarr;</a>
+    </div>
+  </section>
+
+  <section class="showcase" id="templates">
+    <div class="showcase-grid">
+      <article class="spotlight spotlight--violet">
+        <p class="micro-label">Marketplace</p>
+        <h3 class="subhead">Real templates, built by real studios — remix anything in one click.</h3>
+      </article>
+      <div class="mockup-tile">
+        <div class="mockup-tile__chrome">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mockup-tile__screen mockup-tile__screen--a"></div>
+        <p class="body-sm">Nudge — Studio landing page</p>
+      </div>
+      <div class="mockup-tile">
+        <div class="mockup-tile__chrome">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mockup-tile__screen mockup-tile__screen--b"></div>
+        <p class="body-sm">Tonik — Product marketing site</p>
+      </div>
+      <article class="spotlight spotlight--orange">
+        <p class="micro-label">Gallery</p>
+        <h3 class="subhead">A16Z Speedrun × Tonik — shipped in a weekend.</h3>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-band" id="features">
+    <p class="eyebrow">Features</p>
+    <h2 class="display-xl">Design like it's<br>the final product.</h2>
+    <div class="feature-grid">
+      <div class="template-card">
+        <div class="template-card__icon">✦</div>
+        <h4 class="body-sm">Visual canvas</h4>
+        <p class="body">Every layer, animation, and breakpoint lives on one artboard — what you see is what ships.</p>
+      </div>
+      <div class="template-card">
+        <div class="template-card__icon">⌁</div>
+        <h4 class="body-sm">Real code output</h4>
+        <p class="body">Framer generates production React under the hood — no plugin, no export step, no drift.</p>
+      </div>
+      <div class="template-card">
+        <div class="template-card__icon">◐</div>
+        <h4 class="body-sm">CMS built in</h4>
+        <p class="body">Collections, relational fields, and a client-friendly editor ship with every site by default.</p>
+      </div>
+      <div class="template-card">
+        <div class="template-card__icon">▣</div>
+        <h4 class="body-sm">One-click publish</h4>
+        <p class="body">Custom domains, global CDN, and automatic SSL — live in seconds, not sprints.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase" id="ai">
+    <div class="showcase-grid showcase-grid--wide">
+      <article class="spotlight spotlight--magenta spotlight--wide">
+        <p class="micro-label">Framer AI</p>
+        <h3 class="subhead">Describe your site. Watch it build itself — fully editable, instantly.</h3>
+        <a href="#" class="btn btn-translucent">Try Framer AI</a>
+      </article>
+      <div class="mockup-tile mockup-tile--tall">
+        <div class="mockup-tile__chrome">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mockup-tile__screen mockup-tile__screen--c"></div>
+        <p class="body-sm">AI Workshop — prompt to page</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band" id="pricing">
+    <p class="eyebrow">Pricing</p>
+    <h2 class="display-xl">Start free.<br>Scale when ready.</h2>
+
+    <div class="pricing-toggle" role="tablist" aria-label="Billing period">
+      <button class="pricing-tab pricing-tab--selected" data-period="monthly" role="tab" aria-selected="true">Monthly</button>
+      <button class="pricing-tab" data-period="yearly" role="tab" aria-selected="false">Yearly</button>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h4 class="headline">Basic</h4>
+        <p class="price"><span class="price__value" data-monthly="$0" data-yearly="$0">$0</span><span class="price__period">/mo</span></p>
+        <p class="body-sm">For personal projects and portfolios.</p>
+        <ul class="pricing-list">
+          <li>1 site</li>
+          <li>Framer subdomain</li>
+          <li>Community support</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Get started</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <h4 class="headline">Pro</h4>
+        <p class="price"><span class="price__value" data-monthly="$20" data-yearly="$15">$20</span><span class="price__period">/mo</span></p>
+        <p class="body-sm">For freelancers and small studios.</p>
+        <ul class="pricing-list">
+          <li>Unlimited sites</li>
+          <li>Custom domain</li>
+          <li>CMS collections</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Get started</a>
+      </div>
+      <div class="pricing-card">
+        <h4 class="headline">Business</h4>
+        <p class="price"><span class="price__value" data-monthly="$40" data-yearly="$32">$40</span><span class="price__period">/mo</span></p>
+        <p class="body-sm">For growing teams shipping fast.</p>
+        <ul class="pricing-list">
+          <li>Everything in Pro</li>
+          <li>Team seats</li>
+          <li>Advanced analytics</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Get started</a>
+      </div>
+      <div class="pricing-card">
+        <h4 class="headline">Enterprise</h4>
+        <p class="price"><span class="price__value" data-monthly="Custom" data-yearly="Custom">Custom</span></p>
+        <p class="body-sm">For organizations at scale.</p>
+        <ul class="pricing-list">
+          <li>SSO &amp; SAML</li>
+          <li>Dedicated support</li>
+          <li>Custom contracts</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Talk to sales</a>
+      </div>
+    </div>
+
+    <div class="comparison-table">
+      <div class="feature-row">
+        <span>Compare plans</span><span>Basic</span><span>Pro</span><span>Business</span>
+      </div>
+      <div class="comparison-row">
+        <span>Custom domain</span><span>—</span><span class="check">✓</span><span class="check">✓</span>
+      </div>
+      <div class="comparison-row">
+        <span>CMS collections</span><span>—</span><span class="check">✓</span><span class="check">✓</span>
+      </div>
+      <div class="comparison-row">
+        <span>Team seats</span><span>—</span><span>—</span><span class="check">✓</span>
+      </div>
+      <div class="comparison-row">
+        <span>Advanced analytics</span><span>—</span><span>—</span><span class="check">✓</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band" id="faq">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="display-lg">Questions,<br>answered.</h2>
+    <div class="faq-list">
+      <div class="faq-row">
+        <button class="faq-row__question" aria-expanded="false">
+          <span>Do I need to know how to code?</span>
+          <span class="faq-row__icon">+</span>
+        </button>
+        <div class="faq-row__answer">
+          <p class="body">No. Framer's canvas is fully visual — you design, animate, and publish without writing a line of code. Developers can still extend sites with code components when needed.</p>
+        </div>
+      </div>
+      <div class="faq-row">
+        <button class="faq-row__question" aria-expanded="false">
+          <span>Can I use my own domain?</span>
+          <span class="faq-row__icon">+</span>
+        </button>
+        <div class="faq-row__answer">
+          <p class="body">Yes, on Pro and above you can connect any custom domain with automatic SSL in a few clicks.</p>
+        </div>
+      </div>
+      <div class="faq-row">
+        <button class="faq-row__question" aria-expanded="false">
+          <span>What happens if I outgrow the Basic plan?</span>
+          <span class="faq-row__icon">+</span>
+        </button>
+        <div class="faq-row__answer">
+          <p class="body">You can upgrade at any time — your site, content, and CMS collections carry over instantly with no migration.</p>
+        </div>
+      </div>
+      <div class="faq-row">
+        <button class="faq-row__question" aria-expanded="false">
+          <span>Does Framer host my site?</span>
+          <span class="faq-row__icon">+</span>
+        </button>
+        <div class="faq-row__answer">
+          <p class="body">Yes — every published site is served over a global CDN with automatic SSL, no separate hosting setup required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band final-cta">
+    <h2 class="display-lg">Your next site<br>starts here.</h2>
+    <a href="#" class="btn btn-primary">Get started for free</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="#" class="wordmark">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4 0h16v8h-8v8h8v8H12v-8H4V8h8V0H4z"/></svg>
+        Framer
+      </a>
+      <p class="micro">© 2026 Framer, Inc.</p>
+    </div>
+    <div class="footer__col">
+      <p class="caption footer__heading">Product</p>
+      <a href="#">Features</a>
+      <a href="#">AI</a>
+      <a href="#">Templates</a>
+      <a href="#">Pricing</a>
+    </div>
+    <div class="footer__col">
+      <p class="caption footer__heading">Resources</p>
+      <a href="#">Gallery</a>
+      <a href="#">Marketplace</a>
+      <a href="#">University</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer__col">
+      <p class="caption footer__heading">Company</p>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Customers</a>
+      <a href="#">Startups</a>
+    </div>
+    <div class="footer__col">
+      <p class="caption footer__heading">Legal</p>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Security</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

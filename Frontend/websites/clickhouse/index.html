@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClickHouse — The leading database for AI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="top-nav__inner">
+    <a href="#" class="logo" aria-label="ClickHouse Home">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><rect x="2" y="4" width="3" height="16"/><rect x="7" y="4" width="3" height="16"/><rect x="12" y="4" width="3" height="16"/><rect x="17" y="9" width="5" height="6" fill="#faff69"/></svg>
+      <span>ClickHouse</span>
+    </a>
+    <nav class="top-nav__center">
+      <a href="#product">Product</a>
+      <a href="#use-cases">Use Cases</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#resources">Resources</a>
+      <a href="#customers">Customers</a>
+    </nav>
+    <div class="top-nav__right">
+      <a href="#" class="btn btn-text-link">Sign in</a>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="top-nav__mobile">
+    <a href="#product">Product</a>
+    <a href="#use-cases">Use Cases</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#resources">Resources</a>
+    <a href="#customers">Customers</a>
+    <a href="#" class="btn btn-text-link">Sign in</a>
+    <a href="#" class="btn btn-primary">Get Started</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero-band">
+    <div class="hero-band__inner">
+      <div class="hero-band__copy">
+        <span class="badge badge-yellow">OPEN SOURCE · AI-READY</span>
+        <h1 class="display-xl">The leading<br>database for AI</h1>
+        <p class="body-md hero-band__sub">ClickHouse is the fastest and most resource-efficient open-source database for real-time apps and analytics. Built to power vector search, RAG pipelines, and observability at any scale.</p>
+        <div class="hero-band__actions">
+          <a href="#" class="btn btn-primary">Get Started Free</a>
+          <a href="#" class="btn btn-secondary">Read the Docs</a>
+        </div>
+        <div class="hero-band__stats">
+          <div class="stat-callout-block">
+            <span class="stat-callout">779+</span>
+            <span class="caption muted">Contributors</span>
+          </div>
+          <div class="stat-callout-block">
+            <span class="stat-callout">2.8k+</span>
+            <span class="caption muted">Community members</span>
+          </div>
+          <div class="stat-callout-block">
+            <span class="stat-callout">37k+</span>
+            <span class="caption muted">GitHub stars</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-band__artifact">
+        <div class="code-window-card">
+          <div class="code-window-card__bar">
+            <span class="dot dot--rose"></span>
+            <span class="dot dot--warning"></span>
+            <span class="dot dot--emerald"></span>
+            <span class="code-window-card__title">query.sql</span>
+          </div>
+          <pre class="code-window-card__body"><code><span class="sql-kw">SELECT</span>
+    toStartOfHour(event_time) <span class="sql-kw">AS</span> hour,
+    count() <span class="sql-kw">AS</span> requests,
+    quantile(0.99)(latency_ms) <span class="sql-kw">AS</span> p99
+<span class="sql-kw">FROM</span> analytics.events
+<span class="sql-kw">WHERE</span> event_time >= <span class="sql-str">now() - INTERVAL 1 DAY</span>
+<span class="sql-kw">GROUP BY</span> hour
+<span class="sql-kw">ORDER BY</span> hour <span class="sql-kw">DESC</span>
+<span class="sql-kw">LIMIT</span> <span class="sql-num">24</span>;</code></pre>
+          <div class="code-window-card__status">
+            <span class="status-dot status-dot--emerald"></span>
+            <span class="caption muted">24 rows in 0.008 sec</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="customer-logo-strip">
+    <div class="customer-logo-strip__inner">
+      <span class="caption-uppercase muted">Trusted by data teams at</span>
+      <div class="customer-logo-strip__row">
+        <span class="logo-mark">Anthropic</span>
+        <span class="logo-mark">Sony</span>
+        <span class="logo-mark">HubSpot</span>
+        <span class="logo-mark">Lyft</span>
+        <span class="logo-mark">Tencent</span>
+        <span class="logo-mark">Cloudflare</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="use-cases" class="section feature-grid-section">
+    <div class="section__inner">
+      <span class="caption-uppercase muted">Use cases</span>
+      <h2 class="display-lg">Built for every modern data challenge</h2>
+      <div class="feature-grid">
+        <article class="feature-card feature-card-yellow">
+          <span class="feature-card__icon">⚡</span>
+          <h3 class="title-md">Real-time analytics</h3>
+          <p class="body-sm">Sub-second queries over billions of rows, updated continuously as data streams in.</p>
+        </article>
+        <article class="feature-card feature-card-dark">
+          <span class="feature-card__icon">🔎</span>
+          <h3 class="title-md">Observability</h3>
+          <p class="body-sm">Ingest logs, metrics and traces at massive scale with columnar compression built in.</p>
+        </article>
+        <article class="feature-card feature-card-dark">
+          <span class="feature-card__icon">🧠</span>
+          <h3 class="title-md">AI &amp; vector search</h3>
+          <p class="body-sm">Native vector indexes power RAG retrieval and semantic search directly in SQL.</p>
+        </article>
+        <article class="feature-card feature-card-dark">
+          <span class="feature-card__icon">📊</span>
+          <h3 class="title-md">Customer-facing dashboards</h3>
+          <p class="body-sm">Serve interactive analytics to end users with predictable, low-latency response times.</p>
+        </article>
+        <article class="feature-card feature-card-dark">
+          <span class="feature-card__icon">🛡️</span>
+          <h3 class="title-md">Fraud &amp; risk detection</h3>
+          <p class="body-sm">Score events in real time against historical patterns without batch delays.</p>
+        </article>
+        <article class="feature-card feature-card-yellow">
+          <span class="feature-card__icon">🚀</span>
+          <h3 class="title-md">Data warehousing</h3>
+          <p class="body-sm">Replace slow legacy warehouses with a columnar engine built for scale and speed.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="product" class="section product-section">
+    <div class="section__inner product-section__grid">
+      <div class="product-section__copy">
+        <span class="caption-uppercase muted">Product</span>
+        <h2 class="display-md">See what's happening, as it happens</h2>
+        <p class="body-md">ClickHouse Cloud gives you a fully managed query console, live monitoring, and instant scaling — without managing a single server.</p>
+        <ul class="check-list">
+          <li>Serverless compute that scales to zero</li>
+          <li>Built-in replication and backups</li>
+          <li>Native JSON, vector, and full-text search</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Explore the Product</a>
+      </div>
+      <div class="product-section__mockup">
+        <div class="product-mockup-card">
+          <div class="product-mockup-card__bar">
+            <span class="caption muted">Query Console</span>
+            <span class="badge badge-pill">Live</span>
+          </div>
+          <div class="product-mockup-card__row">
+            <span class="body-sm">events_stream</span>
+            <span class="stat-callout stat-callout--sm">1.2M</span>
+          </div>
+          <div class="product-mockup-card__bars">
+            <span style="height:40%"></span>
+            <span style="height:65%"></span>
+            <span style="height:50%"></span>
+            <span style="height:80%"></span>
+            <span style="height:60%"></span>
+            <span style="height:95%"></span>
+            <span style="height:70%"></span>
+            <span style="height:55%"></span>
+          </div>
+          <div class="product-mockup-card__footer">
+            <span class="status-dot status-dot--emerald"></span>
+            <span class="caption muted">Ingesting 48k rows/sec</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band-section">
+    <div class="section__inner">
+      <div class="cta-band-yellow">
+        <h2 class="display-md">Deploy your way</h2>
+        <p class="body-md cta-band-yellow__sub">Fully managed cloud, self-hosted, or hybrid — ClickHouse runs wherever your data lives.</p>
+        <a href="#" class="btn btn-black">Start Deploying</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section pricing-section">
+    <div class="section__inner">
+      <span class="caption-uppercase muted">Pricing</span>
+      <h2 class="display-lg">Simple, usage-based pricing</h2>
+      <div class="pricing-grid">
+        <article class="pricing-tier-card">
+          <span class="caption-uppercase muted">Basic</span>
+          <div class="pricing-tier-card__price display-sm">$0<span class="body-sm muted">/mo</span></div>
+          <p class="body-sm">For small workloads and side projects getting started with ClickHouse.</p>
+          <ul class="check-list check-list--sm">
+            <li>Single replica</li>
+            <li>Community support</li>
+            <li>Up to 1 TB storage</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Get Started</a>
+        </article>
+        <article class="pricing-tier-card pricing-tier-card-featured">
+          <span class="badge badge-pill badge-pill--dark">Most Popular</span>
+          <span class="caption-uppercase">Scale</span>
+          <div class="pricing-tier-card__price display-sm">$$$<span class="body-sm">/mo</span></div>
+          <p class="body-sm">For production workloads that need reliability and elastic scale.</p>
+          <ul class="check-list check-list--sm">
+            <li>Multi-replica HA</li>
+            <li>Priority support</li>
+            <li>Autoscaling compute</li>
+          </ul>
+          <a href="#" class="btn btn-black">Get Started</a>
+        </article>
+        <article class="pricing-tier-card">
+          <span class="caption-uppercase muted">Enterprise</span>
+          <div class="pricing-tier-card__price display-sm">Custom</div>
+          <p class="body-sm">For organizations with advanced security, compliance, and support needs.</p>
+          <ul class="check-list check-list--sm">
+            <li>SSO &amp; RBAC</li>
+            <li>Dedicated support</li>
+            <li>Custom SLAs</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Contact Sales</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="customers" class="section stats-section">
+    <div class="section__inner stats-section__grid">
+      <div class="stat-block">
+        <span class="stat-callout">150+</span>
+        <span class="body-sm muted">Petabytes queried daily across customer fleets</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-callout">47k+</span>
+        <span class="body-sm muted">GitHub stars and growing</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-callout">100x</span>
+        <span class="body-sm muted">Faster than row-oriented databases</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" class="section events-section">
+    <div class="section__inner">
+      <span class="caption-uppercase muted">Resources</span>
+      <h2 class="display-lg">Events &amp; community</h2>
+      <div class="events-grid">
+        <article class="events-card">
+          <span class="caption-uppercase muted">AUG 14, 2026</span>
+          <h3 class="title-sm">ClickHouse Meetup — San Francisco</h3>
+          <p class="body-sm muted">In-person &middot; SF HQ</p>
+          <a href="#" class="btn btn-secondary">Register</a>
+        </article>
+        <article class="events-card">
+          <span class="caption-uppercase muted">SEP 02, 2026</span>
+          <h3 class="title-sm">Real-Time Analytics Webinar</h3>
+          <p class="body-sm muted">Virtual &middot; Live Q&amp;A</p>
+          <a href="#" class="btn btn-secondary">Register</a>
+        </article>
+        <article class="events-card">
+          <span class="caption-uppercase muted">OCT 20, 2026</span>
+          <h3 class="title-sm">ClickHouse Conference 2026</h3>
+          <p class="body-sm muted">Berlin &middot; 3-day summit</p>
+          <a href="#" class="btn btn-secondary">Register</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="section__inner section__inner--narrow">
+      <h2 class="display-md">Frequently asked questions</h2>
+      <div class="faq-list">
+        <button class="faq-row" aria-expanded="false">
+          <span>What makes ClickHouse fast?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <div class="faq-row__panel">
+          <p class="body-sm muted">ClickHouse stores data column-oriented and vectorizes execution, scanning only the columns a query needs and processing data in CPU-friendly batches.</p>
+        </div>
+        <button class="faq-row" aria-expanded="false">
+          <span>Is ClickHouse open source?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <div class="faq-row__panel">
+          <p class="body-sm muted">Yes. ClickHouse is Apache 2.0 licensed and developed in the open, with a large and active contributor community.</p>
+        </div>
+        <button class="faq-row" aria-expanded="false">
+          <span>Can I self-host ClickHouse?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <div class="faq-row__panel">
+          <p class="body-sm muted">Absolutely. Run it on your own infrastructure, or let ClickHouse Cloud manage it for you — the choice is yours.</p>
+        </div>
+        <button class="faq-row" aria-expanded="false">
+          <span>Does ClickHouse support vector search?</span>
+          <span class="faq-row__chevron">+</span>
+        </button>
+        <div class="faq-row__panel">
+          <p class="body-sm muted">Yes. Native vector indexes and distance functions make ClickHouse a strong fit for RAG and semantic search workloads.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <span class="footer__wordmark">ClickHouse</span>
+    </div>
+    <div class="footer__columns">
+      <div class="footer__col">
+        <h4>Product</h4>
+        <a href="#">ClickHouse Cloud</a>
+        <a href="#">Self-managed</a>
+        <a href="#">Changelog</a>
+        <a href="#">Security</a>
+      </div>
+      <div class="footer__col">
+        <h4>Use Cases</h4>
+        <a href="#">Real-time analytics</a>
+        <a href="#">Observability</a>
+        <a href="#">AI &amp; vector search</a>
+        <a href="#">Data warehousing</a>
+      </div>
+      <div class="footer__col">
+        <h4>Resources</h4>
+        <a href="#">Documentation</a>
+        <a href="#">Blog</a>
+        <a href="#">Events</a>
+        <a href="#">Community Slack</a>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Customers</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer__fine-print">
+      <span>© 2026 ClickHouse, Inc. All Rights Reserved</span>
+      <div class="footer__fine-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Trust Center</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

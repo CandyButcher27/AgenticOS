@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Composio | Tool integrations for AI agents</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-row">
+      <a class="brand" href="#top" aria-label="Composio home">Composio</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-menu" id="main-menu">
+        <a href="#platform">Platform</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#docs">Docs</a>
+        <a href="#pricing">Pricing</a>
+        <div class="menu-actions">
+          <a class="btn btn-outline" href="#">Book demo</a>
+          <a class="btn btn-primary" href="#">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="platform">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Agent Tool Infrastructure</p>
+          <h1>Integrate production tools into your AI agents in minutes.</h1>
+          <p>Connect LLM apps to SaaS tools with auth, scopes, retries, and observability built in so your agents can execute safely at scale.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#">Start free</a>
+            <a class="btn btn-outline" href="#docs">View docs</a>
+          </div>
+        </div>
+        <div class="terminal-grid" aria-label="Terminal simulation">
+          <article class="pane"><p>$ composio auth connect github</p><p class="ok">connected: github</p></article>
+          <article class="pane"><p>$ composio run slack.post_message</p><p class="ok">status: success</p></article>
+          <article class="pane"><p>$ composio run linear.create_issue</p><p class="muted">issue_id: LIN-2481</p></article>
+          <article class="pane"><p>$ composio logs tail --agent support-bot</p><p class="muted">18 events streamed</p></article>
+          <div class="spotlight" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="integrations">
+      <div class="container feature-grid">
+        <article class="feature-card">
+          <h2>Managed auth</h2>
+          <p>OAuth, API key vaulting, and scope templates without writing auth plumbing for every provider.</p>
+        </article>
+        <article class="feature-card">
+          <h2>Tool sandboxing</h2>
+          <p>Fine-grained permission controls and execution policies for safe autonomous actions.</p>
+        </article>
+        <article class="feature-card">
+          <h2>Live observability</h2>
+          <p>Trace each tool call, inspect payloads, and debug failures in one timeline.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta" id="pricing">
+      <div class="container cta-card">
+        <p class="eyebrow">Launch Faster</p>
+        <h2>Ship your first agent with real actions today.</h2>
+        <a class="btn btn-primary" href="#">Create project</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="docs">
+    <div class="container footer-grid">
+      <div>
+        <h3>Platform</h3>
+        <a href="#platform">Runtime</a>
+        <a href="#integrations">Connectors</a>
+      </div>
+      <div>
+        <h3>Developers</h3>
+        <a href="#">SDKs</a>
+        <a href="#docs">Documentation</a>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+      </div>
+      <p class="copyright">&copy; 2026 Composio</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

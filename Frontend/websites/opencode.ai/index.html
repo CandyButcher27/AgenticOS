@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenCode | Terminal-native AI coding</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <pre class="wordmark" aria-label="OpenCode">
+  ___  ____  _____ _   _  ____ ___  ____  _____
+ / _ \|  _ \| ____| \ | |/ ___/ _ \|  _ \| ____|
+| | | | |_) |  _| |  \| | |  | | | | | | |  _|
+| |_| |  __/| |___| |\  | |__| |_| | |_| | |___
+ \___/|_|   |_____|_| \_|\____\___/|____/|_____|
+      </pre>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">[=]</button>
+      <nav class="site-menu" id="site-menu">
+        <a href="#what">What is OpenCode?</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#faq">FAQ</a>
+        <div class="menu-actions">
+          <a class="button button-secondary" href="#install">Read docs</a>
+          <a class="button button-primary" href="#">Download</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="section-label">[+] The open source AI coding agent</p>
+          <h1>Use the coding agent that still feels like a terminal.</h1>
+          <p>
+            OpenCode keeps the marketing surface as disciplined as the product itself: Berkeley Mono everywhere, cream canvas, hairline rules, and one dark TUI hero that shows the tool doing real work.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#install">Install</a>
+            <a class="button button-secondary" href="#what">Read overview</a>
+          </div>
+        </div>
+        <div class="terminal-card">
+          <pre class="terminal-art">[ opencode ]
+
+> Build a docs search view with grouped results
+
+| agent: zen
+| model: claude-opus-4.5
+| mode : build
+
+[x] scan current routes
+[x] inspect search schema
+[+] write grouped result view
+[+] patch styles
+
+tab switch-agent
+ctrl-p commands</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="container">
+        <div class="install-tabs">
+          <button class="tab is-active" type="button">curl</button>
+          <button class="tab" type="button">npm</button>
+          <button class="tab" type="button">bun</button>
+          <button class="tab" type="button">brew</button>
+        </div>
+        <div class="install-snippet">
+          <code>curl -fsSL https://opencode.ai/install | bash</code>
+          <button class="copy-button" type="button">copy</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="what">
+      <div class="container content-block">
+        <p class="section-label">[+] What is OpenCode?</p>
+        <div class="list-grid">
+          <article class="list-row">
+            <strong>[+] Terminal first</strong>
+            <p>The whole system reads like a man page because the product does too.</p>
+          </article>
+          <article class="list-row">
+            <strong>[+] Real agent workflows</strong>
+            <p>Planning, patching, and verification stay close to the shell instead of hiding behind visual noise.</p>
+          </article>
+          <article class="list-row">
+            <strong>[+] Open source posture</strong>
+            <p>The surface is direct, inspectable, and text-centric from first load to footer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="container content-block">
+        <p class="section-label">[x] Workflow</p>
+        <div class="two-column">
+          <div class="chart-tile">
+            <span>Fig 1. agent loop</span>
+            <pre>scan ---- patch
+  \        |
+   \       |
+ verify <-/</pre>
+          </div>
+          <div class="chart-tile">
+            <span>Fig 2. repo context</span>
+            <pre>files -> plan
+notes -> task
+diff  -> review</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container content-block">
+        <p class="section-label">[-] FAQ</p>
+        <div class="faq-list">
+          <button class="faq-row is-open" type="button">
+            <span>[-] Why is the whole page monospaced?</span>
+            <p>Because the product is text-native and the marketing page should not pretend otherwise.</p>
+          </button>
+          <button class="faq-row" type="button">
+            <span>[+] Does it work outside the terminal?</span>
+            <p>Yes. The core philosophy is still terminal-first, but the workflows can integrate with broader tooling.</p>
+          </button>
+          <button class="faq-row" type="button">
+            <span>[+] Is the codebase open?</span>
+            <p>The open posture is part of the product story, from install to extension paths.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a href="#">GitHub [150K]</a>
+      <a href="#">Docs</a>
+      <a href="#">Changelog</a>
+      <a href="#">Discord</a>
+      <a href="#">X</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

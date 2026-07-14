@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wise | Money without borders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-row">
+      <a class="brand" href="#top" aria-label="Wise home">Wise</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-menu" id="main-menu">
+        <a href="#personal">Personal</a>
+        <a href="#business">Business</a>
+        <a href="#cards">Cards</a>
+        <a href="#pricing">Pricing</a>
+        <div class="menu-actions">
+          <a class="btn btn-ghost" href="#">Log in</a>
+          <a class="btn btn-primary" href="#">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="personal">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">International account</p>
+          <h1>Move money globally at the real exchange rate.</h1>
+          <p>Send, spend, and hold over 40 currencies with clear fees and local account details that work where you do.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#">Open account</a>
+            <a class="btn btn-subtle" href="#">See pricing</a>
+          </div>
+        </div>
+        <div class="converter-card">
+          <h2>Currency converter</h2>
+          <label for="from">You send</label>
+          <input id="from" type="text" value="1000.00 USD">
+          <label for="to">Recipient gets</label>
+          <input id="to" type="text" value="907.45 EUR">
+          <div class="meta-row">
+            <span class="badge positive">Low fee</span>
+            <span>Mid-market rate 1.1018</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cards" id="business">
+      <div class="container card-grid">
+        <article class="card card-sage">
+          <h2>Business account</h2>
+          <p>Pay suppliers in 70+ countries and automate payouts with one finance workspace.</p>
+        </article>
+        <article class="card card-green" id="cards">
+          <h2>Wise card</h2>
+          <p>Spend abroad with instant conversion and no hidden conversion markup.</p>
+        </article>
+        <article class="card card-dark">
+          <h2>Batch payments</h2>
+          <p>Upload once, settle globally, and track status in real-time.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container pricing-banner">
+        <h2>Simple pricing for global money movement.</h2>
+        <p>Know your fee before you send, with no surprises hidden in exchange rates.</p>
+        <a class="btn btn-primary" href="#">Compare fees</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Wise account</h3>
+        <a href="#personal">Personal</a>
+        <a href="#business">Business</a>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+      <div>
+        <h3>Help</h3>
+        <a href="#">Status</a>
+        <a href="#">Support</a>
+      </div>
+      <p class="copyright">&copy; 2026 Wise Payments Ltd.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

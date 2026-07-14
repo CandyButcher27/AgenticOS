@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figma — Think it, make it.</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="top-nav__inner">
+    <a href="#" class="logo" aria-label="Figma Home">
+      <svg viewBox="0 0 38 57" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 28.5a9.5 9.5 0 1 1 9.5-9.5A9.51 9.51 0 0 1 19 28.5z" fill="#0acf83"/>
+        <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#a259ff"/>
+        <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19z" fill="#f24e1e"/>
+        <path d="M0 19a9.5 9.5 0 0 0 9.5 9.5H19V9.5H9.5A9.5 9.5 0 0 0 0 19z" fill="#ff7262"/>
+        <path d="M0 38a9.5 9.5 0 0 1 9.5-9.5H19V38H9.5A9.5 9.5 0 0 1 0 38z" fill="#1abcfe"/>
+      </svg>
+      <span>Figma</span>
+    </a>
+    <nav class="top-nav__center">
+      <a href="#">Figma Design</a>
+      <a href="#">FigJam</a>
+      <a href="#">Slides</a>
+      <a href="#">Make</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="top-nav__right">
+      <a href="#" class="btn-tertiary">Log in</a>
+      <a href="#" class="btn-secondary">Contact sales</a>
+      <a href="#" class="btn-primary">Get started for free</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <nav>
+    <a href="#">Figma Design</a>
+    <a href="#">FigJam</a>
+    <a href="#">Slides</a>
+    <a href="#">Make</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="mobile-overlay__ctas">
+    <a href="#" class="btn-secondary">Contact sales</a>
+    <a href="#" class="btn-primary">Get started for free</a>
+  </div>
+</div>
+
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-strip__track">
+    <span>DUOLINGO</span><span>STRIPE</span><span>SPOTIFY</span><span>NOTION</span><span>ZOOM</span><span>PINTEREST</span><span>DATADOG</span>
+    <span>DUOLINGO</span><span>STRIPE</span><span>SPOTIFY</span><span>NOTION</span><span>ZOOM</span><span>PINTEREST</span><span>DATADOG</span>
+  </div>
+</div>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Think it, make it</p>
+      <h1 class="display-xl">Design.<br>Together.<br>In real time.</h1>
+      <p class="body-lg hero__lead">Figma is where teams brainstorm, design, and build products — from the first sticky note to the final pixel — all in one collaborative canvas.</p>
+      <div class="hero__ctas">
+        <a href="#" class="btn-primary">Get started for free</a>
+        <a href="#" class="btn-secondary">Contact sales</a>
+      </div>
+    </div>
+    <div class="hero__canvas" aria-hidden="true">
+      <div class="floaty floaty--lime"></div>
+      <div class="floaty floaty--lilac"></div>
+      <div class="floaty floaty--coral"></div>
+      <div class="floaty floaty--mint"></div>
+    </div>
+  </section>
+
+  <section class="section feature">
+    <div class="container feature__grid">
+      <div class="feature__copy">
+        <p class="eyebrow">One platform</p>
+        <h2 class="display-lg">Every step of product design, in one place.</h2>
+        <p class="body hero__lead">From FigJam whiteboards to high-fidelity prototypes, Figma keeps your whole team — design, product, and engineering — on the same page, literally.</p>
+      </div>
+      <div class="feature__tiles">
+        <div class="feature-illustration-tile">
+          <p class="eyebrow">Design</p>
+          <div class="tile-graphic tile-graphic--design"></div>
+        </div>
+        <div class="feature-illustration-tile">
+          <p class="eyebrow">Whiteboard</p>
+          <div class="tile-graphic tile-graphic--jam"></div>
+        </div>
+        <div class="feature-illustration-tile">
+          <p class="eyebrow">Prototype</p>
+          <div class="tile-graphic tile-graphic--proto"></div>
+        </div>
+        <div class="feature-illustration-tile">
+          <p class="eyebrow">Dev handoff</p>
+          <div class="tile-graphic tile-graphic--dev"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="color-block color-block--lime">
+        <p class="eyebrow">Systems</p>
+        <h2 class="subhead">One design system, every file. Components, styles, and variables stay in sync across your entire team — update a token once, watch it ripple everywhere.</h2>
+        <a href="#" class="btn-secondary">Explore design systems</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="color-block color-block--navy">
+        <p class="eyebrow">Ship products</p>
+        <h2 class="subhead">From idea to production without leaving the canvas. Hand off specs, inspect code, and ship pixel-accurate builds your engineers will actually thank you for.</h2>
+        <a href="#" class="btn-secondary">See how teams ship</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="color-block color-block--coral">
+        <p class="eyebrow">Developer mode</p>
+        <h2 class="subhead">Inspect real values, export production-ready code, and plug Figma straight into your workflow with a REST API and a growing library of plugins.</h2>
+        <a href="#" class="btn-secondary">Explore for developers</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section templates">
+    <div class="container">
+      <p class="eyebrow">Explore what people are making</p>
+      <h2 class="display-lg templates__heading">Community templates</h2>
+      <div class="template-grid">
+        <article class="template-card">
+          <div class="template-card__thumb template-card__thumb--a"></div>
+          <h3 class="card-title-sm">Mobile App Wireframe Kit</h3>
+          <p class="body-sm">by Community</p>
+        </article>
+        <article class="template-card">
+          <div class="template-card__thumb template-card__thumb--b"></div>
+          <h3 class="card-title-sm">Brand Sprint FigJam Board</h3>
+          <p class="body-sm">by Community</p>
+        </article>
+        <article class="template-card">
+          <div class="template-card__thumb template-card__thumb--c"></div>
+          <h3 class="card-title-sm">Dashboard UI System</h3>
+          <p class="body-sm">by Community</p>
+        </article>
+        <article class="template-card">
+          <div class="template-card__thumb template-card__thumb--d"></div>
+          <h3 class="card-title-sm">Presentation Deck Starter</h3>
+          <p class="body-sm">by Community</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing" id="pricing">
+    <div class="container">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="display-lg templates__heading">Plans for every team size.</h2>
+
+      <div class="pricing-tabs">
+        <button class="pricing-tab pricing-tab--selected" data-tab="starter">Starter</button>
+        <button class="pricing-tab" data-tab="pro">Professional</button>
+        <button class="pricing-tab" data-tab="org">Organization</button>
+        <button class="pricing-tab" data-tab="ent">Enterprise</button>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3 class="card-title">Starter</h3>
+          <p class="body-sm">For individuals exploring Figma.</p>
+          <p class="pricing-card__price">$0</p>
+          <a href="#" class="btn-primary pricing-card__cta">Get started</a>
+          <ul class="pricing-card__features">
+            <li><span class="comparison-checkmark">✓</span> 3 Figma files</li>
+            <li><span class="comparison-checkmark">✓</span> Unlimited FigJam boards</li>
+            <li><span class="comparison-checkmark">✓</span> Basic collaboration</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <h3 class="card-title">Professional</h3>
+          <p class="body-sm">For fast-moving teams.</p>
+          <p class="pricing-card__price">$12<span>/editor/mo</span></p>
+          <a href="#" class="btn-primary pricing-card__cta">Start free trial</a>
+          <ul class="pricing-card__features">
+            <li><span class="comparison-checkmark">✓</span> Unlimited files</li>
+            <li><span class="comparison-checkmark">✓</span> Team libraries</li>
+            <li><span class="comparison-checkmark">✓</span> Version history</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <h3 class="card-title">Organization</h3>
+          <p class="body-sm">For company-wide design ops.</p>
+          <p class="pricing-card__price">$45<span>/editor/mo</span></p>
+          <a href="#" class="btn-primary pricing-card__cta">Start free trial</a>
+          <ul class="pricing-card__features">
+            <li><span class="comparison-checkmark">✓</span> Design systems analytics</li>
+            <li><span class="comparison-checkmark">✓</span> Private plugins</li>
+            <li><span class="comparison-checkmark">✓</span> Centralized billing</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <h3 class="card-title">Enterprise</h3>
+          <p class="body-sm">For organizations at scale.</p>
+          <p class="pricing-card__price">Custom</p>
+          <a href="#" class="btn-secondary pricing-card__cta">Contact sales</a>
+          <ul class="pricing-card__features">
+            <li><span class="comparison-checkmark">✓</span> Advanced security</li>
+            <li><span class="comparison-checkmark">✓</span> SAML SSO</li>
+            <li><span class="comparison-checkmark">✓</span> Dedicated support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="color-block color-block--lime faq-block">
+        <p class="eyebrow">FAQ</p>
+        <div class="faq-list">
+          <div class="faq-row" aria-expanded="true">
+            <div class="faq-row__head">
+              <h3 class="card-title-sm">Can I switch plans later?</h3>
+              <span class="faq-row__chevron">－</span>
+            </div>
+            <p class="faq-row__body body-sm">Yes — you can upgrade, downgrade, or cancel at any time from your team settings.</p>
+          </div>
+          <div class="faq-row" aria-expanded="false">
+            <div class="faq-row__head">
+              <h3 class="card-title-sm">Is there a free plan?</h3>
+              <span class="faq-row__chevron">＋</span>
+            </div>
+            <p class="faq-row__body body-sm">Starter is free forever for individuals and small teams getting started.</p>
+          </div>
+          <div class="faq-row" aria-expanded="false">
+            <div class="faq-row__head">
+              <h3 class="card-title-sm">Do you offer education pricing?</h3>
+              <span class="faq-row__chevron">＋</span>
+            </div>
+            <p class="faq-row__body body-sm">Yes — students and educators get free access to Professional features.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="promo-banner-lilac">
+        <p class="body-sm">Release Notes — see what shipped this month.</p>
+        <a href="#" class="btn-magenta-promo">Save your spot</a>
+      </div>
+
+      <div class="color-block color-block--lilac contact-form-block">
+        <p class="eyebrow">Contact us</p>
+        <h2 class="subhead">Tell us about your team, and we'll help you find the right plan.</h2>
+        <form class="contact-form">
+          <div class="form-row">
+            <label class="body-sm" for="name">Full name</label>
+            <input class="text-input" type="text" id="name" placeholder="Jane Doe">
+          </div>
+          <div class="form-row">
+            <label class="body-sm" for="email">Work email</label>
+            <input class="text-input" type="email" id="email" placeholder="jane@company.com">
+          </div>
+          <div class="form-row">
+            <label class="body-sm" for="team">Team size</label>
+            <input class="text-input" type="text" id="team" placeholder="e.g. 50">
+          </div>
+          <button type="submit" class="btn-primary contact-form__submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <p class="footer__wordmark">Figma</p>
+      <p class="body-sm">Think it, make it.</p>
+      <div class="footer__socials">
+        <button class="icon-btn" aria-label="X / Twitter">𝕏</button>
+        <button class="icon-btn" aria-label="Instagram">◎</button>
+        <button class="icon-btn" aria-label="LinkedIn">in</button>
+      </div>
+    </div>
+    <div class="footer__col">
+      <p class="caption">Product</p>
+      <a href="#">Figma Design</a>
+      <a href="#">FigJam</a>
+      <a href="#">Slides</a>
+      <a href="#">Make</a>
+    </div>
+    <div class="footer__col">
+      <p class="caption">Resources</p>
+      <a href="#">Best practices</a>
+      <a href="#">Colors</a>
+      <a href="#">Color wheel</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="footer__col">
+      <p class="caption">Company</p>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#">Customer stories</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="footer__col">
+      <p class="caption">Download</p>
+      <a href="#">Desktop app</a>
+      <a href="#">iOS app</a>
+      <a href="#">Android app</a>
+      <a href="#">Font installer</a>
+    </div>
+  </div>
+  <div class="container footer__legal">
+    <p class="caption">© 2026 Figma. All rights reserved.</p>
+    <div class="footer__legal-links">
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

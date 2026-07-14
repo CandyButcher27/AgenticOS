@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airbnb | Vacation Rentals, Cabins, Beach Houses &amp; More</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="top-nav__inner">
+    <a href="#" class="logo" aria-label="Airbnb Home">
+      <svg viewBox="0 0 32 32" width="32" height="32" fill="currentColor"><path d="M16 2c1.7 0 2.9 1 3.8 2.7 1 1.8 6.7 12.4 8.4 16.4.7 1.7 1 3 1 4.1 0 3.8-2.9 6.8-6.6 6.8-2.2 0-4.2-1.2-5.5-3.1-.4-.5-.7-1-1.1-1.7-.4.7-.7 1.2-1.1 1.7-1.3 1.9-3.3 3.1-5.5 3.1-3.7 0-6.6-3-6.6-6.8 0-1.1.3-2.4 1-4.1 1.7-4 7.4-14.6 8.4-16.4C13.1 3 14.3 2 16 2z"/></svg>
+    </a>
+
+    <nav class="product-nav" aria-label="Product">
+      <a href="#" class="product-tab product-tab--active">
+        <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15 16 5l12 10"/><path d="M7 13v13h18V13"/><path d="M13 26v-8h6v8"/></svg>
+        <span>Homes</span>
+      </a>
+      <a href="#" class="product-tab product-tab--inactive">
+        <span class="product-tab__icon-wrap">
+          <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="12" r="6"/><path d="M6 27c1-5.5 5-9 10-9s9 3.5 10 9"/></svg>
+          <span class="new-tag">New</span>
+        </span>
+        <span>Experiences</span>
+      </a>
+      <a href="#" class="product-tab product-tab--inactive">
+        <span class="product-tab__icon-wrap">
+          <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="10" width="20" height="16" rx="2"/><path d="M11 10V7a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v3"/></svg>
+          <span class="new-tag">New</span>
+        </span>
+        <span>Services</span>
+      </a>
+    </nav>
+
+    <div class="top-nav__right">
+      <a href="#" class="host-link">Airbnb your home</a>
+      <button class="icon-button-outline" aria-label="Language">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
+      </button>
+      <button class="account-menu" aria-label="Account menu">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-row">
+    <div class="search-bar-pill">
+      <div class="search-field-segment">
+        <span class="search-field-segment__label">Where</span>
+        <span class="search-field-segment__value">Search destinations</span>
+      </div>
+      <span class="search-divider"></span>
+      <div class="search-field-segment">
+        <span class="search-field-segment__label">Check in</span>
+        <span class="search-field-segment__value">Add dates</span>
+      </div>
+      <span class="search-divider"></span>
+      <div class="search-field-segment">
+        <span class="search-field-segment__label">Check out</span>
+        <span class="search-field-segment__value">Add dates</span>
+      </div>
+      <span class="search-divider"></span>
+      <div class="search-field-segment search-field-segment--who">
+        <span class="search-field-segment__label">Who</span>
+        <span class="search-field-segment__value">Add guests</span>
+      </div>
+      <button class="search-orb" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="category-strip">
+    <button class="category-tab category-tab--active">
+      <span class="category-tab__icon">🏖️</span><span>Beachfront</span>
+    </button>
+    <button class="category-tab">
+      <span class="category-tab__icon">🏕️</span><span>Cabins</span>
+    </button>
+    <button class="category-tab">
+      <span class="category-tab__icon">🎡</span><span>Amazing pools</span>
+    </button>
+    <button class="category-tab">
+      <span class="category-tab__icon">🏰</span><span>Castles</span>
+    </button>
+    <button class="category-tab">
+      <span class="category-tab__icon">🌳</span><span>Treehouses</span>
+    </button>
+    <button class="category-tab">
+      <span class="category-tab__icon">🏙️</span><span>Iconic cities</span>
+    </button>
+    <button class="category-tab">
+      <span class="category-tab__icon">🐄</span><span>Farms</span>
+    </button>
+    <button class="category-tab">
+      <span class="category-tab__icon">🏝️</span><span>Islands</span>
+    </button>
+    <button class="category-tab">
+      <span class="category-tab__icon">⛰️</span><span>National parks</span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="section hero-section">
+    <div class="section__inner">
+      <h1 class="hero-heading">Inspiration for future getaways</h1>
+
+      <div class="property-grid">
+
+        <article class="property-card">
+          <div class="property-card__photo property-card__photo--1">
+            <span class="guest-favorite-badge">Guest favorite</span>
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+            <div class="carousel-dots"><span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="property-card__meta">
+            <div class="property-card__row">
+              <h3>Cabin in Big Bear Lake</h3>
+              <span class="property-card__rating">★ 4.92</span>
+            </div>
+            <p class="property-card__sub">128 miles away</p>
+            <p class="property-card__sub">Nov 12 – 17</p>
+            <p class="property-card__price"><strong>$210</strong> night</p>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-card__photo property-card__photo--2">
+            <button class="heart-button heart-button--active" aria-label="Saved"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+            <div class="carousel-dots"><span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="property-card__meta">
+            <div class="property-card__row">
+              <h3>Villa in Tulum</h3>
+              <span class="property-card__rating">★ 4.87</span>
+            </div>
+            <p class="property-card__sub">1,842 miles away</p>
+            <p class="property-card__sub">Dec 3 – 10</p>
+            <p class="property-card__price"><strong>$340</strong> night</p>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-card__photo property-card__photo--3">
+            <span class="guest-favorite-badge">Guest favorite</span>
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+            <div class="carousel-dots"><span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="property-card__meta">
+            <div class="property-card__row">
+              <h3>Cottage in Wilmington</h3>
+              <span class="property-card__rating">★ 4.95</span>
+            </div>
+            <p class="property-card__sub">312 miles away</p>
+            <p class="property-card__sub">Nov 20 – 25</p>
+            <p class="property-card__price"><strong>$145</strong> night</p>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-card__photo property-card__photo--4">
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+            <div class="carousel-dots"><span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="property-card__meta">
+            <div class="property-card__row">
+              <h3>Loft in Athens</h3>
+              <span class="property-card__rating">★ 4.88</span>
+            </div>
+            <p class="property-card__sub">5,614 miles away</p>
+            <p class="property-card__sub">Jan 4 – 9</p>
+            <p class="property-card__price"><strong>$98</strong> night</p>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-card__photo property-card__photo--5">
+            <span class="guest-favorite-badge">Guest favorite</span>
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+            <div class="carousel-dots"><span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="property-card__meta">
+            <div class="property-card__row">
+              <h3>Beach house in Malibu</h3>
+              <span class="property-card__rating">★ 4.99</span>
+            </div>
+            <p class="property-card__sub">42 miles away</p>
+            <p class="property-card__sub">Dec 15 – 22</p>
+            <p class="property-card__price"><strong>$520</strong> night</p>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-card__photo property-card__photo--6">
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+            <div class="carousel-dots"><span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="property-card__meta">
+            <div class="property-card__row">
+              <h3>Chalet in Aspen</h3>
+              <span class="property-card__rating">★ 4.90</span>
+            </div>
+            <p class="property-card__sub">960 miles away</p>
+            <p class="property-card__sub">Jan 18 – 24</p>
+            <p class="property-card__price"><strong>$410</strong> night</p>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-card__photo property-card__photo--7">
+            <span class="guest-favorite-badge">Guest favorite</span>
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+            <div class="carousel-dots"><span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="property-card__meta">
+            <div class="property-card__row">
+              <h3>Farmhouse in Provence</h3>
+              <span class="property-card__rating">★ 4.96</span>
+            </div>
+            <p class="property-card__sub">5,398 miles away</p>
+            <p class="property-card__sub">Feb 2 – 9</p>
+            <p class="property-card__price"><strong>$275</strong> night</p>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-card__photo property-card__photo--8">
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+            <div class="carousel-dots"><span class="dot dot--active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="property-card__meta">
+            <div class="property-card__row">
+              <h3>Apartment in Kyoto</h3>
+              <span class="property-card__rating">★ 4.93</span>
+            </div>
+            <p class="property-card__sub">6,120 miles away</p>
+            <p class="property-card__sub">Mar 10 – 15</p>
+            <p class="property-card__price"><strong>$165</strong> night</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section experiences-section">
+    <div class="section__inner">
+      <h2 class="display-md">Experiences hosted by locals</h2>
+      <div class="experience-grid">
+        <article class="experience-card">
+          <div class="experience-card__photo experience-card__photo--1">
+            <span class="new-badge">New</span>
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+          </div>
+          <h3 class="title-md">Sunset pasta making in Rome</h3>
+          <p class="body-sm-muted">From $89 / person</p>
+        </article>
+        <article class="experience-card">
+          <div class="experience-card__photo experience-card__photo--2">
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+          </div>
+          <h3 class="title-md">Surf lesson at sunrise, Bali</h3>
+          <p class="body-sm-muted">From $54 / person</p>
+        </article>
+        <article class="experience-card">
+          <div class="experience-card__photo experience-card__photo--3">
+            <span class="new-badge">New</span>
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+          </div>
+          <h3 class="title-md">Tokyo night photography walk</h3>
+          <p class="body-sm-muted">From $62 / person</p>
+        </article>
+        <article class="experience-card">
+          <div class="experience-card__photo experience-card__photo--4">
+            <button class="heart-button" aria-label="Save"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></button>
+          </div>
+          <h3 class="title-md">Highlands foraging hike, Scotland</h3>
+          <p class="body-sm-muted">From $71 / person</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section detail-preview">
+    <div class="section__inner detail-preview__inner">
+      <div class="detail-preview__body">
+        <h1 class="listing-heading">Close to Fethiye Aliyah Bali Beach Escape</h1>
+        <p class="body-sm-muted">Entire villa hosted by Aylin · 4 guests · 2 bedrooms · 2 beds · 2 baths</p>
+
+        <div class="rating-display-card">
+          <span class="rating-display-card__ornament">🌿</span>
+          <span class="rating-display-card__number">4.81</span>
+          <span class="rating-display-card__ornament rating-display-card__ornament--flip">🌿</span>
+        </div>
+        <p class="rating-display-card__tagline">Guest favorite</p>
+        <div class="rating-stats">
+          <div class="rating-stats__col"><strong>4.9</strong><span>Cleanliness</span></div>
+          <div class="rating-stats__col"><strong>4.8</strong><span>Accuracy</span></div>
+          <div class="rating-stats__col"><strong>4.9</strong><span>Location</span></div>
+          <div class="rating-stats__col"><strong>4.7</strong><span>Value</span></div>
+        </div>
+
+        <div class="hairline-divider"></div>
+
+        <h2 class="display-md">What this place offers</h2>
+        <div class="amenity-list">
+          <div class="amenity-row"><span>🏊 Private pool</span></div>
+          <div class="amenity-row"><span>📶 Fast wifi — 250 Mbps</span></div>
+          <div class="amenity-row"><span>🍳 Kitchen</span></div>
+          <div class="amenity-row"><span>🚗 Free parking on premises</span></div>
+          <div class="amenity-row"><span>🌊 Beach access</span></div>
+        </div>
+        <button class="btn btn-secondary show-more-btn">Show all 24 amenities</button>
+
+        <div class="hairline-divider"></div>
+
+        <h2 class="display-sm">Things to know</h2>
+        <div class="reviews-card">
+          <div class="review-col">
+            <div class="review-author"><span class="avatar">M</span><div><strong>Maya</strong><p class="caption-sm-muted">October 2025</p></div></div>
+            <p class="body-sm">Absolutely stunning villa, the host was incredibly responsive and the view of the beach was unreal. Would book again in a heartbeat.</p>
+            <button class="btn-tertiary-text">Show more</button>
+          </div>
+          <div class="review-col">
+            <div class="review-author"><span class="avatar">D</span><div><strong>David</strong><p class="caption-sm-muted">September 2025</p></div></div>
+            <p class="body-sm">Quiet, clean, and close to everything we wanted to see. The private pool made the trip — highly recommend for families.</p>
+            <button class="btn-tertiary-text">Show more</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="reservation-card">
+        <p class="display-md reservation-card__price"><strong>$246</strong> <span class="body-sm-muted">night</span></p>
+        <div class="reservation-card__dates">
+          <div class="reservation-card__field"><span class="caption-muted">CHECK-IN</span><span>11/12/2026</span></div>
+          <div class="reservation-card__field"><span class="caption-muted">CHECKOUT</span><span>11/17/2026</span></div>
+        </div>
+        <div class="reservation-card__field reservation-card__field--full"><span class="caption-muted">GUESTS</span><span>2 guests</span></div>
+        <button class="btn btn-primary reservation-card__cta">Reserve</button>
+        <p class="caption-sm-muted reservation-card__note">You won't be charged yet</p>
+        <div class="hairline-divider hairline-divider--tight"></div>
+        <div class="reservation-card__fees">
+          <div class="fee-row"><span>$246 x 5 nights</span><span>$1,230</span></div>
+          <div class="fee-row"><span>Cleaning fee</span><span>$90</span></div>
+          <div class="fee-row"><span>Airbnb service fee</span><span>$168</span></div>
+        </div>
+        <div class="hairline-divider hairline-divider--tight"></div>
+        <div class="fee-row fee-row--total"><span>Total before taxes</span><span>$1,488</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section host-section">
+    <div class="section__inner">
+      <h2 class="display-sm">Meet your host</h2>
+      <div class="host-card">
+        <div class="host-card__avatar">A</div>
+        <div class="host-card__info">
+          <h3 class="title-md">Aylin</h3>
+          <span class="superhost-badge">Superhost</span>
+          <p class="body-sm-muted">98% response rate · Responds within an hour</p>
+        </div>
+        <button class="btn btn-secondary">Contact host</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section city-grid-section">
+    <div class="section__inner">
+      <h2 class="display-md">Explore cities close to home</h2>
+      <div class="city-grid">
+        <div class="city-link-block"><h3>Wilmington</h3><p>Cottage rentals</p></div>
+        <div class="city-link-block"><h3>Athens</h3><p>Villa rentals</p></div>
+        <div class="city-link-block"><h3>Asheville</h3><p>Cabin rentals</p></div>
+        <div class="city-link-block"><h3>Malibu</h3><p>Beach house rentals</p></div>
+        <div class="city-link-block"><h3>Aspen</h3><p>Chalet rentals</p></div>
+        <div class="city-link-block"><h3>Big Bear Lake</h3><p>Cabin rentals</p></div>
+        <div class="city-link-block"><h3>Tulum</h3><p>Villa rentals</p></div>
+        <div class="city-link-block"><h3>Kyoto</h3><p>Apartment rentals</p></div>
+        <div class="city-link-block"><h3>Provence</h3><p>Farmhouse rentals</p></div>
+        <div class="city-link-block"><h3>Sedona</h3><p>House rentals</p></div>
+        <div class="city-link-block"><h3>Savannah</h3><p>Historic home rentals</p></div>
+        <div class="city-link-block"><h3>Lake Tahoe</h3><p>Cabin rentals</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section become-host-section">
+    <div class="section__inner become-host-section__inner">
+      <div>
+        <h2 class="display-sm">Try hosting for the first time</h2>
+        <p class="body-md-light">Earn extra income and unlock new opportunities by sharing your space.</p>
+      </div>
+      <button class="btn-pill-rausch">Become a host</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer-light">
+  <div class="footer__inner">
+    <div class="footer__columns">
+      <div class="footer__col">
+        <h4 class="title-sm">Support</h4>
+        <a href="#" class="footer-link">Help Center</a>
+        <a href="#" class="footer-link">AirCover</a>
+        <a href="#" class="footer-link">Anti-discrimination</a>
+        <a href="#" class="footer-link">Disability support</a>
+        <a href="#" class="footer-link">Cancellation options</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="title-sm">Hosting</h4>
+        <a href="#" class="footer-link">Airbnb your home</a>
+        <a href="#" class="footer-link">AirCover for Hosts</a>
+        <a href="#" class="footer-link">Hosting resources</a>
+        <a href="#" class="footer-link">Community forum</a>
+        <a href="#" class="footer-link">Hosting responsibly</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="title-sm">Airbnb</h4>
+        <a href="#" class="footer-link">Newsroom</a>
+        <a href="#" class="footer-link">New features</a>
+        <a href="#" class="footer-link">Careers</a>
+        <a href="#" class="footer-link">Investors</a>
+        <a href="#" class="footer-link">Airbnb.org emergency stays</a>
+      </div>
+    </div>
+  </div>
+  <div class="legal-band">
+    <div class="legal-band__inner">
+      <span>© 2026 Airbnb, Inc. · <a href="#" class="legal-link">Privacy</a> · <a href="#" class="legal-link">Terms</a> · <a href="#" class="legal-link">Sitemap</a></span>
+      <div class="legal-band__right">
+        <button class="legal-band__picker">🌐 English (US)</button>
+        <button class="legal-band__picker">$ USD</button>
+        <div class="legal-band__social">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="X">X</a>
+          <a href="#" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

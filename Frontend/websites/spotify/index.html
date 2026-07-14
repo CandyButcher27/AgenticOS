@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotify - Web Player</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar__top">
+      <a href="#" class="sidebar__logo" aria-label="Spotify Home">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="#1ed760"><circle cx="12" cy="12" r="12"/><path d="M17.5 16.6c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.3.1-.7-.1-.8-.5-.1-.3.1-.7.5-.8 4-.9 7.5-.5 10.3 1.2.3.2.4.6.2.9zm1.2-2.7c-.3.4-.8.5-1.1.3-2.9-1.8-7.3-2.3-10.7-1.3-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.9-1.2 8.7-.6 12 1.4.4.2.5.7.3 1.1zm.1-2.8c-3.4-2-9.1-2.2-12.4-1.2-.5.1-1-.2-1.1-.6-.1-.5.2-1 .6-1.1 3.8-1.2 10.1-.9 14 1.4.4.3.6.9.3 1.3-.3.4-.9.5-1.4.2z" fill="#000"/></svg>
+        <span>Spotify</span>
+      </a>
+      <nav class="sidebar__nav">
+        <a href="#" class="sidebar__nav-link sidebar__nav-link--active">
+          <span class="sidebar__icon">⌂</span> Home
+        </a>
+        <a href="#" class="sidebar__nav-link">
+          <span class="sidebar__icon">⌕</span> Search
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar__library">
+      <div class="sidebar__library-header">
+        <span class="sidebar__icon">▤</span>
+        <span>Your Library</span>
+        <button class="icon-btn icon-btn--small" aria-label="Create playlist">+</button>
+      </div>
+
+      <div class="library-card">
+        <h4>Create your first playlist</h4>
+        <p>It's easy, we'll help you</p>
+        <button class="btn btn-light-pill">Create playlist</button>
+      </div>
+
+      <div class="library-card">
+        <h4>Let's find some podcasts to follow</h4>
+        <p>We'll keep you updated on new episodes</p>
+        <button class="btn btn-light-pill">Browse podcasts</button>
+      </div>
+
+      <ul class="sidebar__playlist-list">
+        <li>Liked Songs</li>
+        <li>Discover Weekly</li>
+        <li>Release Radar</li>
+        <li>Daily Mix 1</li>
+        <li>Daily Mix 2</li>
+        <li>On Repeat</li>
+        <li>Chill Vibes</li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="main">
+
+    <header class="topbar">
+      <div class="topbar__nav-arrows">
+        <button class="icon-btn" aria-label="Back">‹</button>
+        <button class="icon-btn" aria-label="Forward">›</button>
+      </div>
+      <nav class="topbar__pills">
+        <a href="#" class="pill pill--active">All</a>
+        <a href="#" class="pill">Music</a>
+        <a href="#" class="pill">Podcasts</a>
+      </nav>
+      <div class="topbar__actions">
+        <a href="#" class="btn btn-light-pill">Explore Premium</a>
+        <button class="icon-btn" aria-label="Notifications">🔔</button>
+        <button class="icon-btn" aria-label="Activity">👥</button>
+        <button class="avatar-btn" aria-label="Account">A</button>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <section class="section">
+        <h2 class="heading-section">Good evening</h2>
+        <div class="quick-grid">
+          <a href="#" class="quick-card">
+            <div class="quick-card__art" style="background:linear-gradient(135deg,#e91429,#450af5)"></div>
+            <span>Liked Songs</span>
+          </a>
+          <a href="#" class="quick-card">
+            <div class="quick-card__art" style="background:linear-gradient(135deg,#1ed760,#0a5c33)"></div>
+            <span>Discover Weekly</span>
+          </a>
+          <a href="#" class="quick-card">
+            <div class="quick-card__art" style="background:linear-gradient(135deg,#f59b23,#7d2e0a)"></div>
+            <span>Release Radar</span>
+          </a>
+          <a href="#" class="quick-card">
+            <div class="quick-card__art" style="background:linear-gradient(135deg,#539df5,#1b2a4a)"></div>
+            <span>Daily Mix 1</span>
+          </a>
+          <a href="#" class="quick-card">
+            <div class="quick-card__art" style="background:linear-gradient(135deg,#af2896,#2a0a2e)"></div>
+            <span>Daily Mix 2</span>
+          </a>
+          <a href="#" class="quick-card">
+            <div class="quick-card__art" style="background:linear-gradient(135deg,#ffa42b,#8a4b00)"></div>
+            <span>On Repeat</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__header">
+          <h2 class="heading-section">Made For You</h2>
+          <a href="#" class="show-all-link">Show all</a>
+        </div>
+        <div class="card-rail">
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#1ed760,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Daily Mix 1</h3>
+            <p class="media-card__subtitle">Fred again.., Overmono, Skrillex and more</p>
+          </article>
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#539df5,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Daily Mix 2</h3>
+            <p class="media-card__subtitle">Tame Impala, MGMT, Glass Animals and more</p>
+          </article>
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#ffa42b,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Discover Weekly</h3>
+            <p class="media-card__subtitle">Your weekly mixtape of fresh music</p>
+          </article>
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#f3727f,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Release Radar</h3>
+            <p class="media-card__subtitle">Catch all the latest music from artists you follow</p>
+          </article>
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#7c7c7c,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">On Repeat</h3>
+            <p class="media-card__subtitle">Songs you've had on repeat this month</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__header">
+          <h2 class="heading-section">Popular Artists</h2>
+          <a href="#" class="show-all-link">Show all</a>
+        </div>
+        <div class="card-rail">
+          <article class="media-card media-card--artist">
+            <div class="media-card__art media-card__art--round">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#450af5,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">The Weeknd</h3>
+            <p class="media-card__subtitle">Artist</p>
+          </article>
+          <article class="media-card media-card--artist">
+            <div class="media-card__art media-card__art--round">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#e91429,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Billie Eilish</h3>
+            <p class="media-card__subtitle">Artist</p>
+          </article>
+          <article class="media-card media-card--artist">
+            <div class="media-card__art media-card__art--round">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#1ed760,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Tyler, The Creator</h3>
+            <p class="media-card__subtitle">Artist</p>
+          </article>
+          <article class="media-card media-card--artist">
+            <div class="media-card__art media-card__art--round">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#539df5,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Dua Lipa</h3>
+            <p class="media-card__subtitle">Artist</p>
+          </article>
+          <article class="media-card media-card--artist">
+            <div class="media-card__art media-card__art--round">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#ffa42b,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Bad Bunny</h3>
+            <p class="media-card__subtitle">Artist</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section__header">
+          <h2 class="heading-section">Recently Played</h2>
+          <a href="#" class="show-all-link">Show all</a>
+        </div>
+        <div class="card-rail">
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#af2896,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Late Night Vibes</h3>
+            <p class="media-card__subtitle">Playlist</p>
+          </article>
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#1ed760,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Chill Vibes</h3>
+            <p class="media-card__subtitle">Playlist</p>
+          </article>
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#f59b23,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Workout Energy</h3>
+            <p class="media-card__subtitle">Playlist</p>
+          </article>
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#539df5,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Focus Flow</h3>
+            <p class="media-card__subtitle">Playlist</p>
+          </article>
+          <article class="media-card">
+            <div class="media-card__art">
+              <div class="media-card__art-bg" style="background:linear-gradient(160deg,#f3727f,#121212)"></div>
+              <button class="play-btn" aria-label="Play">▶</button>
+            </div>
+            <h3 class="media-card__title">Throwback Hits</h3>
+            <p class="media-card__subtitle">Playlist</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="site-footer__columns">
+          <div class="site-footer__col">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Jobs</a>
+            <a href="#">For the Record</a>
+          </div>
+          <div class="site-footer__col">
+            <h4>Communities</h4>
+            <a href="#">For Artists</a>
+            <a href="#">Developers</a>
+            <a href="#">Advertising</a>
+            <a href="#">Investors</a>
+            <a href="#">Vendors</a>
+          </div>
+          <div class="site-footer__col">
+            <h4>Useful Links</h4>
+            <a href="#">Support</a>
+            <a href="#">Free Mobile App</a>
+          </div>
+          <div class="site-footer__col">
+            <h4>Spotify Plans</h4>
+            <a href="#">Premium Individual</a>
+            <a href="#">Premium Duo</a>
+            <a href="#">Premium Family</a>
+            <a href="#">Premium Student</a>
+            <a href="#">Spotify Free</a>
+          </div>
+        </div>
+        <div class="site-footer__legal">
+          <span>© 2026 Spotify AB</span>
+          <div class="site-footer__legal-links">
+            <a href="#">Legal</a>
+            <a href="#">Safety &amp; Privacy Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookies</a>
+            <a href="#">About Ads</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</div>
+
+<footer class="now-playing-bar">
+  <div class="now-playing-bar__track">
+    <div class="now-playing-bar__art" style="background:linear-gradient(160deg,#1ed760,#121212)"></div>
+    <div class="now-playing-bar__meta">
+      <span class="now-playing-bar__title">Midnight City</span>
+      <span class="now-playing-bar__artist">M83</span>
+    </div>
+    <button class="icon-btn icon-btn--small" aria-label="Like">♡</button>
+  </div>
+
+  <div class="now-playing-bar__controls">
+    <div class="now-playing-bar__buttons">
+      <button class="icon-btn" aria-label="Shuffle">⤨</button>
+      <button class="icon-btn" aria-label="Previous">⏮</button>
+      <button class="play-btn play-btn--main" aria-label="Play/Pause" id="playPauseBtn">▶</button>
+      <button class="icon-btn" aria-label="Next">⏭</button>
+      <button class="icon-btn" aria-label="Repeat">⟲</button>
+    </div>
+    <div class="now-playing-bar__progress">
+      <span class="now-playing-bar__time">1:24</span>
+      <div class="progress-track"><div class="progress-track__fill" style="width:38%"></div></div>
+      <span class="now-playing-bar__time">3:45</span>
+    </div>
+  </div>
+
+  <div class="now-playing-bar__extra">
+    <button class="icon-btn" aria-label="Queue">☰</button>
+    <button class="icon-btn" aria-label="Volume">🔊</button>
+    <div class="progress-track progress-track--volume"><div class="progress-track__fill" style="width:70%"></div></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

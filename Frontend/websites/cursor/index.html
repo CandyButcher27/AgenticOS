@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursor — The AI Code Editor</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="top-nav__inner">
+    <a href="#" class="wordmark" aria-label="Cursor Home">
+      <span class="wordmark__mark">▲</span> Cursor
+    </a>
+    <nav class="top-nav__center">
+      <a href="#pricing">Pricing</a>
+      <a href="#features">Features</a>
+      <a href="#enterprise">Enterprise</a>
+      <a href="#">Blog</a>
+      <a href="#">Forum</a>
+      <a href="#">Careers</a>
+    </nav>
+    <div class="top-nav__right">
+      <a href="#" class="btn btn-tertiary">Sign In</a>
+      <a href="#" class="btn btn-download">Download</a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero-band">
+    <div class="hero-band__inner">
+      <span class="badge-pill caption-uppercase hero-band__badge">The AI Code Editor</span>
+      <h1 class="display-mega">Built to make you<br>extraordinarily productive</h1>
+      <p class="body-md hero-band__sub">Cursor is the best way to code with AI. Predict your next edit, chat with your codebase, and ship changes at the speed of thought.</p>
+      <div class="hero-band__ctas">
+        <a href="#" class="btn btn-download">Download for macOS</a>
+        <a href="#" class="btn btn-tertiary">Read the docs →</a>
+      </div>
+
+      <div class="ide-mockup-card">
+        <div class="ide-mockup-card__titlebar">
+          <span class="ide-dot"></span>
+          <span class="ide-dot"></span>
+          <span class="ide-dot"></span>
+          <span class="code ide-mockup-card__filename">checkout.ts</span>
+        </div>
+        <div class="ide-mockup-card__body">
+          <div class="ide-sidebar body-sm">
+            <div class="ide-sidebar__item">src</div>
+            <div class="ide-sidebar__item ide-sidebar__item--active">&nbsp;&nbsp;checkout.ts</div>
+            <div class="ide-sidebar__item">&nbsp;&nbsp;cart.ts</div>
+            <div class="ide-sidebar__item">&nbsp;&nbsp;utils</div>
+            <div class="ide-sidebar__item">tests</div>
+            <div class="ide-sidebar__item">package.json</div>
+          </div>
+          <div class="ide-main">
+<pre><span class="tok-com">// apply promo code before tax</span>
+<span class="tok-kw">function</span> <span class="tok-fn">applyPromo</span>(cart, code) {
+  <span class="tok-kw">const</span> promo = <span class="tok-fn">lookupPromo</span>(code);
+  <span class="tok-kw">if</span> (!promo) <span class="tok-kw">return</span> cart;
+
+  cart.subtotal -= promo.amount;
+  cart.appliedCode = <span class="tok-str">code</span>;
+  <span class="tok-kw">return</span> cart;
+}</pre>
+          </div>
+          <div class="ide-chat">
+            <span class="caption-uppercase ide-chat__title">Agent</span>
+            <div class="timeline">
+              <span class="pill pill-thinking caption-uppercase">Thinking</span>
+              <span class="pill pill-grep caption-uppercase">Grepping</span>
+              <span class="pill pill-read caption-uppercase">Reading</span>
+              <span class="pill pill-edit caption-uppercase">Editing</span>
+              <span class="pill pill-done caption-uppercase">Done</span>
+            </div>
+            <p class="body-sm">Applied the promo code before tax calculation and added a guard for invalid codes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="logo-strip">
+    <div class="logo-strip__inner">
+      <span class="caption-uppercase logo-strip__label">Trusted by engineers at</span>
+      <div class="logo-strip__marks caption">
+        <span>Stripe</span>
+        <span>Shopify</span>
+        <span>Perplexity</span>
+        <span>Ramp</span>
+        <span>Notion</span>
+        <span>Vercel</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="section__inner">
+      <div class="section__head">
+        <span class="caption-uppercase section__label">Why Cursor</span>
+        <h2 class="display-lg">Everything you need to code faster</h2>
+        <p class="body-md">A familiar editor supercharged with an AI that actually understands your codebase.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--primary">⌘</div>
+          <h3 class="title-md">Tab, tab, tab</h3>
+          <p class="body-sm">Cursor predicts your next edit — and the one after that. Accept whole diffs with a single keystroke.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--edit">✎</div>
+          <h3 class="title-md">Chat with your codebase</h3>
+          <p class="body-sm">Ask questions in plain English and get answers grounded in your actual code, not generic snippets.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--read">⌕</div>
+          <h3 class="title-md">Agent mode</h3>
+          <p class="body-sm">Hand off multi-file changes. Cursor plans, reads, edits, and verifies — you stay in control.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--grep">≡</div>
+          <h3 class="title-md">Codebase-aware search</h3>
+          <p class="body-sm">Semantic search that understands intent, not just keywords — grep for meaning.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--thinking">◐</div>
+          <h3 class="title-md">Bring your own model</h3>
+          <p class="body-sm">Works with frontier models out of the box, or connect the one your team already trusts.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--done">✓</div>
+          <h3 class="title-md">Privacy by default</h3>
+          <p class="body-sm">Privacy mode ensures your code is never stored or used for training — ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="section__head">
+        <span class="caption-uppercase section__label">The agent timeline</span>
+        <h2 class="display-lg">Watch the agent work</h2>
+        <p class="body-md">Every action the agent takes is visible, staged, and reversible.</p>
+      </div>
+      <div class="timeline-showcase">
+        <div class="timeline-showcase__row">
+          <span class="pill pill-thinking caption-uppercase">Thinking</span>
+          <span class="code">Planning a fix for the failing checkout test — inspecting promo application order.</span>
+        </div>
+        <div class="timeline-showcase__row">
+          <span class="pill pill-grep caption-uppercase">Grepping</span>
+          <span class="code">rg "applyPromo" --type ts</span>
+        </div>
+        <div class="timeline-showcase__row">
+          <span class="pill pill-read caption-uppercase">Reading</span>
+          <span class="code">src/checkout.ts, src/cart.ts, tests/checkout.test.ts</span>
+        </div>
+        <div class="timeline-showcase__row">
+          <span class="pill pill-edit caption-uppercase">Editing</span>
+          <span class="code">src/checkout.ts — reordered promo subtraction before tax calculation</span>
+        </div>
+        <div class="timeline-showcase__row">
+          <span class="pill pill-done caption-uppercase">Done</span>
+          <span class="code">All checkout tests passing. 1 file changed, 6 insertions(+), 2 deletions(-).</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="section__head">
+        <span class="caption-uppercase section__label">Cursor vs. the rest</span>
+        <h2 class="display-lg">Not just autocomplete</h2>
+      </div>
+      <div class="comparison-grid">
+        <div class="comparison-card comparison-card--cursor">
+          <h3 class="title-md comparison-card__title">Cursor</h3>
+          <ul class="body-sm">
+            <li><span class="comparison-check">✓</span> Full codebase context on every request</li>
+            <li><span class="comparison-check">✓</span> Multi-file agent edits with review</li>
+            <li><span class="comparison-check">✓</span> Predictive multi-line edits, not just completions</li>
+            <li><span class="comparison-check">✓</span> Privacy mode — code never used for training</li>
+          </ul>
+        </div>
+        <div class="comparison-card">
+          <h3 class="title-md comparison-card__title">Generic AI plugins</h3>
+          <ul class="body-sm">
+            <li><span class="comparison-cross">–</span> Single-file, single-suggestion completions</li>
+            <li><span class="comparison-cross">–</span> No awareness of related files</li>
+            <li><span class="comparison-cross">–</span> Copy-paste from a separate chat window</li>
+            <li><span class="comparison-cross">–</span> Unclear data retention policies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="section__inner">
+      <div class="section__head">
+        <span class="caption-uppercase section__label">Pricing</span>
+        <h2 class="display-lg">Simple plans for every team</h2>
+        <p class="body-md">Start free. Upgrade when the agent becomes part of how you ship.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-tier-card">
+          <span class="title-sm">Hobby</span>
+          <div class="price">$0<span> /month</span></div>
+          <p class="body-sm">For getting a feel of Cursor.</p>
+          <ul>
+            <li><span class="comparison-check">✓</span> 2,000 completions</li>
+            <li><span class="comparison-check">✓</span> 50 slow premium requests</li>
+            <li><span class="comparison-check">✓</span> Limited agent requests</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Get Started</a>
+        </div>
+        <div class="pricing-tier-featured">
+          <span class="title-sm badge-pill" style="width:fit-content">Most Popular</span>
+          <div class="price">$20<span> /month</span></div>
+          <p class="body-sm">For professional developers.</p>
+          <ul>
+            <li><span class="comparison-check">✓</span> Unlimited completions</li>
+            <li><span class="comparison-check">✓</span> 500 fast premium requests</li>
+            <li><span class="comparison-check">✓</span> Unlimited agent requests</li>
+            <li><span class="comparison-check">✓</span> Privacy mode included</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+        <div class="pricing-tier-card">
+          <span class="title-sm">Business</span>
+          <div class="price">$40<span> /user/month</span></div>
+          <p class="body-sm">For teams shipping at scale.</p>
+          <ul>
+            <li><span class="comparison-check">✓</span> Everything in Pro</li>
+            <li><span class="comparison-check">✓</span> Centralized team billing</li>
+            <li><span class="comparison-check">✓</span> Admin dashboard with usage stats</li>
+            <li><span class="comparison-check">✓</span> SAML/OIDC SSO</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="enterprise">
+    <div class="section__inner">
+      <div class="section__head">
+        <span class="caption-uppercase section__label">Loved by developers</span>
+        <h2 class="display-lg">Engineers ship faster with Cursor</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="body-md">"Cursor's agent mode replaced half of my code review checklist. It catches the boring stuff before I even open the PR."</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-avatar testimonial-avatar--1"></span>
+            <div>
+              <div class="testimonial-card__name">Priya Nair</div>
+              <div class="testimonial-card__role caption">Staff Engineer, fintech startup</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="body-md">"The Tab prediction alone is worth the switch. It feels like the editor is one step ahead of me, not behind."</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-avatar testimonial-avatar--2"></span>
+            <div>
+              <div class="testimonial-card__name">Marcus Lindqvist</div>
+              <div class="testimonial-card__role caption">Backend Lead, logistics platform</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="body-md">"We rolled Cursor out to the whole engineering org. Onboarding new hires into a large codebase takes days now, not weeks."</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-avatar testimonial-avatar--3"></span>
+            <div>
+              <div class="testimonial-card__name">Elena Petrova</div>
+              <div class="testimonial-card__role caption">VP Engineering, e-commerce</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <h2 class="display-lg">Try Cursor now</h2>
+    <p class="body-md" style="margin-bottom: 32px;">Free to start. No credit card required.</p>
+    <div class="cta-band__ctas">
+      <a href="#" class="btn btn-download">Download for macOS</a>
+      <a href="#" class="btn btn-secondary">Download for Windows</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__columns">
+      <div class="footer__brand">
+        <a href="#" class="wordmark"><span class="wordmark__mark">▲</span> Cursor</a>
+        <p class="body-sm">The AI code editor, built for engineers who want to move at the speed of thought.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Product</h4>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Changelog</a>
+        <a href="#">Downloads</a>
+      </div>
+      <div class="footer__col">
+        <h4>Resources</h4>
+        <a href="#">Docs</a>
+        <a href="#">Forum</a>
+        <a href="#">Blog</a>
+        <a href="#">Status</a>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Enterprise</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Cursor. All rights reserved.</span>
+      <div class="footer__bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Preferences</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

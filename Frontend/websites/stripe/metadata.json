@@ -1,0 +1,45 @@
+{
+  "title": "Stripi Financial Infrastructure",
+  "industry": "fintech",
+  "description": "A high-end fintech landing page featuring a light theme with vibrant gradient mesh accents and a structured grid layout. The design combines technical elements like code snippets and dashboard mockups with clean whitespace, creating a professional user experience geared toward developers and enterprise businesses.",
+  "design_style": "modern-corporate",
+  "layout_style": "modular-grid",
+  "mood": [
+    "professional",
+    "trustworthy",
+    "innovative",
+    "clean"
+  ],
+  "color_style": [
+    "light-mode",
+    "indigo-accents",
+    "gradient-mesh",
+    "high-contrast"
+  ],
+  "typography_style": [
+    "geometric-sans",
+    "bold-headings",
+    "clean-hierarchy",
+    "tabular-nums"
+  ],
+  "theme": "light",
+  "visual_density": "balanced",
+  "complexity": "medium",
+  "uniqueness": "modern",
+  "best_for": [
+    "payment-gateways",
+    "b2b-saas",
+    "api-services",
+    "financial-software"
+  ],
+  "keywords": [
+    "dashboard-mockup",
+    "code-snippet",
+    "gradient-background",
+    "feature-grid",
+    "pricing-table",
+    "faq-accordion"
+  ],
+  "site": "stripe",
+  "embedding_text": "Stripi Financial Infrastructure | fintech | A high-end fintech landing page featuring a light theme with vibrant gradient mesh accents and a structured grid layout. The design combines technical elements like code snippets and dashboard mockups with clean whitespace, creating a professional user experience geared toward developers and enterprise businesses. | modern-corporate | modular-grid | professional, trustworthy, innovative, clean | light-mode, indigo-accents, gradient-mesh, high-contrast | geometric-sans, bold-headings, clean-hierarchy, tabular-nums | light | balanced | medium | modern | payment-gateways, b2b-saas, api-services, financial-software | dashboard-mockup, code-snippet, gradient-background, feature-grid, pricing-table, faq-accordion"
+}

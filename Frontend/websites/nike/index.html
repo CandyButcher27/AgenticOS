@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nike. Just Do It.</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="utility-bar__inner">
+    <span class="utility-bar__spacer"></span>
+    <nav class="utility-bar__links">
+      <a href="#">Find a Store</a>
+      <a href="#">Help</a>
+      <a href="#">Join Us</a>
+      <a href="#">Sign In</a>
+    </nav>
+  </div>
+</div>
+
+<header class="primary-nav">
+  <div class="primary-nav__inner">
+    <a href="#" class="logo" aria-label="Nike Home">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M2 15.5c1.6 1.3 3.6 1.7 5.6.9l14-5.6c.2-.1.3-.3.2-.5-.1-.2-.3-.3-.5-.2l-7.6 1.7L23 5.9c-3.2 0-5.9.6-8.9 2L2 15.5z"/></svg>
+    </a>
+    <nav class="primary-nav__center">
+      <a href="#" class="active">New &amp; Featured</a>
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">Kids</a>
+      <a href="#">Jordan</a>
+      <a href="#">Nike SKIMS</a>
+      <a href="#">Sport</a>
+    </nav>
+    <div class="primary-nav__right">
+      <div class="search-pill">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search" aria-label="Search">
+      </div>
+      <button class="icon-btn" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.6 5 8 5 10 6.5 12 9c2-2.5 4-4 6.4-4C22 5 23.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Bag">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="campaign-tile campaign-tile--hero">
+    <div class="campaign-tile__media campaign-tile__media--hero"></div>
+    <div class="campaign-tile__content">
+      <h1 class="display-campaign">Air Max<br>Day</h1>
+      <a href="#" class="btn btn-outline-on-image">Shop Now</a>
+    </div>
+  </section>
+
+  <section class="section trending">
+    <div class="section__inner">
+      <h2 class="heading-xl">Trending Now</h2>
+      <div class="product-grid product-grid--4">
+
+        <article class="product-card">
+          <div class="product-card__image">
+            <span class="badge-promo">Just In</span>
+          </div>
+          <div class="product-card__swatches">
+            <span class="swatch-dot swatch-dot--active" style="--dot:#111111"></span>
+            <span class="swatch-dot" style="--dot:#d30005"></span>
+            <span class="swatch-dot" style="--dot:#ffffff"></span>
+          </div>
+          <h3 class="product-card__name">Nike Air Max 90</h3>
+          <p class="product-card__subtitle">Men's Shoes</p>
+          <div class="product-card__price">
+            <span class="price-sale">$97.97</span>
+            <span class="price-strike">$140</span>
+            <span class="price-off">30% off</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__image"></div>
+          <div class="product-card__swatches">
+            <span class="swatch-dot swatch-dot--active" style="--dot:#111111"></span>
+            <span class="swatch-dot" style="--dot:#4b4b4d"></span>
+          </div>
+          <h3 class="product-card__name">Nike Pegasus 41</h3>
+          <p class="product-card__subtitle">Men's Road Running Shoes</p>
+          <div class="product-card__price">
+            <span class="price-regular">$140</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__image">
+            <span class="badge-promo">Recycled Materials</span>
+          </div>
+          <div class="product-card__swatches">
+            <span class="swatch-dot swatch-dot--active" style="--dot:#0a7281"></span>
+            <span class="swatch-dot" style="--dot:#111111"></span>
+          </div>
+          <h3 class="product-card__name">ACG Zegama</h3>
+          <p class="product-card__subtitle">Trail Running Shoes</p>
+          <div class="product-card__price">
+            <span class="price-regular">$160</span>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__image"></div>
+          <div class="product-card__swatches">
+            <span class="swatch-dot swatch-dot--active" style="--dot:#ed1aa0"></span>
+            <span class="swatch-dot" style="--dot:#beaffd"></span>
+            <span class="swatch-dot" style="--dot:#111111"></span>
+          </div>
+          <h3 class="product-card__name">Nike SKIMS</h3>
+          <p class="product-card__subtitle">Women's Collection</p>
+          <div class="product-card__price">
+            <span class="price-regular">$68</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section sport-rail">
+    <div class="section__inner">
+      <h2 class="heading-xl">Shop by Sport</h2>
+      <div class="sport-rail__scroll">
+        <div class="sport-tile">
+          <div class="sport-tile__media" style="background:#111"></div>
+          <a href="#" class="btn btn-outline-on-image sport-tile__cta">Running</a>
+        </div>
+        <div class="sport-tile">
+          <div class="sport-tile__media" style="background:#39393b"></div>
+          <a href="#" class="btn btn-outline-on-image sport-tile__cta">Basketball</a>
+        </div>
+        <div class="sport-tile">
+          <div class="sport-tile__media" style="background:#0a7281"></div>
+          <a href="#" class="btn btn-outline-on-image sport-tile__cta">Golf</a>
+        </div>
+        <div class="sport-tile">
+          <div class="sport-tile__media" style="background:#4c012d"></div>
+          <a href="#" class="btn btn-outline-on-image sport-tile__cta">Training</a>
+        </div>
+        <div class="sport-tile">
+          <div class="sport-tile__media" style="background:#4b4b4d"></div>
+          <a href="#" class="btn btn-outline-on-image sport-tile__cta">Football</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="campaign-tile campaign-tile--jordan">
+    <div class="campaign-tile__media campaign-tile__media--jordan"></div>
+    <div class="campaign-tile__content">
+      <h1 class="display-campaign">Jordan<br>Golf</h1>
+      <a href="#" class="btn btn-outline-on-image">Discover</a>
+    </div>
+  </section>
+
+  <section class="section clothing">
+    <div class="section__inner">
+      <h2 class="heading-xl">Latest in Clothing</h2>
+      <div class="icon-grid">
+        <a href="#" class="category-icon-card">
+          <span class="category-icon-card__icon">👕</span>
+          <span>Tops &amp; T-Shirts</span>
+        </a>
+        <a href="#" class="category-icon-card">
+          <span class="category-icon-card__icon">🧥</span>
+          <span>Hoodies &amp; Sweatshirts</span>
+        </a>
+        <a href="#" class="category-icon-card">
+          <span class="category-icon-card__icon">🩳</span>
+          <span>Shorts</span>
+        </a>
+        <a href="#" class="category-icon-card">
+          <span class="category-icon-card__icon">🧦</span>
+          <span>Socks</span>
+        </a>
+        <a href="#" class="category-icon-card">
+          <span class="category-icon-card__icon">🧢</span>
+          <span>Hats &amp; Headwear</span>
+        </a>
+        <a href="#" class="category-icon-card">
+          <span class="category-icon-card__icon">🥾</span>
+          <span>Pants &amp; Tights</span>
+        </a>
+        <a href="#" class="category-icon-card">
+          <span class="category-icon-card__icon">🎒</span>
+          <span>Bags &amp; Backpacks</span>
+        </a>
+        <a href="#" class="category-icon-card">
+          <span class="category-icon-card__icon">🧤</span>
+          <span>Accessories</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section member-benefits">
+    <div class="section__inner">
+      <h2 class="heading-xl">Member Benefits</h2>
+      <div class="member-grid">
+        <div class="member-benefit-card">
+          <div class="member-benefit-card__media" style="background:#111"></div>
+          <div class="member-benefit-card__content">
+            <h3 class="heading-lg">Free Shipping</h3>
+            <a href="#" class="btn btn-outline-on-image">Explore</a>
+          </div>
+        </div>
+        <div class="member-benefit-card">
+          <div class="member-benefit-card__media" style="background:#39393b"></div>
+          <div class="member-benefit-card__content">
+            <h3 class="heading-lg">Member Rewards</h3>
+            <a href="#" class="btn btn-outline-on-image">Explore</a>
+          </div>
+        </div>
+        <div class="member-benefit-card">
+          <div class="member-benefit-card__media" style="background:#4c012d"></div>
+          <div class="member-benefit-card__content">
+            <h3 class="heading-lg">Early Access</h3>
+            <a href="#" class="btn btn-outline-on-image">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <div class="section__inner section__inner--narrow">
+      <h2 class="heading-xl">FAQs</h2>
+      <div class="faq-list">
+        <button class="faq-row" aria-expanded="false">
+          <span>How do I track my order?</span>
+          <span class="faq-row__chevron">＋</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span>What is Nike Membership?</span>
+          <span class="faq-row__chevron">＋</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span>What is Nike's return policy?</span>
+          <span class="faq-row__chevron">＋</span>
+        </button>
+        <button class="faq-row" aria-expanded="false">
+          <span>How do I start a return?</span>
+          <span class="faq-row__chevron">＋</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__columns">
+      <div class="footer__col">
+        <h4>Resources</h4>
+        <a href="#">Find a Store</a>
+        <a href="#">Membership</a>
+        <a href="#">Nike Journal</a>
+        <a href="#">Site Feedback</a>
+      </div>
+      <div class="footer__col">
+        <h4>Help</h4>
+        <a href="#">Get Help</a>
+        <a href="#">Order Status</a>
+        <a href="#">Shipping &amp; Delivery</a>
+        <a href="#">Returns</a>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#">About Nike</a>
+        <a href="#">News</a>
+        <a href="#">Careers</a>
+        <a href="#">Investors</a>
+      </div>
+      <div class="footer__col">
+        <h4>Promotions &amp; Discounts</h4>
+        <a href="#">Student</a>
+        <a href="#">Military</a>
+        <a href="#">Teacher</a>
+        <a href="#">Responder</a>
+      </div>
+    </div>
+    <div class="footer__fine-print">
+      <span>© 2026 Nike, Inc. All Rights Reserved</span>
+      <div class="footer__fine-links">
+        <span>United States</span>
+        <a href="#">Guides</a>
+        <a href="#">Terms of Sale</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Nike Privacy Policy</a>
+        <a href="#">CA Supply Chains Act</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vercel - Interactive Template</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-link">
+    <div class="container navbar-wrapper">
+      <a href="#" style="font-weight: 700; font-size: 20px; color: var(--color-ink, #262626);">Vercel</a>
+      <ul class="menu">
+        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Features</a></li>
+        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Developers</a></li>
+        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Pricing</a></li>
+        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Docs</a></li>
+      </ul>
+      <button class="button-primary-sm" style="height: 36px; padding: 0 16px; font-size: 13px;">Get Started</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-band" style="padding: var(--spacing-section, 80px) 0;">
+    <div class="container hero-wrapper">
+      <h1 class="type-display-xl" style="color: var(--color-ink, #262626);">Integrate AI tools in seconds.</h1>
+      <p class="type-body-md" style="color: var(--color-muted, #6b6b6b); max-width: 600px;">
+        Connect your LLM applications to over 100+ platforms and services. Fully customizable, secure, and type-safe tool execution.
+      </p>
+      <div style="display: flex; gap: var(--spacing-md, 16px); margin-top: 16px;">
+        <button class="button-primary-sm">Launch Console</button>
+        <button class="button-secondary">Read Documentation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Console Mockup -->
+  <section style="padding: var(--spacing-lg, 24px) 0; background-color: var(--color-canvas-deep, #000000);">
+    <div class="container">
+      <div class="code-block" style="max-width: 800px; margin: 0 auto;">
+        <div class="terminal-header">
+          <div class="terminal-dot" style="background-color: #ff5f56;"></div>
+          <div class="terminal-dot" style="background-color: #ffbd2e;"></div>
+          <div class="terminal-dot" style="background-color: #27c93f;"></div>
+        </div>
+        <div class="terminal-line"><span class="terminal-prompt">$</span>npm install @vercel/sdk</div>
+        <div class="terminal-line" style="color: var(--color-muted, #888888);">+ @vercel/sdk@1.4.2 added in 2.1s</div>
+        <div class="terminal-line"><span class="terminal-prompt">$</span>python -c "import vercel; print(vercel.version)"</div>
+        <div class="terminal-line" style="color: var(--color-success, #22c55e);">v1.4.2 (Connected to Local Server)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Cards Grid -->
+  <section style="padding: var(--spacing-section, 80px) 0;">
+    <div class="container">
+      <h2 class="type-display-lg" style="text-align: center; color: var(--color-ink, #262626);">Product Offerings</h2>
+      <div class="grid-3">
+
+        <div class="feature-card">
+          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 1</h3>
+          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
+            Describe the tool integrations and seamless workflows enabled by this visual component.
+          </p>
+          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 2</h3>
+          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
+            Describe the tool integrations and seamless workflows enabled by this visual component.
+          </p>
+          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 3</h3>
+          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
+            Describe the tool integrations and seamless workflows enabled by this visual component.
+          </p>
+          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" style="padding: var(--spacing-section, 80px) 0; border-top: 1px solid var(--color-hairline, #e6e6e6);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <span class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">&copy; 2026 Vercel Inc.</span>
+      <ul class="footer-links">
+        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">Terms</a></li>
+        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">Privacy</a></li>
+        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

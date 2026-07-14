@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mistral AI — Frontier AI. In your hands.</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="promo-banner">
+  Introducing Mistral Medium 3.5 — faster, cheaper, frontier-grade.
+  <a href="#">Read the announcement →</a>
+</div>
+
+<header class="primary-nav">
+  <div class="primary-nav__inner">
+    <a href="#" class="logo" aria-label="Mistral AI Home">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M2 20h4V4H2v16zM8 20h4V9H8v11zM14 20h4V4h-4v16zM20 20h2v-8h-2v8z"/></svg>
+      MISTRAL AI_
+    </a>
+    <nav class="primary-nav__center">
+      <a href="#">Products</a>
+      <a href="#">Solutions</a>
+      <a href="#">Research</a>
+      <a href="#">Blog</a>
+      <a href="#">Customers</a>
+      <a href="#">Company</a>
+    </nav>
+    <div class="primary-nav__right">
+      <a href="#" class="nav-link-sales">Contact Sales</a>
+      <a href="#" class="btn-pill-dark">Try Studio</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero-band-sunset">
+    <div class="hero-band-sunset__inner">
+      <div class="hero-band-sunset__copy">
+        <h1 class="hero-display">Frontier AI.<br>In your hands.</h1>
+        <p class="subtitle">Mistral AI builds open, portable, and efficient generative AI for developers and enterprises — models, agents, and tools you can deploy anywhere.</p>
+        <div class="hero-band-sunset__actions">
+          <a href="#" class="btn btn-dark">Try Le Chat</a>
+          <a href="#" class="btn btn-secondary">Explore Studio</a>
+        </div>
+      </div>
+      <div class="hero-band-sunset__media" aria-hidden="true">
+        <div class="peaks"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="section__inner">
+      <div class="stat-row">
+        <div class="stat-cell">
+          <div class="stat-display">75%</div>
+          <p class="body-md">faster time-to-deploy with Le Studio</p>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-display">80%</div>
+          <p class="body-md">reduction in inference cost vs. peers</p>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-display">100%</div>
+          <p class="body-md">portable — deploy on any cloud or on-prem</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="section-header section-header--center">
+        <span class="micro-uppercase">Le Studio</span>
+        <h2 class="display-lg">Build, evaluate, and ship agents.</h2>
+        <p class="body-md">Everything you need to take an idea from prototype to production — fine-tuning, evaluation, observability, and one-click deployment.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="card-feature">
+          <div class="feature-icon-tile">🧠</div>
+          <h3 class="heading-4">Fine-tune</h3>
+          <p class="body-md">Adapt frontier models to your domain with custom datasets and evaluation harnesses.</p>
+        </div>
+        <div class="card-feature">
+          <div class="feature-icon-tile">🔧</div>
+          <h3 class="heading-4">Orchestrate agents</h3>
+          <p class="body-md">Compose tool-calling agents with memory, retrieval, and guardrails out of the box.</p>
+        </div>
+        <div class="card-feature">
+          <div class="feature-icon-tile">📊</div>
+          <h3 class="heading-4">Observe &amp; evaluate</h3>
+          <p class="body-md">Trace every call, benchmark quality, and catch regressions before they ship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="section__inner">
+      <div class="studio-section">
+        <div class="studio-section__text">
+          <span class="micro-uppercase">Coding</span>
+          <h2 class="heading-1">Ship code at the speed of thought.</h2>
+          <p class="body-md">Devstral and Codestral pair with your IDE to write, refactor, and review code — grounded in your repository's context, not a generic sandbox.</p>
+          <div class="studio-section__actions">
+            <a href="#" class="btn btn-primary">Get API access</a>
+            <a href="#" class="btn-link">View documentation →</a>
+          </div>
+        </div>
+        <div class="code-mockup">
+          <div class="code-block-header">
+            <span class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+            agent.py
+          </div>
+          <pre class="code-block"><span class="tok-cm"># vibe-coding with Mistral Medium 3.5</span>
+<span class="tok-kw">from</span> mistralai <span class="tok-kw">import</span> Mistral
+
+client = Mistral(api_key=<span class="tok-str">"..."</span>)
+
+response = client.agents.<span class="tok-fn">complete</span>(
+    model=<span class="tok-str">"mistral-medium-3.5"</span>,
+    messages=[{<span class="tok-str">"role"</span>: <span class="tok-str">"user"</span>,
+               <span class="tok-str">"content"</span>: <span class="tok-str">"refactor auth.py"</span>}],
+    tools=[repo_search, file_edit],
+)
+<span class="tok-fn">print</span>(response.output_text)</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="section-header">
+        <span class="micro-uppercase">Solutions</span>
+        <h2 class="display-lg">Built for every industry.</h2>
+      </div>
+      <div class="industry-grid">
+        <div class="industry-tile">
+          <div class="industry-tile__icon">🏦</div>
+          <h4 class="heading-5">Financial Services</h4>
+          <p>Document analysis and compliance copilots at scale.</p>
+        </div>
+        <div class="industry-tile">
+          <div class="industry-tile__icon">🏥</div>
+          <h4 class="heading-5">Healthcare</h4>
+          <p>Clinical summarization with private, on-prem deployment.</p>
+        </div>
+        <div class="industry-tile">
+          <div class="industry-tile__icon">🏭</div>
+          <h4 class="heading-5">Manufacturing</h4>
+          <p>Multimodal agents for QA and predictive maintenance.</p>
+        </div>
+        <div class="industry-tile">
+          <div class="industry-tile__icon">🏛️</div>
+          <h4 class="heading-5">Public Sector</h4>
+          <p>Sovereign AI infrastructure, fully auditable and portable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="section__inner">
+      <div class="section-header">
+        <span class="micro-uppercase">Customers</span>
+        <h2 class="display-lg">Trusted by builders.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="customer-testimonial-card">
+          <span class="badge badge-orange" style="margin-bottom: 20px;">Case Study</span>
+          <blockquote>"Mistral Medium 3.5 cut our agent latency in half while improving accuracy on our internal benchmarks. Migration took a single afternoon."</blockquote>
+          <div class="attribution"><strong>Amline Voss</strong> — VP Engineering, Northfield Logistics</div>
+        </div>
+        <div class="customer-testimonial-card">
+          <span class="badge badge-cream" style="margin-bottom: 20px;">Case Study</span>
+          <blockquote>"Le Studio gave our team a single place to fine-tune, evaluate, and ship — no more stitching together five different tools."</blockquote>
+          <div class="attribution"><strong>Théo Marchand</strong> — Head of AI, Verdant Health</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="logo-wall">
+    <div class="section__inner">
+      <div class="logo-wall__row">
+        <span class="logo-wall-item">NORTHFIELD</span>
+        <span class="logo-wall-item">VERDANT</span>
+        <span class="logo-wall-item">ORBITAL</span>
+        <span class="logo-wall-item">HELIX&nbsp;LABS</span>
+        <span class="logo-wall-item">FORGEWORKS</span>
+        <span class="logo-wall-item">CIVITAS</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="cta-banner-cream">
+        <h2 class="heading-1">The next chapter of AI is yours.</h2>
+        <div class="cta-banner-cream__actions">
+          <a href="#" class="btn btn-primary">Start building</a>
+          <a href="#" class="btn btn-on-cream">Talk to sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="section__inner section__inner--narrow">
+      <h2 class="heading-2" style="margin-bottom: 32px;">Frequently asked questions</h2>
+      <div class="faq-accordion">
+        <div class="faq-accordion-item" aria-expanded="false">
+          <button class="faq-accordion-item__q">
+            <span>Is Mistral AI open source?</span>
+            <span class="faq-accordion-item__chevron">＋</span>
+          </button>
+          <div class="faq-accordion-item__a">Several of our flagship models are released under permissive open-weight licenses, alongside commercial frontier models available via API and Le Studio.</div>
+        </div>
+        <div class="faq-accordion-item" aria-expanded="false">
+          <button class="faq-accordion-item__q">
+            <span>Can I self-host Mistral models?</span>
+            <span class="faq-accordion-item__chevron">＋</span>
+          </button>
+          <div class="faq-accordion-item__a">Yes — models are portable across cloud providers, on-prem infrastructure, and edge devices, with no vendor lock-in.</div>
+        </div>
+        <div class="faq-accordion-item" aria-expanded="false">
+          <button class="faq-accordion-item__q">
+            <span>What is Le Studio?</span>
+            <span class="faq-accordion-item__chevron">＋</span>
+          </button>
+          <div class="faq-accordion-item__a">Le Studio is our end-to-end platform for building, fine-tuning, evaluating, and deploying agents on top of Mistral models.</div>
+        </div>
+        <div class="faq-accordion-item" aria-expanded="false">
+          <button class="faq-accordion-item__q">
+            <span>Do you offer enterprise support?</span>
+            <span class="faq-accordion-item__chevron">＋</span>
+          </button>
+          <div class="faq-accordion-item__a">Yes — dedicated deployment, SLAs, and custom fine-tuning are available through our enterprise services tier.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="sunset-stripe-band" aria-hidden="true"></div>
+
+<footer class="footer-region">
+  <div class="footer-region__inner">
+    <div class="footer-region__columns">
+      <div class="footer-region__brand">
+        <a href="#" class="logo">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M2 20h4V4H2v16zM8 20h4V9H8v11zM14 20h4V4h-4v16zM20 20h2v-8h-2v8z"/></svg>
+          MISTRAL AI_
+        </a>
+        <p>Frontier AI, in your hands. Building open, portable, efficient AI for everyone.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Why Mistral</h4>
+        <a href="#" class="footer-link">Our mission</a>
+        <a href="#" class="footer-link">Open models</a>
+        <a href="#" class="footer-link">Trust &amp; security</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#" class="footer-link">Le Chat</a>
+        <a href="#" class="footer-link">Le Studio</a>
+        <a href="#" class="footer-link">Research</a>
+        <a href="#" class="footer-link">News</a>
+      </div>
+      <div class="footer-col">
+        <h4>Build</h4>
+        <a href="#" class="footer-link">Documentation</a>
+        <a href="#" class="footer-link">API pricing</a>
+        <a href="#" class="footer-link">Cookbook</a>
+        <a href="#" class="footer-link">Status</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#" class="footer-link">Privacy policy</a>
+        <a href="#" class="footer-link">Terms of use</a>
+        <a href="#" class="footer-link">Security</a>
+      </div>
+    </div>
+    <div class="footer-region__bottom">
+      <span>© 2026 Mistral AI. All rights reserved.</span>
+      <div class="footer-region__socials">
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="GitHub">GH</a>
+        <a href="#" aria-label="Discord">DC</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
