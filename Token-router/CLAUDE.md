@@ -35,10 +35,15 @@ know which model to call.
   candidate's `size` tier and instructs it to prefer medium/large models for
   demanding tasks. Falls back to the first candidate if the call fails or it
   hallucinates an id not in the catalog.
-- **`rate_limiter.py`** — in-memory sliding-window tracker (rpm/rpd only, not
-  tpm/tpd — see chat_core.py's pre-filter for tpm). OpenRouter's free-tier models
-  share ONE bucket per account (`openrouter:free_shared`) — verified against
-  OpenRouter's docs, not per-model. Groq models get independent buckets.
+- **`rate_limiter.py`** — sliding-window tracker (rpm/rpd only, not tpm/tpd — see
+  chat_core.py's pre-filter for tpm), persisted to `rate_limiter_state.json`
+  (gitignored, next to `.env`) so usage survives a process restart instead of
+  re-learning each provider's limits via a fresh 429. Loads + prunes stale entries
+  on import, saves on every `record_call`; skipped entirely under pytest
+  (`PYTEST_CURRENT_TEST` env check) so the test suite stays pure in-memory.
+  OpenRouter's free-tier models share ONE bucket per account
+  (`openrouter:free_shared`) — verified against OpenRouter's docs, not per-model.
+  Groq/Gemini/Ollama models get independent buckets.
 - **`chat_core.py`** — `handle_chat()`, the shared core: merges caller-supplied keys
   over server `.env` defaults, filters the catalog by provider/task_type, **pre-filters
   by rate-limit availability AND token-budget fit** (`_prefilter_candidates`/
@@ -71,8 +76,13 @@ estimating; the rate limiter and the tpm pre-filter both treat `null` as
 
 ## Environment
 
-`.env` (gitignored) holds `GROQ_API_KEY`, `OPENROUTER_API_KEY`, `GEMINI_API_KEY`, plus
-`LANGSMITH_TRACING`/`LANGSMITH_API_KEY`/`LANGSMITH_ENDPOINT` for tracing. litellm
+`.env` (gitignored) holds `GROQ_API_KEY`, `OPENROUTER_API_KEY`, `GEMINI_API_KEY`,
+`OLLAMA_API_KEY`, plus `LANGSMITH_TRACING`/`LANGSMITH_API_KEY`/`LANGSMITH_ENDPOINT`
+for tracing. Ollama Cloud models use the `ollama_chat/<name>` litellm prefix with
+`api_base="https://ollama.com"` (passed explicitly in `smoke_test_models.py`; not
+yet wired into `chat_core.py`'s actual call path — only `PROVIDER_KEY_ENV` knows
+about the `ollama` provider so far, the api_base override still needs adding to
+`chat_core.py` itself before real `/chat` requests can reach Ollama Cloud). litellm
 auto-loads `.env` on import, but `chat_core.py` also loads it explicitly by absolute
 path (`load_dotenv(..., override=True)`) — needed because litellm's automatic
 dotenv discovery is call-stack/cwd-dependent and can pick up a *different* `.env`
@@ -95,39 +105,39 @@ step (`smoke_test_models.py`), never folded into `pytest`.
 
 ## Current state / where to resume
 
-This project is mid-implementation of a plan at
-`C:\Users\sriva\.claude\plans\router-prefilter-and-review-loop.md` (design spec at
-`docs/superpowers/specs/2026-07-14-router-prefilter-and-review-loop-design.md`).
+Core router + Task 1 (deterministic pre-filter) + Frontend integration
+(`regenerate_via_router.py`, `generate_forced_model.py`) are done and committed
+(see git log). The original plan's Task 3 (vision review-and-revise loop) is still
+not started; full code for it is written out in
+`C:\Users\sriva\.claude\plans\router-prefilter-and-review-loop.md`, Task 3, if
+resuming that thread — needs `playwright` added as a dependency first (Task 2).
 
-**Done:**
-- Core router (catalog, router_llm, rate_limiter, chat_core, app.py, mcp_server.py)
-- `size` field added to every catalog entry, router prompt updated to weigh it
-- `family` field + cross-provider fallback (verified live: gpt-oss-20b via Groq
-  when OpenRouter's copy is rate-limited)
-- `keys` made optional (falls back to server `.env` via `SERVER_KEYS`)
-- **Task 1 of the plan (deterministic pre-filter)** — done, tested, 28/28 passing.
-  `PromptTooLargeError` wired through `app.py` (413) and `mcp_server.py`.
-- Frontend integration: `Frontend/scripts/regenerate_via_router.py` (one-shot
-  design.md → 3 files) and `Frontend/scripts/generate_forced_model.py` (same, but
-  forces a specific model instead of letting the router pick) both work, used to
-  regenerate `Frontend/websites/posthog/` and produce comparison builds at
-  `posthog-sonnet/` and `posthog-nemotron-ultra/`.
+**This session (2026-07-14/15) added, on top of that:**
+- `catalog.yaml` rebuilt from 60 speculative entries (scraped from
+  `ollama.com/search?c=cloud` and a user-pasted Gemini rate-limit table) down to 39
+  **smoke-tested-working** ones. See the header comments above the Ollama and
+  Gemini sections in `catalog.yaml` for exactly what was removed and why (paid-tier
+  gating, deprecated ids, wrong size tags). `Token-router/INSPIRATIONS.md` documents
+  routing/optimization ideas pulled from the 4 hackathon repos under
+  `inspirations/tokens/`, each tagged with its source repo.
+- `ollama` added to `chat_core.py`'s `PROVIDER_KEY_ENV` — was previously entirely
+  unwired, meaning no Ollama model could ever have been called even though it was
+  in the catalog. **Still incomplete**: `chat_core.py`'s actual `litellm.completion()`
+  call (line ~98) doesn't pass `api_base="https://ollama.com"` for the `ollama`
+  provider, so real `/chat` requests to any `ollama_chat/*` model will still fail
+  (only `smoke_test_models.py` has the api_base fix so far). Fix this before trusting
+  Ollama routing in production.
+- `rate_limiter.py` gained disk persistence (see Architecture section above).
 
-**Not started:**
-- **Task 2** — add `playwright` as a Token-router dependency (needed for Task 3's
-  screenshot rendering). Not yet in `pyproject.toml`.
-- **Task 3** — vision review-and-revise loop: `--review` flag on
-  `regenerate_via_router.py`, renders the generated site, sends a screenshot to a
-  vision-capable catalog model for critique, feeds critique back for a revision
-  pass, repeats 3x. Full code is written out in the plan file, Task 3.
-- **Task 4** was "write this CLAUDE.md" — superseded by this file existing now.
-
-Resume by reading the plan file directly and continuing from Task 2. No worktree was
-used — work happened directly on `feat/token-router`. Uncommitted changes exist for
-Task 1's files (`app.py`, `catalog.py`, `chat_core.py`, `mcp_server.py`,
-`router_llm.py`, `smoke_test_models.py`, `tests/test_app.py`,
-`tests/test_chat_core.py`, `pyproject.toml`, `uv.lock`) — nothing has been committed
-since the `chore: add real-key smoke test script and catalog source notes` commit.
-`conftest.py` and `new_models.md` were deleted at some point during Task 1's
-implementation (tests still pass without `conftest.py` — verify why before assuming
-it's safe to leave deleted, in case pytest's rootdir-discovery behavior changes).
+**Known gap, not yet worked on (flagged in conversation, not started):** the
+router's own LLM call (`router_llm.py`) stuffs the *entire* filtered catalog into
+the prompt every time — at 39 entries that's ~2,120 tokens, eating over a third of
+`groq/llama-3.1-8b-instant`'s own 6,000 tpm cap before the user's actual prompt is
+even added, and `chat_core.py`'s tpm pre-filter never checks the router call itself,
+only the candidate models it might pick. Also no accuracy/success-rate tracking —
+a bad routing pick just silently falls back to `filtered_catalog[0]`. Idea (not yet
+implemented): replace the "send the whole catalog to an LLM" step with a free
+regex/category classifier first (pattern used by 2 of the 4 inspiration repos, see
+`INSPIRATIONS.md` sections 2 and 5), demoting `router_llm.py` to a fallback for
+ambiguous cases only; optionally add persisted per-category success-rate tracking
+(`INSPIRATIONS.md` section 2, `learning_router.py`-style) so bad picks self-correct.

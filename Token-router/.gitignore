@@ -4,3 +4,4 @@ __pycache__/
 .pytest_cache/
 *.log
 catalog.yaml
+rate_limiter_state.json

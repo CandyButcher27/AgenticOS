@@ -1,3 +1,5 @@
+import json
+import os
 import time
 from collections import defaultdict, deque
 
@@ -5,6 +7,34 @@ _calls: dict[str, deque] = defaultdict(deque)
 
 RPM_WINDOW = 60
 RPD_WINDOW = 86400
+STATE_FILE = os.path.join(os.path.dirname(__file__), "rate_limiter_state.json")
+_UNDER_PYTEST = "PYTEST_CURRENT_TEST" in os.environ
+
+
+def _load_state() -> None:
+    if not os.path.exists(STATE_FILE):
+        return
+    try:
+        with open(STATE_FILE) as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return
+    now = time.time()
+    for key, timestamps in data.items():
+        _calls[key] = deque(t for t in timestamps if now - t <= RPD_WINDOW)
+
+
+def _save_state() -> None:
+    data = {key: list(q) for key, q in _calls.items() if q}
+    try:
+        with open(STATE_FILE, "w") as f:
+            json.dump(data, f)
+    except OSError:
+        pass
+
+
+if not _UNDER_PYTEST:
+    _load_state()
 
 
 def bucket_key(entry: dict) -> str:
@@ -40,3 +70,5 @@ def is_available(entry: dict) -> bool:
 
 def record_call(entry: dict) -> None:
     _calls[bucket_key(entry)].append(time.time())
+    if not _UNDER_PYTEST:
+        _save_state()
