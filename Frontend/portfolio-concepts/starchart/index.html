@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jordan Voss — Starchart</title>
+<style>
+  :root {
+    --bg: #05070D; --panel: #0C1020; --ink: #EAE6D8; --dim: #7C7A6E;
+    --accent: #C9A24B; --line: rgba(201,162,75,0.35); --star: #EAF0FF;
+    --border: rgba(234,230,216,0.14);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #EFE7D0; --panel: #E6DBB8; --ink: #1B1B22; --dim: #6B6650;
+      --accent: #8C6A1F; --line: rgba(140,106,31,0.4); --star: #4A3F1F;
+      --border: rgba(27,27,34,0.16); color-scheme: light; }
+  }
+  :root[data-theme="dark"] { --bg: #05070D; --panel: #0C1020; --ink: #EAE6D8; --dim: #7C7A6E;
+    --accent: #C9A24B; --line: rgba(201,162,75,0.35); --star: #EAF0FF; --border: rgba(234,230,216,0.14); color-scheme: dark; }
+  :root[data-theme="light"] { --bg: #EFE7D0; --panel: #E6DBB8; --ink: #1B1B22; --dim: #6B6650;
+    --accent: #8C6A1F; --line: rgba(140,106,31,0.4); --star: #4A3F1F; --border: rgba(27,27,34,0.16); color-scheme: light; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; }
+  .sans { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; }
+  .mono { font-family: ui-monospace, "SF Mono", Consolas, monospace; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  nav { position: relative; z-index: 5; display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 40px; font-size: 13px; letter-spacing: 0.08em; }
+  nav .links { display: flex; gap: 26px; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+
+  .atlas { position: relative; height: 82vh; min-height: 520px; overflow: hidden; border-bottom: 1px solid var(--border); }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: crosshair; }
+  .atlas-copy { position: absolute; top: 60px; left: 40px; right: 40px; z-index: 3; pointer-events: none; }
+  .atlas-copy .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: var(--accent); font-family: -apple-system, system-ui, sans-serif; margin-bottom: 12px; }
+  .atlas-copy h1 { font-size: clamp(2rem, 5.4vw, 3.8rem); font-weight: 400; margin: 0; max-width: 14ch; line-height: 1.08; text-wrap: balance; }
+  .atlas-copy p { font-family: -apple-system, system-ui, sans-serif; color: var(--dim); max-width: 46ch; margin: 18px 0 0; font-size: 14.5px; line-height: 1.6; }
+  .atlas-hint { position: absolute; bottom: 20px; left: 40px; z-index: 3; font-size: 11px; letter-spacing: 0.06em; color: var(--dim); font-family: -apple-system, system-ui, sans-serif; }
+
+  .section-head { display: flex; align-items: baseline; gap: 16px; margin: 90px 0 30px; padding: 0 40px; }
+  .section-head .idx { color: var(--accent); font-size: 12px; letter-spacing: 0.1em; font-family: -apple-system, system-ui, sans-serif; }
+  .section-head h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 400; margin: 0; font-style: italic; }
+  .section-head .line { flex: 1; height: 1px; background: var(--border); }
+
+  .plates { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 0 40px; }
+  .plate { background: var(--panel); padding: 26px; }
+  .plate .fig { font-family: -apple-system, system-ui, sans-serif; font-size: 10.5px; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 12px; }
+  .plate h3 { font-weight: 400; font-style: italic; font-size: 1.2rem; margin: 0 0 10px; }
+  .plate p { font-family: -apple-system, system-ui, sans-serif; font-size: 13px; color: var(--dim); line-height: 1.6; margin: 0; }
+
+  .about-wrap { padding: 0 40px 40px; }
+  .about-wrap p { font-size: 1.15rem; line-height: 1.75; color: var(--ink); max-width: 62ch; }
+  .about-wrap p b { color: var(--accent); font-style: italic; }
+
+  footer { padding: 26px 40px 40px; display: flex; justify-content: space-between; border-top: 1px solid var(--border);
+    font-family: -apple-system, system-ui, sans-serif; font-size: 11.5px; color: var(--dim); flex-wrap: wrap; gap: 10px; }
+  footer a { color: var(--dim); text-decoration: none; margin-left: 16px; }
+  footer a:hover { color: var(--accent); }
+
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;
+    z-index: 50; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+  .modal-backdrop.open { opacity: 1; pointer-events: auto; }
+  .modal { background: var(--panel); border: 1px solid var(--border); padding: 30px; max-width: 440px; width: 100%;
+    transform: scale(0.94); transition: transform 0.2s ease; }
+  .modal-backdrop.open .modal { transform: scale(1); }
+  .modal .fig { font-family: -apple-system, system-ui, sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+  .modal h3 { font-weight: 400; font-style: italic; font-size: 1.5rem; margin: 8px 0 12px; }
+  .modal p { font-family: -apple-system, system-ui, sans-serif; font-size: 13.5px; color: var(--dim); line-height: 1.6; margin: 0 0 16px; }
+  .modal .row { display: flex; justify-content: space-between; align-items: center; font-family: -apple-system, system-ui, sans-serif; }
+  .modal .row a { color: var(--accent); text-decoration: none; font-size: 13px; }
+  .modal .close { background: none; border: none; color: var(--dim); cursor: pointer; font-size: 12px; font-family: -apple-system, system-ui, sans-serif; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span style="font-style:italic">Jordan Voss</span>
+  <span class="links sans"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></span>
+</nav>
+
+<div class="atlas" id="atlas">
+  <canvas id="sky"></canvas>
+  <div class="atlas-copy">
+    <div class="eyebrow">PLATE I — A CHART OF THE WORK</div>
+    <h1>Every project, a fixed point.</h1>
+    <p>Backend engineer, distributed systems. Move your cursor across the chart; click a star to read its record.</p>
+  </div>
+  <div class="atlas-hint">move to drift the sky · click a star</div>
+</div>
+
+<div class="section-head" id="work">
+  <span class="idx sans">II</span><h2>Star Catalogue</h2><span class="line"></span>
+</div>
+<div class="plates">
+  <div class="plate"><div class="fig">α · CACHE-CORE · 2025</div><h3>Distributed Cache Layer</h3><p>Sharded, gossip-replicated in-memory tier. p99: 380ms → 22ms.</p></div>
+  <div class="plate"><div class="fig">β · COLLAB-ENGINE · 2024</div><h3>Realtime Collab Engine</h3><p>CRDT sync for multiplayer editing, 12k concurrent sessions.</p></div>
+  <div class="plate"><div class="fig">γ · PIPELINE-CLI · 2023</div><h3>Pipeline Inspector CLI</h3><p>OSS pipeline tracer, 6k stars, adopted by 3 infra teams.</p></div>
+</div>
+
+<div class="section-head" id="about">
+  <span class="idx sans">III</span><h2>Notes on the Cartographer</h2><span class="line"></span>
+</div>
+<div class="about-wrap">
+  <p>I spent the first half of my career in <b>observability tooling</b> — learning what breaks, and why. The second half has been charting systems that don't need watching at 3am. Every star above marks a system built for correctness under load.</p>
+</div>
+
+<footer id="contact">
+  <span>© 2026 Jordan Voss</span>
+  <span><a href="mailto:jordan@example.com">EMAIL</a><a href="#">GITHUB</a><a href="#">LINKEDIN</a></span>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal" id="modal"></div></div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canvas = document.getElementById('sky');
+  var ctx = canvas.getContext('2d');
+  var atlas = document.getElementById('atlas');
+  var DPR = Math.min(2, window.devicePixelRatio || 1);
+
+  function resize() {
+    canvas.width = atlas.clientWidth * DPR;
+    canvas.height = atlas.clientHeight * DPR;
+    canvas.style.width = atlas.clientWidth + 'px';
+    canvas.style.height = atlas.clientHeight + 'px';
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var stars = [];
+  for (var i = 0; i < 160; i++) {
+    stars.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.4 + 0.3, tw: Math.random() * Math.PI * 2, depth: Math.random() * 0.6 + 0.2 });
+  }
+
+  var projects = [
+    { key: 'α', title: 'Distributed Cache Layer', coord: 'RA 04h12m · DEC +21°', desc: 'Rebuilt the read path for a 40M-user platform. p99 latency: 380ms → 22ms via a sharded, gossip-replicated in-memory cache tier.', stack: 'Go · Redis · gRPC', link: 'https://github.com/example/cache-core', x: 0.28, y: 0.38 },
+    { key: 'β', title: 'Realtime Collab Engine', coord: 'RA 09h47m · DEC +05°', desc: 'CRDT-based sync engine for multiplayer editing. 12k concurrent sessions, sub-frame conflict resolution.', stack: 'Rust · WebSockets · WASM', link: 'https://github.com/example/collab-engine', x: 0.55, y: 0.28 },
+    { key: 'γ', title: 'Pipeline Inspector CLI', coord: 'RA 14h02m · DEC -12°', desc: 'Open-source dev tool for tracing data pipeline failures. 6k GitHub stars, adopted by three infra teams.', stack: 'TypeScript · SQLite', link: 'https://github.com/example/pipeline-inspect', x: 0.74, y: 0.58 },
+    { key: 'δ', title: 'Resume', coord: 'RA 18h30m · DEC +40°', desc: '7 years backend & distributed systems. Open to select senior/staff roles.', stack: 'PDF', link: 'https://example.com/resume.pdf', x: 0.42, y: 0.7 }
+  ];
+
+  var mouseX = 0.5, mouseY = 0.5;
+  atlas.addEventListener('mousemove', function (e) {
+    var rect = atlas.getBoundingClientRect();
+    mouseX = (e.clientX - rect.left) / rect.width;
+    mouseY = (e.clientY - rect.top) / rect.height;
+  });
+
+  function project(p) {
+    var w = canvas.width / DPR, h = canvas.height / DPR;
+    var parallax = 18;
+    var px = p.x * w + (mouseX - 0.5) * -parallax;
+    var py = p.y * h + (mouseY - 0.5) * -parallax;
+    return { x: px, y: py };
+  }
+
+  function draw(t) {
+    var w = canvas.width / DPR, h = canvas.height / DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    var starColor = getComputedStyle(document.documentElement).getPropertyValue('--star').trim();
+    var lineColor = getComputedStyle(document.documentElement).getPropertyValue('--line').trim();
+    var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+
+    stars.forEach(function (s) {
+      var parallax = 40 * s.depth;
+      var x = s.x * w + (mouseX - 0.5) * -parallax;
+      var y = s.y * h + (mouseY - 0.5) * -parallax;
+      var alpha = reduced ? 0.5 : (Math.sin(t / 900 + s.tw) * 0.3 + 0.55);
+      ctx.beginPath();
+      ctx.fillStyle = starColor;
+      ctx.globalAlpha = alpha;
+      ctx.arc(x, y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    ctx.strokeStyle = lineColor;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    projects.forEach(function (p, i) {
+      var pos = project(p);
+      if (i === 0) ctx.moveTo(pos.x, pos.y); else ctx.lineTo(pos.x, pos.y);
+    });
+    ctx.stroke();
+
+    projects.forEach(function (p) {
+      var pos = project(p);
+      p._sx = pos.x; p._sy = pos.y;
+      var pulse = reduced ? 1 : (Math.sin(t / 500) * 0.5 + 1.5);
+      ctx.beginPath();
+      ctx.fillStyle = accent;
+      ctx.arc(pos.x, pos.y, 3.4 * pulse * 0.5 + 2.4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.font = '11px Georgia, serif';
+      ctx.fillStyle = accent;
+      ctx.globalAlpha = 0.85;
+      ctx.fillText(p.key, pos.x + 8, pos.y - 6);
+      ctx.globalAlpha = 1;
+    });
+
+    if (!reduced) requestAnimationFrame(draw); else draw(0);
+  }
+  requestAnimationFrame(draw);
+  if (reduced) draw(0);
+
+  canvas.addEventListener('click', function (e) {
+    var rect = canvas.getBoundingClientRect();
+    var cx = e.clientX - rect.left, cy = e.clientY - rect.top;
+    var hit = projects.find(function (p) {
+      var dx = p._sx - cx, dy = p._sy - cy;
+      return Math.sqrt(dx * dx + dy * dy) < 16;
+    });
+    if (hit) openModal(hit);
+  });
+
+  function openModal(p) {
+    var modal = document.getElementById('modal');
+    modal.innerHTML = '<div class="row"><span class="fig">' + p.key + ' · ' + p.coord + '</span>' +
+      '<button class="close" id="closeModal">CLOSE ✕</button></div>' +
+      '<h3>' + p.title + '</h3><p>' + p.desc + '</p>' +
+      '<p class="sans" style="font-size:12px;letter-spacing:0.04em">' + p.stack + '</p>' +
+      '<div class="row"><a href="' + p.link + '" target="_blank" rel="noopener">view record →</a></div>';
+    document.getElementById('modalBackdrop').classList.add('open');
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+  }
+  function closeModal() { document.getElementById('modalBackdrop').classList.remove('open'); }
+  document.getElementById('modalBackdrop').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+})();
+</script>
+
+</body>
+</html>

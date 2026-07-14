@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jordan@voss — portfolio</title>
+<style>
+  :root {
+    --bg: #16130F;
+    --bg-win: #1C1812;
+    --bg-elevated: #241F17;
+    --ink: #F4EDE0;
+    --dim: #8A8072;
+    --accent: #FFB000;
+    --accent-dim: #8C6416;
+    --danger: #E85C33;
+    --ok: #8FBF5E;
+    --border: #3A3226;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #EDE6D3; --bg-win: #F5EFDF; --bg-elevated: #E7DFC8;
+      --ink: #221D14; --dim: #6E6450; --accent: #A66A00; --accent-dim: #C89448;
+      --danger: #B4401E; --ok: #4F7A2E; --border: #CFC4A4;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16130F; --bg-win: #1C1812; --bg-elevated: #241F17; --ink: #F4EDE0;
+    --dim: #8A8072; --accent: #FFB000; --accent-dim: #8C6416; --danger: #E85C33;
+    --ok: #8FBF5E; --border: #3A3226; color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --bg: #EDE6D3; --bg-win: #F5EFDF; --bg-elevated: #E7DFC8; --ink: #221D14;
+    --dim: #6E6450; --accent: #A66A00; --accent-dim: #C89448; --danger: #B4401E;
+    --ok: #4F7A2E; --border: #CFC4A4; color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-monospace, "JetBrains Mono", "SF Mono", Consolas, "Cascadia Code", monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+    position: relative;
+  }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  .win {
+    width: min(920px, 100%);
+    height: min(640px, 88vh);
+    background: var(--bg-win);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+  .win::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px,
+      transparent 1px, transparent 3px
+    );
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+  }
+  .chrome {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 16px;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background: #E8604C; } .dot.y { background: #E8B23C; } .dot.g { background: #6FBF5E; }
+  .chrome .title {
+    flex: 1; text-align: center;
+    font-size: 12px; color: var(--dim); letter-spacing: 0.04em;
+  }
+
+  .screen {
+    flex: 1;
+    padding: 20px 22px;
+    overflow-y: auto;
+    font-size: 13.5px;
+    line-height: 1.68;
+    cursor: text;
+  }
+  .screen::-webkit-scrollbar { width: 10px; }
+  .screen::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+
+  .line { white-space: pre-wrap; word-break: break-word; }
+  .line.dim { color: var(--dim); }
+  .line.accent { color: var(--accent); }
+  .line.ok { color: var(--ok); }
+  .line.danger { color: var(--danger); }
+  .line a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+  .prompt-row { display: flex; gap: 8px; align-items: baseline; }
+  .prompt-tag { color: var(--ok); flex-shrink: 0; }
+  .prompt-path { color: var(--accent); flex-shrink: 0; }
+  .prompt-sep { color: var(--dim); flex-shrink: 0; }
+
+  .barfill {
+    display: inline-block; height: 8px; width: 140px;
+    background: var(--bg-elevated); border: 1px solid var(--border);
+    vertical-align: middle; position: relative; overflow: hidden;
+  }
+  .barfill i {
+    display: block; height: 100%; background: var(--accent);
+    width: 0%; transition: width 0.5s ease;
+  }
+
+  .proj-card {
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    margin: 6px 0;
+    background: var(--bg-elevated);
+  }
+  .proj-card .hd { display: flex; justify-content: space-between; color: var(--accent); }
+  .proj-card .tags { color: var(--dim); font-size: 12px; margin-top: 4px; }
+
+  #input-row { display: flex; align-items: baseline; gap: 8px; }
+  #cmd-input {
+    flex: 1; background: none; border: none; outline: none;
+    color: var(--ink); font: inherit; caret-color: transparent;
+  }
+  .cursor {
+    display: inline-block; width: 8px; height: 15px;
+    background: var(--accent); vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: 1px;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .hint {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    font-size: 11px; color: var(--dim); letter-spacing: 0.04em;
+    background: var(--bg-elevated); border: 1px solid var(--border);
+    padding: 6px 12px; border-radius: 20px;
+  }
+  .hint b { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .win { height: 92vh; }
+    .screen { font-size: 12.5px; }
+    .hint { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="win" id="win">
+  <div class="chrome">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="title">jordan@voss: ~/portfolio</div>
+  </div>
+  <div class="screen" id="screen"></div>
+</div>
+<div class="hint">type <b>help</b> · try <b>ls</b>, <b>cat resume.md</b>, <b>theme light</b></div>
+
+<script>
+(function () {
+  var screen = document.getElementById('screen');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var links = {
+    email: 'jordan@example.com',
+    github: 'https://github.com/example',
+    linkedin: 'https://linkedin.com/in/example'
+  };
+
+  var projects = {
+    'cache-core.md': {
+      title: 'Distributed Cache Layer', year: '2025',
+      desc: 'Rebuilt the read path for a 40M-user platform. Sharded, gossip-replicated in-memory tier.',
+      stack: 'Go · Redis · gRPC',
+      impact: 'p99 latency: 380ms -> 22ms',
+      link: 'https://github.com/example/cache-core'
+    },
+    'collab-engine.md': {
+      title: 'Realtime Collab Engine', year: '2024',
+      desc: 'CRDT-based sync engine powering multiplayer editing for a design tool.',
+      stack: 'Rust · WebSockets · WASM',
+      impact: '12k concurrent sessions, sub-frame conflict resolution',
+      link: 'https://github.com/example/collab-engine'
+    },
+    'pipeline-inspect.md': {
+      title: 'Pipeline Inspector CLI', year: '2023',
+      desc: 'Open-source dev tool for tracing data pipeline failures.',
+      stack: 'TypeScript · SQLite',
+      impact: '6k GitHub stars, adopted by 3 infra teams',
+      link: 'https://github.com/example/pipeline-inspect'
+    },
+    'resume.md': {
+      title: 'Resume', year: '',
+      desc: '7 years in backend & distributed systems. Prev: observability tooling.',
+      stack: 'Go · Rust · TypeScript · Postgres · Kubernetes',
+      impact: 'Open to select senior/staff roles',
+      link: 'https://example.com/resume.pdf'
+    }
+  };
+
+  var commandList = ['help','whoami','about','ls','cat','open','projects','contact','theme','clear','history','date','sudo','skills'];
+
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function printRaw(html, cls) {
+    var div = document.createElement('div');
+    div.className = 'line' + (cls ? ' ' + cls : '');
+    div.innerHTML = html;
+    screen.appendChild(div);
+    screen.scrollTop = screen.scrollHeight;
+    return div;
+  }
+
+  function print(text, cls) {
+    printRaw(esc(text), cls);
+  }
+
+  function printLink(label, url) {
+    printRaw('<a href="' + url + '" target="_blank" rel="noopener">' + esc(label) + '</a>');
+  }
+
+  function printProject(key, p) {
+    var el = document.createElement('div');
+    el.className = 'proj-card';
+    el.innerHTML =
+      '<div class="hd"><span>' + esc(p.title) + '</span><span>' + esc(p.year) + '</span></div>' +
+      '<div>' + esc(p.desc) + '</div>' +
+      '<div class="tags">' + esc(p.stack) + ' &nbsp;·&nbsp; ' + esc(p.impact) + '</div>' +
+      '<div style="margin-top:6px"><a href="' + p.link + '" target="_blank" rel="noopener">' + esc(p.link) + '</a></div>';
+    screen.appendChild(el);
+    screen.scrollTop = screen.scrollHeight;
+  }
+
+  function sleep(ms) { return new Promise(function (res) { setTimeout(res, reduced ? 0 : ms); }); }
+
+  async function bootSequence() {
+    var logo =
+' _____ _____ ____  ____    _    _   _\n' +
+'|_   _|_   _/ ___||  _ \\  / \\  | \\ | |\n' +
+'  | |   | | \\___ \\| |_) |/ _ \\ |  \\| |\n' +
+'  | |   | |  ___) |  _ </ ___ \\| |\\  |\n' +
+'  |_|   |_| |____/|_| \\_/_/   \\_\\_| \\_|   OS  v2.6';
+    printRaw(esc(logo), 'accent');
+    await sleep(250);
+    print('booting JORDAN_OS...', 'dim');
+    await sleep(200);
+
+    var checks = [
+      'mounting /projects',
+      'loading kernel::backend_experience',
+      'initializing shell',
+      'starting resume.service'
+    ];
+    for (var i = 0; i < checks.length; i++) {
+      var row = printRaw('[    ] ' + esc(checks[i]));
+      await sleep(180);
+      row.innerHTML = '[<span style="color:var(--ok)">OK</span>] ' + esc(checks[i]);
+      row.className = 'line dim';
+    }
+    await sleep(150);
+    print('');
+    print('welcome. this terminal is jordan voss’ portfolio.', 'accent');
+    print('type "help" to see available commands, or try "ls".', 'dim');
+    print('');
+    focusInput();
+  }
+
+  function helpText() {
+    print('');
+    print('AVAILABLE COMMANDS', 'accent');
+    var rows = [
+      ['whoami', 'quick identity'],
+      ['about', 'longer bio'],
+      ['ls', 'list project files'],
+      ['cat <file>', 'print a project file, e.g. cat cache-core.md'],
+      ['open <file>', 'same as cat + opens the live link'],
+      ['skills', 'stack / tools'],
+      ['contact', 'email & socials'],
+      ['theme [dark|light]', 'switch terminal theme'],
+      ['history', 'show command history'],
+      ['clear', 'clear the screen']
+    ];
+    rows.forEach(function (r) {
+      printRaw('  <span style="color:var(--accent)">' + r[0].padEnd(20) + '</span>' + esc(r[1]));
+    });
+    print('');
+  }
+
+  function lsOutput() {
+    print('');
+    Object.keys(projects).forEach(function (k) {
+      printRaw('  <span style="color:var(--accent)">' + k.padEnd(22) + '</span><span class="line dim" style="display:inline">' + esc(projects[k].year) + '</span>');
+    });
+    print('');
+  }
+
+  var history = [];
+  var histIdx = -1;
+
+  async function runCommand(raw) {
+    var trimmed = raw.trim();
+    printRaw('<span style="color:var(--ok)">jordan</span><span style="color:var(--dim)">@voss</span><span style="color:var(--dim)">:</span><span style="color:var(--accent)">~</span><span style="color:var(--dim)">$</span> ' + esc(raw));
+    if (!trimmed) return;
+    history.push(trimmed);
+    histIdx = history.length;
+
+    var parts = trimmed.split(/\s+/);
+    var cmd = parts[0].toLowerCase();
+    var arg = parts.slice(1).join(' ');
+
+    switch (cmd) {
+      case 'help':
+        helpText(); break;
+      case 'whoami':
+        print('jordan voss — senior software engineer, distributed systems.', 'ok'); break;
+      case 'about':
+        print('');
+        print('i spent the first half of my career in observability tooling — learning');
+        print('what breaks, and why, at 3am. the second half has been building systems');
+        print('that don’t page anyone. i care about correctness under load, boring');
+        print('failure modes, and interfaces clear enough that the next engineer doesn’t');
+        print('need me in the room to understand them.');
+        print('');
+        break;
+      case 'skills':
+        print('');
+        ['Go', 'Rust', 'TypeScript', 'PostgreSQL', 'Kafka', 'Kubernetes', 'Redis', 'Terraform'].forEach(function (s) {
+          var pct = 60 + Math.floor(Math.random() * 35);
+          printRaw(s.padEnd(14) + '<span class="barfill"><i style="width:' + pct + '%"></i></span> ' + pct + '%');
+        });
+        print('');
+        break;
+      case 'ls':
+        lsOutput(); break;
+      case 'projects':
+        print('');
+        Object.keys(projects).filter(function(k){return k!=='resume.md';}).forEach(function (k) { printProject(k, projects[k]); });
+        print('');
+        break;
+      case 'cat':
+      case 'open':
+        if (!arg) { print('usage: ' + cmd + ' <file>   (try "ls" to list files)', 'danger'); break; }
+        var key = Object.keys(projects).find(function (k) { return k === arg || k === arg + '.md'; });
+        if (!key) { print(cmd + ': ' + arg + ': no such file', 'danger'); break; }
+        print('');
+        printProject(key, projects[key]);
+        print('');
+        if (cmd === 'open') window.open(projects[key].link, '_blank');
+        break;
+      case 'contact':
+        print('');
+        printRaw('email    <a href="mailto:' + links.email + '">' + links.email + '</a>');
+        printRaw('github   <a href="' + links.github + '" target="_blank">' + links.github + '</a>');
+        printRaw('linkedin <a href="' + links.linkedin + '" target="_blank">' + links.linkedin + '</a>');
+        print('');
+        break;
+      case 'theme':
+        if (arg === 'dark' || arg === 'light') {
+          document.documentElement.setAttribute('data-theme', arg);
+          print('theme set to ' + arg + '.', 'ok');
+        } else {
+          print('usage: theme [dark|light]', 'danger');
+        }
+        break;
+      case 'clear':
+        screen.innerHTML = '';
+        return;
+      case 'history':
+        print('');
+        history.forEach(function (h, i) { print('  ' + (i + 1) + '  ' + h, 'dim'); });
+        print('');
+        break;
+      case 'date':
+        print(new Date().toString(), 'dim'); break;
+      case 'sudo':
+        print('jordan is not in the sudoers file. this incident will be reported.', 'danger'); break;
+      default:
+        print(cmd + ': command not found. type "help" for a list of commands.', 'danger');
+    }
+  }
+
+  function focusInput() {
+    var existing = document.getElementById('cmd-input');
+    if (existing) { existing.focus(); return; }
+    var row = document.createElement('div');
+    row.id = 'input-row';
+    row.innerHTML =
+      '<span class="prompt-tag">jordan</span><span class="prompt-sep">@voss</span><span class="prompt-sep">:</span>' +
+      '<span class="prompt-path">~</span><span class="prompt-sep">$</span>' +
+      '<span style="flex:1;display:flex;align-items:baseline;position:relative">' +
+      '<span id="typed" style="white-space:pre"></span><span class="cursor"></span>' +
+      '<input id="cmd-input" autocomplete="off" autocapitalize="off" spellcheck="false" style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;">' +
+      '</span>';
+    screen.appendChild(row);
+    var input = row.querySelector('#cmd-input');
+    var typed = row.querySelector('#typed');
+
+    function sync() { typed.textContent = input.value; screen.scrollTop = screen.scrollHeight; }
+
+    input.addEventListener('input', sync);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        var val = input.value;
+        input.value = '';
+        sync();
+        row.remove();
+        runCommand(val).then(function () { focusInput(); });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (histIdx > 0) { histIdx--; input.value = history[histIdx]; sync(); }
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (histIdx < history.length - 1) { histIdx++; input.value = history[histIdx]; sync(); }
+        else { histIdx = history.length; input.value = ''; sync(); }
+      } else if (e.key === 'Tab') {
+        e.preventDefault();
+        var match = commandList.find(function (c) { return c.indexOf(input.value) === 0 && input.value.length > 0; });
+        if (match) { input.value = match; sync(); }
+      }
+    });
+    input.focus();
+    screen.addEventListener('click', function () { input.focus(); });
+  }
+
+  bootSequence();
+})();
+</script>
+
+</body>
+</html>

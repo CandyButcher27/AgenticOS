@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jordan Voss — Woven</title>
+<style>
+  :root {
+    --bg: #22201B; --panel: #2A2721; --ink: #F1E9D8; --dim: #A79E8A;
+    --accent: #5A79B8; --accent2: #C97A45; --thread: rgba(241,233,216,0.16);
+    --border: rgba(241,233,216,0.14);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #EFE7D3; --panel: #E6DCC1; --ink: #2A2A22; --dim: #6E6650;
+      --accent: #2E4570; --accent2: #A2481F; --thread: rgba(42,42,34,0.14); --border: rgba(42,42,34,0.16); color-scheme: light; }
+  }
+  :root[data-theme="dark"] { --bg: #22201B; --panel: #2A2721; --ink: #F1E9D8; --dim: #A79E8A;
+    --accent: #5A79B8; --accent2: #C97A45; --thread: rgba(241,233,216,0.16); --border: rgba(241,233,216,0.14); color-scheme: dark; }
+  :root[data-theme="light"] { --bg: #EFE7D3; --panel: #E6DCC1; --ink: #2A2A22; --dim: #6E6650;
+    --accent: #2E4570; --accent2: #A2481F; --thread: rgba(42,42,34,0.14); --border: rgba(42,42,34,0.16); color-scheme: light; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: "Segoe UI", -apple-system, system-ui, sans-serif; }
+  ::selection { background: var(--accent); color: var(--ink); }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px; font-weight: 700; letter-spacing: -0.01em; }
+  nav .links { display: flex; gap: 24px; font-size: 13px; font-weight: 600; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover { color: var(--accent2); }
+
+  .loom-hero { position: relative; padding: 40px 40px 20px; overflow: hidden; }
+  .loom-hero svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.6; }
+  .loom-hero .content { position: relative; z-index: 1; max-width: 720px; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.16em; color: var(--accent2); font-weight: 700; margin-bottom: 14px; text-transform: uppercase; }
+  h1 { font-size: clamp(2.3rem, 6vw, 4rem); line-height: 1.03; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 18px; text-wrap: balance; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .lede { font-size: clamp(1rem, 1.5vw, 1.15rem); color: var(--dim); max-width: 54ch; line-height: 1.65; margin: 0; }
+
+  .fabric-wrap { padding: 30px 40px 60px; }
+  .fabric {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px;
+    background: var(--thread); padding: 4px; border-radius: 4px;
+  }
+  .patch {
+    background: var(--panel); border-radius: 2px; padding: 22px;
+    position: relative; overflow: hidden; cursor: pointer;
+    transition: transform 0.25s cubic-bezier(.2,.8,.3,1);
+  }
+  .patch::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent2);
+    transform: scaleY(0); transform-origin: top; transition: transform 0.3s ease;
+  }
+  .patch:hover { transform: translateY(-4px); }
+  .patch:hover::before { transform: scaleY(1); }
+  .patch .fig { font-size: 10.5px; letter-spacing: 0.1em; color: var(--accent2); font-weight: 700; margin-bottom: 10px; }
+  .patch h3 { font-size: 1.15rem; margin: 0 0 8px; font-weight: 800; letter-spacing: -0.01em; }
+  .patch p { font-size: 13px; color: var(--dim); line-height: 1.55; margin: 0 0 12px; }
+  .patch .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .patch .tags span { font-size: 10px; font-weight: 700; color: var(--accent); }
+
+  .section-head { display: flex; align-items: baseline; gap: 16px; margin: 90px 0 26px; padding: 0 40px; }
+  .section-head .idx { color: var(--accent2); font-weight: 800; font-size: 12px; }
+  .section-head h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+  .section-head .line { flex: 1; height: 1px; background: var(--border); }
+
+  .weave-svg { display: block; width: 100%; height: 90px; margin: 0 40px; }
+  .weave-svg path, #heroWeave path { stroke: var(--thread); stroke-width: 2; fill: none; }
+
+  .about-wrap { padding: 0 40px 40px; }
+  .about-wrap p { font-size: 1.05rem; line-height: 1.7; color: var(--dim); max-width: 58ch; }
+  .about-wrap p b { color: var(--accent); }
+
+  footer { padding: 26px 40px 40px; display: flex; justify-content: space-between; border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--dim); flex-wrap: wrap; gap: 10px; }
+  footer a { color: var(--dim); text-decoration: none; margin-left: 16px; }
+  footer a:hover { color: var(--accent2); }
+
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center;
+    z-index: 50; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+  .modal-backdrop.open { opacity: 1; pointer-events: auto; }
+  .modal { background: var(--panel); border-radius: 16px; padding: 30px; max-width: 440px; width: 100%; border: 1px solid var(--border);
+    transform: scale(0.94) translateY(8px); transition: transform 0.2s ease; }
+  .modal-backdrop.open .modal { transform: scale(1) translateY(0); }
+  .modal .fig { font-size: 11px; color: var(--accent2); font-weight: 700; letter-spacing: 0.08em; }
+  .modal h3 { font-size: 1.4rem; margin: 8px 0 12px; font-weight: 800; }
+  .modal p { font-size: 13.5px; color: var(--dim); line-height: 1.6; margin: 0 0 16px; }
+  .modal .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .modal .tags span { font-size: 10.5px; border: 1px solid var(--border); padding: 4px 9px; border-radius: 999px; color: var(--dim); }
+  .modal .row { display: flex; justify-content: space-between; align-items: center; }
+  .modal .row a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 13px; }
+  .modal .close { background: none; border: none; color: var(--dim); cursor: pointer; font-size: 12px; font: inherit; }
+
+  @media (prefers-reduced-motion: reduce) { .patch, .patch::before { transition: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <span>JORDAN VOSS</span>
+  <span class="links"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></span>
+</nav>
+
+<div class="loom-hero">
+  <svg id="heroWeave" viewBox="0 0 1000 260" preserveAspectRatio="none"></svg>
+  <div class="content">
+    <div class="eyebrow">A LOOM OF SYSTEMS</div>
+    <h1>Every project, <em>a thread pulled taut.</em></h1>
+    <p class="lede">Backend engineer, distributed systems. Seven years weaving reliability into things that would otherwise fray under load.</p>
+  </div>
+</div>
+
+<svg class="weave-svg" id="dividerWeave" viewBox="0 0 1000 90" preserveAspectRatio="none"></svg>
+
+<div class="section-head" id="work">
+  <span class="idx">01</span><h2>The Weave</h2><span class="line"></span>
+</div>
+<div class="fabric-wrap">
+  <div class="fabric" id="fabric"></div>
+</div>
+
+<svg class="weave-svg" id="dividerWeave2" viewBox="0 0 1000 90" preserveAspectRatio="none"></svg>
+
+<div class="section-head" id="about">
+  <span class="idx">02</span><h2>About the Weaver</h2><span class="line"></span>
+</div>
+<div class="about-wrap">
+  <p>I spent the first half of my career in <b>observability tooling</b> — learning what breaks, and why. The second half has been weaving systems that don't need watching at 3am. Correctness under load, boring failure modes, code the next engineer can pick up without me in the room.</p>
+</div>
+
+<footer id="contact">
+  <span>© 2026 Jordan Voss</span>
+  <span><a href="mailto:jordan@example.com">EMAIL</a><a href="#">GITHUB</a><a href="#">LINKEDIN</a></span>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal" id="modal"></div></div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function buildWeaveSVG(svg, rows, cols, h) {
+    var w = 1000;
+    var paths = [];
+    for (var r = 0; r <= rows; r++) {
+      var y = (h / rows) * r;
+      paths.push({ d: 'M0,' + y + ' Q' + (w/2) + ',' + (y + (r % 2 === 0 ? 14 : -14)) + ' ' + w + ',' + y, len: w * 1.05 });
+    }
+    for (var c = 0; c <= cols; c++) {
+      var x = (w / cols) * c;
+      paths.push({ d: 'M' + x + ',0 Q' + (x + (c % 2 === 0 ? 10 : -10)) + ',' + (h/2) + ' ' + x + ',' + h, len: h * 1.2 });
+    }
+    paths.forEach(function (p) {
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', p.d);
+      path.style.strokeDasharray = p.len;
+      path.style.strokeDashoffset = reduced ? 0 : p.len;
+      svg.appendChild(path);
+    });
+    return svg.querySelectorAll('path');
+  }
+
+  var heroPaths = buildWeaveSVG(document.getElementById('heroWeave'), 6, 10, 260);
+  var divPaths = buildWeaveSVG(document.getElementById('dividerWeave'), 2, 24, 90);
+  var divPaths2 = buildWeaveSVG(document.getElementById('dividerWeave2'), 2, 24, 90);
+
+  function weaveIn(paths, delayStep) {
+    if (reduced) return;
+    paths.forEach(function (p, i) {
+      setTimeout(function () {
+        p.style.transition = 'stroke-dashoffset 0.9s cubic-bezier(.2,.7,.2,1)';
+        p.style.strokeDashoffset = '0';
+      }, i * delayStep);
+    });
+  }
+
+  weaveIn(heroPaths, 30);
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var paths = entry.target.id === 'dividerWeave' ? divPaths : divPaths2;
+        weaveIn(paths, 15);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  io.observe(document.getElementById('dividerWeave'));
+  io.observe(document.getElementById('dividerWeave2'));
+
+  var projects = [
+    { fig: 'PATCH 01 · 2025', title: 'Distributed Cache Layer', short: 'Sharded, gossip-replicated in-memory tier.',
+      desc: 'Rebuilt the read path for a 40M-user platform. Cut p99 latency from 380ms to 22ms.', stack: ['Go', 'Redis', 'gRPC'],
+      link: 'https://github.com/example/cache-core' },
+    { fig: 'PATCH 02 · 2024', title: 'Realtime Collab Engine', short: 'CRDT sync for multiplayer editing.',
+      desc: 'Handles 12k concurrent sessions with sub-frame conflict resolution.', stack: ['Rust', 'WebSockets', 'WASM'],
+      link: 'https://github.com/example/collab-engine' },
+    { fig: 'PATCH 03 · 2023', title: 'Pipeline Inspector CLI', short: 'Open-source pipeline tracer.',
+      desc: '6k GitHub stars, adopted internally by three infra teams.', stack: ['TypeScript', 'SQLite'],
+      link: 'https://github.com/example/pipeline-inspect' },
+    { fig: 'PATCH 04', title: 'Resume', short: 'Full experience, one page.',
+      desc: '7 years backend & distributed systems. Open to select senior/staff roles.', stack: ['PDF'],
+      link: 'https://example.com/resume.pdf' }
+  ];
+
+  var fabric = document.getElementById('fabric');
+  projects.forEach(function (p) {
+    var el = document.createElement('div');
+    el.className = 'patch';
+    el.innerHTML = '<div class="fig">' + p.fig + '</div><h3>' + p.title + '</h3><p>' + p.short + '</p>' +
+      '<div class="tags">' + p.stack.map(function (s) { return '<span>' + s + '</span>'; }).join(' ') + '</div>';
+    el.addEventListener('click', function () { openModal(p); });
+    fabric.appendChild(el);
+  });
+
+  function openModal(p) {
+    var modal = document.getElementById('modal');
+    modal.innerHTML = '<div class="row"><span class="fig">' + p.fig + '</span><button class="close" id="closeModal">CLOSE ✕</button></div>' +
+      '<h3>' + p.title + '</h3><p>' + p.desc + '</p>' +
+      '<div class="tags">' + p.stack.map(function (s) { return '<span>' + s + '</span>'; }).join('') + '</div>' +
+      '<div class="row"><a href="' + p.link + '" target="_blank" rel="noopener">view project →</a></div>';
+    document.getElementById('modalBackdrop').classList.add('open');
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+  }
+  function closeModal() { document.getElementById('modalBackdrop').classList.remove('open'); }
+  document.getElementById('modalBackdrop').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+})();
+</script>
+</body>
+</html>

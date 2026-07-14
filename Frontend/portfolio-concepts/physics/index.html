@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jordan Voss — Portfolio</title>
+<style>
+  :root {
+    --bg: #0F3D2E;
+    --bg-soft: #134634;
+    --ink: #F5EFE0;
+    --ink-dim: #A9C2B6;
+    --accent: #E8B94A;
+    --accent2: #E85C4A;
+    --teal: #3FA796;
+    --border: rgba(245,239,224,0.16);
+    --dot: rgba(245,239,224,0.08);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #EFE7D4; --bg-soft: #E6DCC2; --ink: #1E2A22; --ink-dim: #57614F;
+      --accent: #B5790A; --accent2: #C1462F; --teal: #1E7A69;
+      --border: rgba(30,42,34,0.16); --dot: rgba(30,42,34,0.08);
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F3D2E; --bg-soft: #134634; --ink: #F5EFE0; --ink-dim: #A9C2B6;
+    --accent: #E8B94A; --accent2: #E85C4A; --teal: #3FA796;
+    --border: rgba(245,239,224,0.16); --dot: rgba(245,239,224,0.08);
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --bg: #EFE7D4; --bg-soft: #E6DCC2; --ink: #1E2A22; --ink-dim: #57614F;
+    --accent: #B5790A; --accent2: #C1462F; --teal: #1E7A69;
+    --border: rgba(30,42,34,0.16); --dot: rgba(30,42,34,0.08);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Consolas, "Cascadia Code", monospace;
+  }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px;
+    font-weight: 800; letter-spacing: -0.02em;
+  }
+  nav .links { display: flex; gap: 24px; font-size: 13px; font-weight: 600; }
+  nav a { color: var(--ink-dim); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+
+  .hero { padding: 40px 40px 20px; max-width: 760px; }
+  .hero .eyebrow {
+    font-size: 12px; letter-spacing: 0.16em; color: var(--accent);
+    font-weight: 700; margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    line-height: 0.98; font-weight: 800; letter-spacing: -0.03em;
+    margin: 0 0 18px; text-wrap: balance;
+  }
+  .hero p {
+    font-size: clamp(1rem, 1.6vw, 1.2rem); color: var(--ink-dim);
+    max-width: 56ch; line-height: 1.6; margin: 0 0 26px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font: inherit; font-weight: 700; font-size: 13.5px; letter-spacing: 0.02em;
+    padding: 13px 22px; border-radius: 999px; border: 2px solid var(--ink);
+    background: var(--ink); color: var(--bg); cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn:hover { transform: translateY(-2px) rotate(-1deg); }
+  .btn:active { transform: translateY(0) rotate(0); }
+
+  .arena-wrap { padding: 10px 40px 40px; }
+  .arena {
+    position: relative;
+    height: min(560px, 62vh);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle, var(--dot) 1.5px, transparent 1.5px) 0 0 / 26px 26px,
+      var(--bg-soft);
+    touch-action: none;
+  }
+  .arena-hint {
+    position: absolute; top: 14px; left: 18px; z-index: 5;
+    font-size: 11px; color: var(--ink-dim); letter-spacing: 0.04em;
+  }
+
+  .block {
+    position: absolute;
+    top: 0; left: 0;
+    width: 200px;
+    border-radius: 16px;
+    padding: 16px 18px;
+    color: #14201A;
+    cursor: grab;
+    user-select: none;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+    will-change: transform;
+  }
+  .block:active { cursor: grabbing; }
+  .block .k { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; opacity: 0.65; }
+  .block h3 { font-size: 1.05rem; margin: 6px 0 4px; font-weight: 800; letter-spacing: -0.01em; }
+  .block p { font-size: 11.5px; margin: 0; opacity: 0.8; line-height: 1.4; }
+
+  .block.c-mustard { background: var(--accent); }
+  .block.c-coral { background: var(--accent2); color: #2A130E; }
+  .block.c-teal { background: var(--teal); color: #0B221E; }
+  .block.c-cream { background: var(--ink); }
+
+  .section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin: 90px 0 30px; padding: 0 40px;
+  }
+  .section-head .idx { color: var(--accent); font-weight: 800; font-size: 13px; }
+  .section-head h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; margin: 0; letter-spacing: -0.02em; }
+  .section-head .line { flex: 1; height: 2px; background: var(--border); }
+
+  .about-wrap { padding: 0 40px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
+  @media (max-width: 780px) { .about-wrap { grid-template-columns: 1fr; } }
+  .about-wrap p { font-size: 1.05rem; line-height: 1.7; color: var(--ink-dim); max-width: 58ch; }
+  .about-wrap p b { color: var(--ink); }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .stat-box {
+    border: 2px solid var(--border); border-radius: 14px; padding: 16px;
+  }
+  .stat-box .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .stat-box .lbl { font-size: 11px; color: var(--ink-dim); letter-spacing: 0.04em; margin-top: 4px; }
+
+  footer {
+    margin-top: 100px; padding: 30px 40px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 2px solid var(--border);
+    font-size: 12px; color: var(--ink-dim); flex-wrap: wrap; gap: 12px;
+  }
+  footer a { color: var(--ink-dim); text-decoration: none; margin-left: 18px; }
+  footer a:hover { color: var(--accent); }
+
+  .modal-backdrop {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 50; padding: 24px; opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .modal-backdrop.open { opacity: 1; pointer-events: auto; }
+  .modal {
+    background: var(--ink); color: #14201A;
+    border-radius: 20px; padding: 32px; max-width: 460px; width: 100%;
+    transform: scale(0.92) translateY(10px); transition: transform 0.2s ease;
+  }
+  .modal-backdrop.open .modal { transform: scale(1) translateY(0); }
+  .modal .k { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; opacity: 0.6; }
+  .modal h3 { font-size: 1.6rem; margin: 8px 0 12px; font-weight: 800; }
+  .modal p { font-size: 14.5px; line-height: 1.6; margin: 0 0 18px; opacity: 0.85; }
+  .modal .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .modal .tags span { font-size: 11px; font-weight: 700; border: 1.5px solid #14201A33; padding: 4px 10px; border-radius: 999px; }
+  .modal .row { display: flex; justify-content: space-between; align-items: center; }
+  .modal .row a { color: #14201A; font-weight: 700; text-decoration: underline; }
+  .modal .close {
+    background: none; border: none; font: inherit; font-weight: 700; cursor: pointer;
+    color: #14201A; opacity: 0.6; font-size: 13px;
+  }
+  .modal .close:hover { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span>JORDAN VOSS</span>
+  <span class="links">
+    <a href="#playground">WORK</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </span>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">SOFTWARE ENGINEER · DISTRIBUTED SYSTEMS</div>
+  <h1>Backend engineer.<br>Things fall into place.</h1>
+  <p>I build the systems that don't page anyone at 3am. Drag the blocks below, throw them around — that's my work, made physical.</p>
+  <div class="hero-actions">
+    <button class="btn" id="dropBtn">↓ drop the work</button>
+    <button class="btn ghost" id="gravityBtn">flip gravity</button>
+    <button class="btn ghost" id="shakeBtn">shake it</button>
+  </div>
+</section>
+
+<div class="arena-wrap" id="playground">
+  <div class="arena" id="arena">
+    <div class="arena-hint mono">drag · throw · click to open</div>
+  </div>
+</div>
+
+<div class="section-head">
+  <span class="idx">01</span>
+  <h2>About</h2>
+  <span class="line"></span>
+</div>
+<div class="about-wrap" id="about">
+  <p>I spent the first half of my career in <b>observability tooling</b> — learning what breaks, and why. The second half has been building the systems that don't break in the first place. I care about correctness under load, boring failure modes, and code the next engineer can read without me in the room.</p>
+  <div class="stat-grid">
+    <div class="stat-box"><div class="num">7</div><div class="lbl">YEARS SHIPPING</div></div>
+    <div class="stat-box"><div class="num">23</div><div class="lbl">SYSTEMS IN PROD</div></div>
+    <div class="stat-box"><div class="num">4.2M</div><div class="lbl">REQ/DAY PEAK</div></div>
+    <div class="stat-box"><div class="num">0</div><div class="lbl">3AM PAGES (GOAL)</div></div>
+  </div>
+</div>
+
+<footer id="contact">
+  <span>© 2026 Jordan Voss</span>
+  <span>
+    <a href="mailto:jordan@example.com">EMAIL</a>
+    <a href="#">GITHUB</a>
+    <a href="#">LINKEDIN</a>
+  </span>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var arena = document.getElementById('arena');
+
+  var data = [
+    { id: 'cache', color: 'c-mustard', tag: 'FIG. A · 2025', title: 'Distributed Cache Layer',
+      short: 'Sharded, gossip-replicated in-memory tier.',
+      desc: 'Rebuilt the read path for a 40M-user platform. Cut p99 latency from 380ms to 22ms with a sharded, gossip-replicated in-memory cache tier.',
+      stack: ['Go', 'Redis', 'gRPC'], link: 'https://github.com/example/cache-core' },
+    { id: 'collab', color: 'c-coral', tag: 'FIG. B · 2024', title: 'Realtime Collab Engine',
+      short: 'CRDT sync for multiplayer editing.',
+      desc: 'CRDT-based sync engine powering multiplayer editing for a design tool. Handles 12k concurrent sessions with sub-frame conflict resolution.',
+      stack: ['Rust', 'WebSockets', 'WASM'], link: 'https://github.com/example/collab-engine' },
+    { id: 'cli', color: 'c-teal', tag: 'FIG. C · 2023', title: 'Pipeline Inspector CLI',
+      short: 'Open-source pipeline tracer.',
+      desc: 'Open-source dev tool for tracing data pipeline failures. 6k GitHub stars, adopted internally by three infra teams.',
+      stack: ['TypeScript', 'SQLite', 'OSS'], link: 'https://github.com/example/pipeline-inspect' },
+    { id: 'resume', color: 'c-cream', tag: 'FIG. D', title: 'Resume',
+      short: 'Full experience, one page.',
+      desc: '7 years backend & distributed systems. Previously observability tooling. Open to select senior/staff roles.',
+      stack: ['PDF'], link: 'https://example.com/resume.pdf' }
+  ];
+
+  var blocks = [];
+  var G = 0.55;
+  var DAMPING = 0.62;
+  var FRICTION = 0.985;
+  var gravityDir = 1;
+
+  function rand(min, max) { return min + Math.random() * (max - min); }
+
+  function buildBlocks() {
+    var w = arena.clientWidth, h = arena.clientHeight;
+    data.forEach(function (d, i) {
+      var el = document.createElement('div');
+      el.className = 'block ' + d.color;
+      el.innerHTML = '<div class="k">' + d.tag + '</div><h3>' + d.title + '</h3><p>' + d.short + '</p>';
+      arena.appendChild(el);
+      var bw = 200, bh = el.offsetHeight || 100;
+      var b = {
+        el: el, x: rand(20, Math.max(21, w - bw - 20)), y: -300 - i * 140,
+        vx: rand(-1, 1), vy: 0, w: bw, h: bh, angle: rand(-4, 4), av: rand(-0.3, 0.3),
+        data: d
+      };
+      blocks.push(b);
+    });
+  }
+
+  function step() {
+    var w = arena.clientWidth, h = arena.clientHeight;
+    blocks.forEach(function (b) {
+      if (b.dragging) return;
+      b.vy += G * gravityDir;
+      b.vx *= FRICTION;
+      b.vy *= FRICTION;
+      b.x += b.vx;
+      b.y += b.vy;
+      b.angle += b.av;
+      b.av *= 0.98;
+
+      if (b.x < 0) { b.x = 0; b.vx *= -DAMPING; }
+      if (b.x + b.w > w) { b.x = w - b.w; b.vx *= -DAMPING; }
+      if (b.y < 0) { b.y = 0; b.vy *= -DAMPING; }
+      if (b.y + b.h > h) { b.y = h - b.h; b.vy *= -DAMPING; if (Math.abs(b.vy) < 0.6) b.vy = 0; }
+    });
+
+    for (var i = 0; i < blocks.length; i++) {
+      for (var j = i + 1; j < blocks.length; j++) {
+        resolveCollision(blocks[i], blocks[j]);
+      }
+    }
+
+    blocks.forEach(function (b) {
+      b.el.style.transform = 'translate(' + b.x + 'px,' + b.y + 'px) rotate(' + b.angle + 'deg)';
+    });
+
+    requestAnimationFrame(step);
+  }
+
+  function resolveCollision(a, b) {
+    if (a.dragging || b.dragging) {
+      // still push the non-dragged one out of the way
+    }
+    var ax2 = a.x + a.w, ay2 = a.y + a.h;
+    var bx2 = b.x + b.w, by2 = b.y + b.h;
+    var overlapX = Math.min(ax2, bx2) - Math.max(a.x, b.x);
+    var overlapY = Math.min(ay2, by2) - Math.max(a.y, b.y);
+    if (overlapX > 0 && overlapY > 0) {
+      if (overlapX < overlapY) {
+        var push = overlapX / 2;
+        if (a.x < b.x) { if (!a.dragging) a.x -= push; if (!b.dragging) b.x += push; }
+        else { if (!a.dragging) a.x += push; if (!b.dragging) b.x -= push; }
+        var tmp = a.vx; if (!a.dragging) a.vx = b.vx * 0.5; if (!b.dragging) b.vx = tmp * 0.5;
+      } else {
+        var pushY = overlapY / 2;
+        if (a.y < b.y) { if (!a.dragging) a.y -= pushY; if (!b.dragging) b.y += pushY; }
+        else { if (!a.dragging) a.y += pushY; if (!b.dragging) b.y -= pushY; }
+        var tmpY = a.vy; if (!a.dragging) a.vy = b.vy * 0.5; if (!b.dragging) b.vy = tmpY * 0.5;
+      }
+    }
+  }
+
+  function attachDrag(b) {
+    var startX, startY, offX, offY, moved, lastPts, downTime;
+
+    function pointerPos(e) {
+      var t = e.touches ? e.touches[0] : e;
+      var rect = arena.getBoundingClientRect();
+      return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+    }
+
+    function down(e) {
+      var p = pointerPos(e);
+      b.dragging = true;
+      moved = false;
+      downTime = Date.now();
+      offX = p.x - b.x; offY = p.y - b.y;
+      lastPts = [{ x: p.x, y: p.y, t: downTime }];
+      b.el.style.zIndex = 10;
+      document.addEventListener('mousemove', move);
+      document.addEventListener('touchmove', move, { passive: false });
+      document.addEventListener('mouseup', up);
+      document.addEventListener('touchend', up);
+    }
+
+    function move(e) {
+      if (e.cancelable) e.preventDefault();
+      var p = pointerPos(e);
+      var nx = p.x - offX, ny = p.y - offY;
+      if (Math.abs(nx - b.x) > 2 || Math.abs(ny - b.y) > 2) moved = true;
+      b.x = Math.max(0, Math.min(arena.clientWidth - b.w, nx));
+      b.y = Math.max(0, Math.min(arena.clientHeight - b.h, ny));
+      lastPts.push({ x: p.x, y: p.y, t: Date.now() });
+      if (lastPts.length > 5) lastPts.shift();
+    }
+
+    function up() {
+      b.dragging = false;
+      b.el.style.zIndex = 1;
+      if (lastPts.length >= 2) {
+        var first = lastPts[0], last = lastPts[lastPts.length - 1];
+        var dt = Math.max(1, last.t - first.t);
+        b.vx = (last.x - first.x) / dt * 14;
+        b.vy = (last.y - first.y) / dt * 14;
+      }
+      document.removeEventListener('mousemove', move);
+      document.removeEventListener('touchmove', move);
+      document.removeEventListener('mouseup', up);
+      document.removeEventListener('touchend', up);
+      if (!moved && Date.now() - downTime < 350) openModal(b.data);
+    }
+
+    b.el.addEventListener('mousedown', down);
+    b.el.addEventListener('touchstart', down, { passive: true });
+  }
+
+  function openModal(d) {
+    var modal = document.getElementById('modal');
+    modal.innerHTML =
+      '<div class="row"><span class="k">' + d.tag + '</span><button class="close" id="closeModal">CLOSE ✕</button></div>' +
+      '<h3>' + d.title + '</h3>' +
+      '<p>' + d.desc + '</p>' +
+      '<div class="tags">' + d.stack.map(function (s) { return '<span>' + s + '</span>'; }).join('') + '</div>' +
+      '<div class="row"><a href="' + d.link + '" target="_blank" rel="noopener">view project →</a></div>';
+    document.getElementById('modalBackdrop').classList.add('open');
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+  }
+  function closeModal() { document.getElementById('modalBackdrop').classList.remove('open'); }
+  document.getElementById('modalBackdrop').addEventListener('click', function (e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+  buildBlocks();
+  blocks.forEach(attachDrag);
+  requestAnimationFrame(step);
+
+  document.getElementById('dropBtn').addEventListener('click', function () {
+    blocks.forEach(function (b, i) {
+      setTimeout(function () { b.y = -50; b.vy = 0; b.vx = rand(-2, 2); }, i * 90);
+    });
+    document.getElementById('playground').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+  });
+  document.getElementById('gravityBtn').addEventListener('click', function () {
+    gravityDir *= -1;
+  });
+  document.getElementById('shakeBtn').addEventListener('click', function () {
+    blocks.forEach(function (b) {
+      b.vx += rand(-12, 12);
+      b.vy += rand(-14, -4) * gravityDir;
+      b.av += rand(-2, 2);
+    });
+  });
+
+  window.addEventListener('resize', function () {
+    blocks.forEach(function (b) {
+      b.x = Math.min(b.x, Math.max(0, arena.clientWidth - b.w));
+      b.y = Math.min(b.y, Math.max(0, arena.clientHeight - b.h));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

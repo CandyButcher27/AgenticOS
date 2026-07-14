@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jordan Voss — Mixdown</title>
+<style>
+  :root {
+    --bg: #1A1A1D; --panel: #232326; --panel2: #2B2B2F;
+    --ink: #EDEAE3; --dim: #8C8A85;
+    --accent: #D4622B; --accent2: #4A9B8E;
+    --border: rgba(237,234,227,0.1);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #DDD9D0; --panel: #E8E4DA; --panel2: #EFEBE0; --ink: #201E1B; --dim: #6B675F;
+      --accent: #B14A1D; --accent2: #2E7A6E; --border: rgba(32,30,27,0.12); color-scheme: light; }
+  }
+  :root[data-theme="dark"] { --bg: #1A1A1D; --panel: #232326; --panel2: #2B2B2F; --ink: #EDEAE3; --dim: #8C8A85;
+    --accent: #D4622B; --accent2: #4A9B8E; --border: rgba(237,234,227,0.1); color-scheme: dark; }
+  :root[data-theme="light"] { --bg: #DDD9D0; --panel: #E8E4DA; --panel2: #EFEBE0; --ink: #201E1B; --dim: #6B675F;
+    --accent: #B14A1D; --accent2: #2E7A6E; --border: rgba(32,30,27,0.12); color-scheme: light; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Arial Narrow", "Segoe UI", system-ui, sans-serif;
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Consolas, monospace; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 40px;
+    font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; font-size: 13px; }
+  nav .links { display: flex; gap: 26px; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+
+  .rack { padding: 20px 40px 60px; }
+  .unit {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 6px;
+    padding: 28px 32px; margin-bottom: 20px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 20px 40px rgba(0,0,0,0.25);
+  }
+  .unit-label {
+    display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.16em;
+    color: var(--dim); text-transform: uppercase; margin-bottom: 18px;
+  }
+  .unit-label .lamp { width: 7px; height: 7px; border-radius: 50%; background: var(--accent2);
+    box-shadow: 0 0 6px var(--accent2); display: inline-block; margin-right: 6px; }
+
+  h1.title {
+    font-size: clamp(2.6rem, 7vw, 5.2rem); font-weight: 800; letter-spacing: -0.02em;
+    text-transform: uppercase; line-height: 0.94; margin: 0 0 14px; text-wrap: balance;
+  }
+  h1.title span { color: var(--accent); }
+  .role { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; font-size: 1.05rem;
+    color: var(--dim); max-width: 54ch; line-height: 1.6; margin: 0; }
+
+  .console {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+    margin-top: 26px;
+  }
+  @media (max-width: 720px) { .console { grid-template-columns: repeat(2, 1fr); } }
+  .ch {
+    background: var(--panel2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .ch .ch-label { font-size: 10px; letter-spacing: 0.1em; color: var(--dim); text-transform: uppercase; }
+  .knob {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: conic-gradient(var(--panel) 0deg, var(--panel) 360deg);
+    border: 2px solid var(--border); position: relative; cursor: grab;
+    display: flex; align-items: center; justify-content: center;
+    touch-action: none;
+  }
+  .knob .needle {
+    position: absolute; top: 4px; left: 50%; width: 3px; height: 16px;
+    background: var(--accent); transform-origin: bottom center; transform: translateX(-50%) rotate(0deg);
+    border-radius: 2px; pointer-events: none;
+  }
+  .knob.dragging { cursor: grabbing; }
+  .knob-val { font-size: 10px; color: var(--dim); }
+
+  .vu { display: flex; gap: 3px; align-items: flex-end; height: 60px; width: 100%; justify-content: center; }
+  .vu i { width: 6px; background: var(--accent2); border-radius: 1px; height: 10%; transition: height 0.08s linear; }
+  .vu i:nth-child(odd) { background: var(--accent); }
+
+  .fader-row { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+  .fader-row label { font-size: 11px; letter-spacing: 0.1em; color: var(--dim); text-transform: uppercase; width: 110px; }
+  input[type="range"] {
+    -webkit-appearance: none; flex: 1; height: 4px; background: var(--border); border-radius: 4px; outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 16px; height: 16px; border-radius: 4px; background: var(--accent); cursor: pointer;
+  }
+
+  .tracklist { margin-top: 30px; }
+  .track {
+    display: grid; grid-template-columns: 32px 1fr auto auto; gap: 16px; align-items: center;
+    padding: 14px 6px; border-bottom: 1px solid var(--border); cursor: pointer;
+  }
+  .track:hover { background: var(--panel2); }
+  .track .num { color: var(--dim); font-size: 12px; }
+  .track .name { font-weight: 700; font-size: 14px; }
+  .track .sub { color: var(--dim); font-size: 11.5px; }
+  .track .dur { color: var(--dim); font-size: 12px; }
+  .track.playing .num { color: var(--accent); }
+  .track.playing .name { color: var(--accent); }
+
+  .section-head { display: flex; align-items: baseline; gap: 16px; margin: 90px 0 26px; padding: 0 40px; }
+  .section-head .idx { color: var(--accent); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; }
+  .section-head h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: -0.01em; }
+  .section-head .line { flex: 1; height: 1px; background: var(--border); }
+
+  .about-wrap { padding: 0 40px 40px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
+  @media (max-width: 780px) { .about-wrap { grid-template-columns: 1fr; } }
+  .about-wrap p { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; font-size: 1.02rem; line-height: 1.7; color: var(--dim); max-width: 58ch; }
+  .about-wrap p b { color: var(--ink); }
+
+  footer { padding: 26px 40px 40px; display: flex; justify-content: space-between; border-top: 1px solid var(--border);
+    font-size: 11.5px; color: var(--dim); flex-wrap: wrap; gap: 10px; }
+  footer a { color: var(--dim); text-decoration: none; margin-left: 16px; }
+  footer a:hover { color: var(--accent); }
+
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: flex; align-items: center;
+    justify-content: center; z-index: 50; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+  .modal-backdrop.open { opacity: 1; pointer-events: auto; }
+  .modal { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 30px; max-width: 460px; width: 100%;
+    transform: scale(0.94); transition: transform 0.2s ease; }
+  .modal-backdrop.open .modal { transform: scale(1); }
+  .modal h3 { font-size: 1.4rem; margin: 6px 0 12px; text-transform: uppercase; }
+  .modal p { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: var(--dim); margin: 0 0 16px; }
+  .modal .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .modal .tags span { font-size: 10.5px; border: 1px solid var(--border); padding: 4px 9px; border-radius: 4px; color: var(--dim); }
+  .modal .row { display: flex; justify-content: space-between; align-items: center; }
+  .modal .row a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 13px; }
+  .modal .close { background: none; border: none; color: var(--dim); cursor: pointer; font-size: 12px; font: inherit; }
+
+  @media (prefers-reduced-motion: reduce) { .vu i { transition: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <span>JORDAN VOSS</span>
+  <span class="links"><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></span>
+</nav>
+
+<div class="rack">
+  <div class="unit">
+    <div class="unit-label"><span><span class="lamp"></span>UNIT 01 / MASTER</span><span class="mono">CH.ALL</span></div>
+    <h1 class="title">Backend engineer.<br><span>Mixed for scale.</span></h1>
+    <p class="role">7 years balancing throughput against latency, reliability against velocity. Turn the knobs — they're wired to something real.</p>
+
+    <div class="console" id="console">
+      <div class="ch">
+        <div class="ch-label">Latency</div>
+        <div class="knob" data-knob="0"><i class="needle"></i></div>
+        <div class="knob-val mono" data-val="0">40%</div>
+      </div>
+      <div class="ch">
+        <div class="ch-label">Reliability</div>
+        <div class="knob" data-knob="1"><i class="needle"></i></div>
+        <div class="knob-val mono" data-val="1">40%</div>
+      </div>
+      <div class="ch">
+        <div class="ch-label">Hue Shift</div>
+        <div class="knob" data-knob="2"><i class="needle"></i></div>
+        <div class="knob-val mono" data-val="2">40%</div>
+      </div>
+      <div class="ch">
+        <div class="ch-label">Output</div>
+        <div class="vu" id="vu"></div>
+      </div>
+    </div>
+
+    <div class="fader-row">
+      <label>Energy</label>
+      <input type="range" id="energy" min="10" max="100" value="55">
+      <span class="mono" id="energyVal" style="width:36px">55%</span>
+    </div>
+  </div>
+
+  <div class="unit" id="work">
+    <div class="unit-label"><span><span class="lamp"></span>UNIT 02 / TRACKLIST</span><span class="mono">04 TRACKS</span></div>
+    <div class="tracklist" id="tracklist"></div>
+  </div>
+</div>
+
+<div class="section-head" id="about">
+  <span class="idx">03 / NOTES</span><h2>About</h2><span class="line"></span>
+</div>
+<div class="about-wrap">
+  <p>I spent the first half of my career in <b>observability tooling</b> — learning what breaks, and why, at 3am. The second half has been building systems that don't page anyone. Every project below was mixed for the same goal: correctness under load, boring failure modes.</p>
+</div>
+
+<footer id="contact">
+  <span>© 2026 Jordan Voss</span>
+  <span><a href="mailto:jordan@example.com">EMAIL</a><a href="#">GITHUB</a><a href="#">LINKEDIN</a></span>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal" id="modal"></div></div>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var tracks = [
+    { n: '01', name: 'Distributed Cache Layer', sub: 'Go · Redis · gRPC', dur: '2025',
+      desc: 'Rebuilt the read path for a 40M-user platform. Cut p99 latency from 380ms to 22ms with a sharded, gossip-replicated in-memory cache tier.',
+      link: 'https://github.com/example/cache-core' },
+    { n: '02', name: 'Realtime Collab Engine', sub: 'Rust · WebSockets · WASM', dur: '2024',
+      desc: 'CRDT-based sync engine powering multiplayer editing. Handles 12k concurrent sessions with sub-frame conflict resolution.',
+      link: 'https://github.com/example/collab-engine' },
+    { n: '03', name: 'Pipeline Inspector CLI', sub: 'TypeScript · SQLite · OSS', dur: '2023',
+      desc: 'Open-source dev tool for tracing data pipeline failures. 6k GitHub stars, adopted by three infra teams.',
+      link: 'https://github.com/example/pipeline-inspect' },
+    { n: '04', name: 'Resume', sub: 'Full experience, one page', dur: 'PDF',
+      desc: '7 years backend & distributed systems. Open to select senior/staff roles.',
+      link: 'https://example.com/resume.pdf' }
+  ];
+
+  var listEl = document.getElementById('tracklist');
+  tracks.forEach(function (t, i) {
+    var row = document.createElement('div');
+    row.className = 'track';
+    row.innerHTML = '<span class="num mono">' + t.n + '</span>' +
+      '<span><span class="name">' + t.name + '</span><br><span class="sub">' + t.sub + '</span></span>' +
+      '<span class="dur mono">' + t.dur + '</span><span class="mono">▶</span>';
+    row.addEventListener('click', function () {
+      document.querySelectorAll('.track').forEach(function (r) { r.classList.remove('playing'); });
+      row.classList.add('playing');
+      openModal(t);
+    });
+    listEl.appendChild(row);
+  });
+
+  function openModal(t) {
+    var modal = document.getElementById('modal');
+    modal.innerHTML = '<div class="row"><span class="mono" style="color:var(--dim);font-size:11px">TRACK ' + t.n + '</span>' +
+      '<button class="close" id="closeModal">CLOSE ✕</button></div>' +
+      '<h3>' + t.name + '</h3><p>' + t.desc + '</p>' +
+      '<div class="tags"><span>' + t.sub.split(' · ').join('</span><span>') + '</span></div>' +
+      '<div class="row"><a href="' + t.link + '" target="_blank" rel="noopener">open project →</a></div>';
+    document.getElementById('modalBackdrop').classList.add('open');
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+  }
+  function closeModal() { document.getElementById('modalBackdrop').classList.remove('open'); }
+  document.getElementById('modalBackdrop').addEventListener('click', function (e) { if (e.target === this) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+  // knobs — vertical drag distance sets value, like a real mixer knob
+  var knobVals = [40, 40, 40];
+  document.querySelectorAll('.knob').forEach(function (knob) {
+    var idx = parseInt(knob.dataset.knob, 10);
+    var valEl = document.querySelector('[data-val="' + idx + '"]');
+    var needle = knob.querySelector('.needle');
+
+    function render() {
+      var deg = (knobVals[idx] / 100) * 270 - 135;
+      needle.style.transform = 'translateX(-50%) rotate(' + deg + 'deg)';
+      var sweep = knobVals[idx] * 2.7;
+      knob.style.background = 'conic-gradient(var(--accent) 0deg, var(--accent) ' + sweep + 'deg, var(--panel) ' + sweep + 'deg, var(--panel) 360deg)';
+      valEl.textContent = Math.round(knobVals[idx]) + '%';
+      if (idx === 2) {
+        document.documentElement.style.setProperty('--accent', 'hsl(' + (18 + knobVals[idx] * 2.4) + ', 62%, 52%)');
+      }
+    }
+    render();
+
+    var dragging = false, startY = 0, startVal = 0;
+    function pointerY(e) { return (e.touches ? e.touches[0] : e).clientY; }
+    function down(e) {
+      dragging = true; knob.classList.add('dragging');
+      startY = pointerY(e); startVal = knobVals[idx];
+    }
+    function move(e) {
+      if (!dragging) return;
+      if (e.cancelable) e.preventDefault();
+      var dy = startY - pointerY(e);
+      knobVals[idx] = Math.max(0, Math.min(100, startVal + dy * 0.5));
+      render();
+    }
+    function up() { dragging = false; knob.classList.remove('dragging'); }
+    knob.addEventListener('mousedown', down);
+    knob.addEventListener('touchstart', down, { passive: true });
+    document.addEventListener('mousemove', move);
+    document.addEventListener('touchmove', move, { passive: false });
+    document.addEventListener('mouseup', up);
+    document.addEventListener('touchend', up);
+  });
+
+  // VU meter
+  var vu = document.getElementById('vu');
+  var bars = [];
+  for (var i = 0; i < 16; i++) {
+    var b = document.createElement('i');
+    vu.appendChild(b); bars.push(b);
+  }
+  var energy = document.getElementById('energy');
+  var energyVal = document.getElementById('energyVal');
+  energy.addEventListener('input', function () { energyVal.textContent = energy.value + '%'; });
+
+  var t0 = performance.now();
+  function animateVU(now) {
+    var e = parseInt(energy.value, 10) / 100;
+    var dt = (now - t0) / 1000;
+    bars.forEach(function (b, i) {
+      var wave = Math.sin(dt * (2 + e * 6) + i * 0.6) * 0.5 + 0.5;
+      var h = 10 + wave * 85 * e + Math.random() * 6 * e;
+      b.style.height = Math.min(100, h) + '%';
+    });
+    if (!reduced) requestAnimationFrame(animateVU);
+  }
+  if (reduced) { bars.forEach(function (b) { b.style.height = '40%'; }); }
+  else requestAnimationFrame(animateVU);
+})();
+</script>
+
+</body>
+</html>
