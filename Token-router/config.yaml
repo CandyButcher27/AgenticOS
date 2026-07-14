@@ -1,0 +1,6 @@
+ollama:
+  host: https://ollama.com
+  model: gemma4
+
+groq:
+  model: groq/compound-beta

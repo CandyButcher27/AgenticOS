@@ -1,0 +1,15 @@
+[project]
+name = "token-router"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "litellm>=1.92.0",
+    "pyyaml>=6.0.3",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pytest>=8.0.0",
+    "httpx>=0.27.0",
+    "mcp>=1.0.0",
+]
