@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PostHog — The new way to build products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="primary-nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top" aria-label="PostHog home">
+      <svg class="hog-logo" width="28" height="28" viewBox="0 0 100 100" aria-hidden="true">
+        <ellipse cx="50" cy="58" rx="38" ry="30" fill="#23251d"/>
+        <circle cx="26" cy="34" r="10" fill="#23251d"/>
+        <circle cx="23" cy="31" r="2.4" fill="#eeefe9"/>
+        <path d="M14 20 L26 32 L10 30 Z" fill="#23251d"/>
+        <ellipse cx="55" cy="80" rx="26" ry="10" fill="#f7a501"/>
+      </svg>
+      <span>PostHog</span>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-menu" aria-label="Primary">
+      <a href="#products">Products</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#docs">Docs</a>
+      <a href="#community">Community</a>
+      <a href="#company">Company</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Search" id="search-toggle">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a class="login-link" href="#login">Login</a>
+      <a class="btn btn-primary" href="#signup">Get started — free</a>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="mobile-drawer">
+  <nav aria-label="Mobile">
+    <a href="#products">Products</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#docs">Docs</a>
+    <a href="#community">Community</a>
+    <a href="#company">Company</a>
+    <a href="#login">Login</a>
+  </nav>
+  <a class="btn btn-primary" href="#signup">Get started — free</a>
+</div>
+
+<div class="sub-nav-strip">
+  <div class="sub-nav-inner">
+    <div class="sub-nav-links">
+      <a href="#products">Product analytics</a>
+      <a href="#session-replay">Session replay</a>
+      <a href="#feature-flags">Feature flags</a>
+      <a href="#experiments">Experiments</a>
+      <a href="#surveys">Surveys</a>
+    </div>
+    <a class="sub-nav-cta" href="#signup">Get started →</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <p class="eyebrow">ALL-IN-ONE PLATFORM</p>
+      <h1 class="hero-title">The new way to build products</h1>
+      <p class="hero-sub">PostHog gives every engineer the tools to build better products: product analytics, session replay, feature flags, experiments and surveys — no data team required.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#signup">Get started — free</a>
+        <a class="btn btn-secondary" href="#demo">Talk to sales</a>
+      </div>
+      <p class="hero-note">No credit card required. 1M events free every month, forever.</p>
+    </div>
+    <svg class="hero-hog" width="220" height="220" viewBox="0 0 200 200" aria-hidden="true">
+      <ellipse cx="100" cy="120" rx="70" ry="55" fill="#f7a501"/>
+      <ellipse cx="100" cy="120" rx="70" ry="55" fill="none" stroke="#23251d" stroke-width="3"/>
+      <circle cx="55" cy="70" r="20" fill="#23251d"/>
+      <circle cx="48" cy="63" r="4" fill="#eeefe9"/>
+      <path d="M30 40 L55 66 L20 60 Z" fill="#23251d"/>
+      <rect x="70" y="150" width="60" height="26" rx="6" fill="#ffffff" stroke="#23251d" stroke-width="2"/>
+    </svg>
+  </section>
+
+  <section class="section" id="products">
+    <p class="eyebrow center">UNDERSTAND PRODUCT USAGE</p>
+    <h2 class="section-title center">Everything you need to build a successful product</h2>
+    <p class="section-sub center">One platform. Every tool your team needs, all using the same events.</p>
+
+    <div class="card-grid">
+      <article class="product-card">
+        <div class="card-icon" style="background:var(--accent-blue-soft);color:var(--link-blue)">📊</div>
+        <h3>Product analytics</h3>
+        <p>Autocapture every event, build funnels, trends and retention reports without writing SQL.</p>
+        <a class="btn-tertiary" href="#docs">Learn more →</a>
+      </article>
+      <article class="product-card">
+        <div class="card-icon" style="background:var(--accent-green-soft);color:var(--accent-green)">🎬</div>
+        <h3>Session replay</h3>
+        <p>Watch real users struggle with your product, then fix it. Filter replays by any event or property.</p>
+        <a class="btn-tertiary" href="#docs">Learn more →</a>
+      </article>
+      <article class="product-card">
+        <div class="card-icon" style="background:var(--accent-purple-soft);color:var(--accent-purple)">🚩</div>
+        <h3>Feature flags</h3>
+        <p>Roll out features safely to a subset of users, then progressively release to everyone.</p>
+        <a class="btn-tertiary" href="#docs">Learn more →</a>
+      </article>
+      <article class="product-card">
+        <div class="card-icon" style="background:var(--accent-red-soft);color:var(--accent-red)">🧪</div>
+        <h3>Experiments</h3>
+        <p>Run A/B tests on new features and measure the impact on your product metrics.</p>
+        <a class="btn-tertiary" href="#docs">Learn more →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section hedgehog-section" id="build-habits">
+    <div class="hedgehog-row">
+      <div class="hedgehog-copy">
+        <p class="eyebrow">BUILD STICKY HABITS</p>
+        <h2 class="section-title">Ship the features people actually use</h2>
+        <p class="section-sub">Surveys, in-app messages and correlation analysis tell you exactly what's keeping users engaged — and what's making them leave.</p>
+        <a class="btn btn-secondary" href="#surveys">Read docs</a>
+      </div>
+      <div class="hedgehog-mascot-card">
+        <svg width="140" height="140" viewBox="0 0 200 200" aria-hidden="true">
+          <ellipse cx="100" cy="120" rx="60" ry="48" fill="#ffffff" stroke="#23251d" stroke-width="3"/>
+          <circle cx="65" cy="80" r="18" fill="#23251d"/>
+          <circle cx="60" cy="75" r="3.5" fill="#eeefe9"/>
+          <rect x="60" y="30" width="20" height="10" rx="3" fill="#7c44a6"/>
+          <rect x="60" y="150" width="80" height="20" rx="6" fill="#2c84e0"/>
+        </svg>
+        <p class="mascot-caption">Session replay watching a real user session</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="feature-flags">
+    <p class="eyebrow center">TEST BEFORE LAUNCH</p>
+    <h2 class="section-title center">Ship with confidence</h2>
+    <div class="tile-grid">
+      <div class="feature-tile">
+        <span class="badge-uppercase">FEATURE FLAG</span>
+        <h3>Gradual rollouts</h3>
+        <p>Release to 1% of users, watch the metrics, then dial it up.</p>
+      </div>
+      <div class="feature-tile">
+        <span class="badge-uppercase">EXPERIMENT</span>
+        <h3>Statistical significance</h3>
+        <p>Built-in Bayesian and frequentist stats, no math degree needed.</p>
+      </div>
+      <div class="feature-tile">
+        <span class="badge-uppercase">HEATMAP</span>
+        <h3>Click &amp; scroll maps</h3>
+        <p>See exactly where users click, move and drop off on any page.</p>
+      </div>
+      <div class="feature-tile">
+        <span class="badge-promo">New</span>
+        <h3>Error tracking</h3>
+        <p>Group exceptions automatically and jump straight to the replay.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="docs">
+    <p class="eyebrow center">DOCS, MADE SIMPLE</p>
+    <h2 class="section-title center">Install once. Get every product for free.</h2>
+    <div class="doc-card">
+      <p class="doc-eyebrow">Quickstart — JavaScript</p>
+      <div class="code-block">
+<pre><code><span class="tok-kw">import</span> { PostHog } <span class="tok-kw">from</span> <span class="tok-str">'posthog-js'</span>
+
+<span class="tok-kw">const</span> posthog = <span class="tok-kw">new</span> PostHog(
+  <span class="tok-str">'phc_your_project_key'</span>,
+  { api_host: <span class="tok-str">'https://us.i.posthog.com'</span> }
+)
+
+posthog.<span class="tok-fn">capture</span>(<span class="tok-str">'signup_completed'</span>, {
+  plan: <span class="tok-str">'free'</span>,
+  seats: <span class="tok-num">1</span>
+})</code></pre>
+      </div>
+      <p>Once installed, autocapture starts collecting pageviews, clicks and form submissions — no extra code required. Use <code class="inline-code">posthog.capture()</code> for anything custom.</p>
+
+      <div class="banner banner-blue">💡 <strong>Tip:</strong> Autocapture is on by default — you only need custom <code class="inline-code">capture()</code> calls for events that matter to your funnel.</div>
+      <div class="banner banner-green">✅ <strong>Success:</strong> Once your first event lands, PostHog builds your persons and events tables automatically.</div>
+      <div class="banner banner-red">⚠️ <strong>Warning:</strong> Don't send personally identifiable information as event properties unless your data retention policy covers it.</div>
+      <div class="banner banner-purple">📘 <strong>Note:</strong> Server-side libraries are available for Python, Node, Ruby, PHP, Go and more.</div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <p class="eyebrow center">PRICING</p>
+    <h2 class="section-title center">Usage-based pricing that scales with you</h2>
+    <p class="section-sub center">Every product has a generous free tier. Pay only for what you use beyond that.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-tier-card">
+        <p class="tier-name">Free</p>
+        <p class="tier-price">$0<span>/mo</span></p>
+        <p class="tier-desc">1M events, 5k replays, 1M flag requests — free every month.</p>
+        <ul class="tier-features">
+          <li>✓ Product analytics</li>
+          <li>✓ Session replay</li>
+          <li>✓ Feature flags</li>
+          <li>✓ Community support</li>
+        </ul>
+        <a class="btn btn-secondary tier-cta" href="#signup">Get started</a>
+      </div>
+      <div class="pricing-tier-card featured">
+        <span class="badge-promo tier-badge">Most popular</span>
+        <p class="tier-name">Pay-as-you-go</p>
+        <p class="tier-price">Usage<span>-based</span></p>
+        <p class="tier-desc">Everything in Free, plus volume discounts as you scale.</p>
+        <ul class="tier-features">
+          <li>✓ Everything in Free</li>
+          <li>✓ Unlimited team members</li>
+          <li>✓ Data pipelines</li>
+          <li>✓ Priority support</li>
+        </ul>
+        <a class="btn btn-primary tier-cta" href="#signup">Subscribe</a>
+      </div>
+      <div class="pricing-tier-card">
+        <p class="tier-name">Enterprise</p>
+        <p class="tier-price">Custom</p>
+        <p class="tier-desc">SSO, SAML, custom contracts and dedicated support.</p>
+        <ul class="tier-features">
+          <li>✓ Everything in Pay-as-you-go</li>
+          <li>✓ SSO / SAML</li>
+          <li>✓ Custom MSA</li>
+          <li>✓ Dedicated support</li>
+        </ul>
+        <a class="btn btn-secondary tier-cta" href="#demo">Talk to sales</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section" id="signup">
+    <div class="cta-inner">
+      <h2 class="section-title">Build better products, faster</h2>
+      <p class="section-sub">Join thousands of engineering teams already using PostHog.</p>
+      <a class="btn btn-primary btn-lg" href="#top">Get started — free</a>
+    </div>
+    <svg class="cta-hog" width="120" height="120" viewBox="0 0 200 200" aria-hidden="true">
+      <ellipse cx="100" cy="130" rx="55" ry="42" fill="#23251d"/>
+      <circle cx="65" cy="95" r="16" fill="#23251d"/>
+      <circle cx="60" cy="90" r="3" fill="#eeefe9"/>
+    </svg>
+  </section>
+
+</main>
+
+<footer class="footer-section" id="company">
+  <div class="footer-columns">
+    <div class="footer-col">
+      <p class="footer-header">PRODUCT</p>
+      <a href="#products">Product analytics</a>
+      <a href="#session-replay">Session replay</a>
+      <a href="#feature-flags">Feature flags</a>
+      <a href="#experiments">Experiments</a>
+      <a href="#surveys">Surveys</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-header">RESOURCES</p>
+      <a href="#docs">Docs</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#changelog">Changelog</a>
+      <a href="#api">API reference</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-header">COMPANY</p>
+      <a href="#about">About us</a>
+      <a href="#careers">Careers</a>
+      <a href="#handbook">Handbook</a>
+      <a href="#press">Press</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-header">COMMUNITY</p>
+      <a href="#community">Community forum</a>
+      <a href="#github">GitHub</a>
+      <a href="#slack">Slack</a>
+      <a href="#merch">Merch store</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-header">PRICING</p>
+      <a href="#pricing">Pricing</a>
+      <a href="#calculator">Cost calculator</a>
+      <a href="#enterprise">Enterprise</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-header">LEGAL</p>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+      <a href="#dpa">DPA</a>
+      <a href="#security">Security</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <a class="wordmark" href="#top" aria-label="PostHog home">
+      <svg class="hog-logo" width="22" height="22" viewBox="0 0 100 100" aria-hidden="true">
+        <ellipse cx="50" cy="58" rx="38" ry="30" fill="#23251d"/>
+        <circle cx="26" cy="34" r="10" fill="#23251d"/>
+        <circle cx="23" cy="31" r="2.4" fill="#eeefe9"/>
+      </svg>
+      <span>PostHog</span>
+    </a>
+    <p class="copyright">© 2026 PostHog Inc. Homage build for design-reference purposes only.</p>
+    <div class="social-row">
+      <a href="#github" aria-label="GitHub">GH</a>
+      <a href="#twitter" aria-label="Twitter">TW</a>
+      <a href="#linkedin" aria-label="LinkedIn">IN</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -3,102 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resend - Interactive Template</title>
+  <title>Resend Design Homage</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
 </head>
 <body>
-
-  <!-- Navigation Bar -->
-  <nav class="sub-nav-pill">
-    <div class="container navbar-wrapper">
-      <a href="#" style="font-weight: 700; font-size: 20px; color: var(--color-ink, #262626);">Resend</a>
-      <ul class="menu">
-        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Features</a></li>
-        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Developers</a></li>
-        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Pricing</a></li>
-        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Docs</a></li>
-      </ul>
-      <button class="button-primary-pressed" style="height: 36px; padding: 0 16px; font-size: 13px;">Get Started</button>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-stripe" style="padding: var(--spacing-section, 80px) 0;">
-    <div class="container hero-wrapper">
-      <h1 class="type-display-xl" style="color: var(--color-ink, #262626);">Integrate AI tools in seconds.</h1>
-      <p class="type-body-md" style="color: var(--color-muted, #6b6b6b); max-width: 600px;">
-        Connect your LLM applications to over 100+ platforms and services. Fully customizable, secure, and type-safe tool execution.
-      </p>
-      <div style="display: flex; gap: var(--spacing-md, 16px); margin-top: 16px;">
-        <button class="button-primary-pressed">Launch Console</button>
-        <button class="button-outline">Read Documentation</button>
+  <header class="nav-bar">
+    <div class="nav-container">
+      <a href="#" class="logo">Resend</a>
+      <nav class="nav-links">
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Docs</a>
+        <a href="#">Customers</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="#" class="nav-link">Sign in</a>
+        <button class="button-primary">Get started</button>
+        <button class="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
+  </header>
+
+  <section class="hero-stripe">
+    <h1 class="display-xxl">Email for developers</h1>
+    <p class="subtitle">Email reimagined. Built for developers.</p>
+    <button class="button-primary">Get started</button>
   </section>
 
-  <!-- Console Mockup -->
-  <section style="padding: var(--spacing-lg, 24px) 0; background-color: var(--color-canvas-deep, #000000);">
+  <section class="atmospheric-section" style="background: radial-gradient(circle at top, rgba(0,117,255,0.34), transparent 60%);">
     <div class="container">
-      <div class="email-mockup" style="max-width: 800px; margin: 0 auto;">
-        <div class="terminal-header">
-          <div class="terminal-dot" style="background-color: #ff5f56;"></div>
-          <div class="terminal-dot" style="background-color: #ffbd2e;"></div>
-          <div class="terminal-dot" style="background-color: #27c93f;"></div>
-        </div>
-        <div class="terminal-line"><span class="terminal-prompt">$</span>npm install @resend/sdk</div>
-        <div class="terminal-line" style="color: var(--color-muted, #888888);">+ @resend/sdk@1.4.2 added in 2.1s</div>
-        <div class="terminal-line"><span class="terminal-prompt">$</span>python -c "import resend; print(resend.version)"</div>
-        <div class="terminal-line" style="color: var(--color-success, #22c55e);">v1.4.2 (Connected to Local Server)</div>
-      </div>
+      <h2 class="display-xl">Integrate this weekend</h2>
+      <p class="body-lg">Send emails in minutes with our developer-first API.</p>
     </div>
   </section>
 
-  <!-- Feature Cards Grid -->
-  <section style="padding: var(--spacing-section, 80px) 0;">
+  <section class="code-section">
     <div class="container">
-      <h2 class="type-display-lg" style="text-align: center; color: var(--color-ink, #262626);">Product Offerings</h2>
-      <div class="grid-3">
-
-        <div class="feature-card">
-          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 1</h3>
-          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
-            Describe the tool integrations and seamless workflows enabled by this visual component.
-          </p>
-          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
+      <div class="code-window">
+        <div class="traffic-lights">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
         </div>
-
-        <div class="feature-card">
-          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 2</h3>
-          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
-            Describe the tool integrations and seamless workflows enabled by this visual component.
-          </p>
-          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
+        <div class="code-tabs">
+          <button class="code-tab active">JavaScript</button>
+          <button class="code-tab">Python</button>
+          <button class="code-tab">Ruby</button>
         </div>
-
-        <div class="feature-card">
-          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 3</h3>
-          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
-            Describe the tool integrations and seamless workflows enabled by this visual component.
-          </p>
-          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
-        </div>
-
+        <pre class="code-block"><code>const resendl = require('resend')('api_key');
+await resendl.emails.send({
+  from: 'Acme &lt;onboarding@resend.dev&gt;',
+  to: ' delivered@example.com',
+  subject: 'Hello World',
+  html: '&lt;p&gt;It&apos;s alive!&lt;/p&gt;'
+});</code></pre>
+      </div>
+      <div class="feature-text">
+        <h3 class="heading-md">Simple API, powerful features</h3>
+        <p class="body-md">Our API is designed for developers, with first-class SDKs and comprehensive documentation.</p>
+        <ul class="feature-list">
+          <li>Send emails in milliseconds</li>
+          <li>Real-time analytics and delivery insights</li>
+          <li>Full control over email templates</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Footer Section -->
-  <footer class="footer" style="padding: var(--spacing-section, 80px) 0; border-top: 1px solid var(--color-hairline, #e6e6e6);">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
-      <span class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">&copy; 2026 Resend Inc.</span>
-      <ul class="footer-links">
-        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">Terms</a></li>
-        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">Privacy</a></li>
-        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">GitHub</a></li>
-      </ul>
+  <section class="email-mockup-section">
+    <div class="container">
+      <div class="email-mockup">
+        <div class="email-header">
+          <div class="status-dot"></div>
+          <span class="status-text">Operational</span>
+        </div>
+        <div class="email-body">
+          <h4>Welcome to Resend</h4>
+          <p>Thanks for signing up! Your account is ready to use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-grid">
+    <div class="container">
+      <div class="feature-card feature-card-bordered">
+        <h3 class="heading-md">Deliverability</h3>
+        <p class="body-md">Built-in infrastructure for reliable email delivery with automatic spam detection.</p>
+      </div>
+      <div class="feature-card feature-card-bordered">
+        <h3 class="heading-md">Templates</h3>
+        <p class="body-md">Create beautiful email templates with our drag-and-drop builder or custom HTML.</p>
+      </div>
+      <div class="feature-card feature-card-bordered">
+        <h3 class="heading-md">Analytics</h3>
+        <p class="body-md">Track opens, clicks, and bounces in real-time with comprehensive reporting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="container">
+      <h2 class="display-xl">Available today</h2>
+      <p class="subtitle">Simple pricing for every stage of your journey</p>
+      <div class="pricing-grid">
+        <div class="pricing-tier">
+          <h3 class="heading-md">Free</h3>
+          <p class="price"><span class="price-currency">$0</span></p>
+          <ul class="features-list">
+            <li>100 emails/day</li>
+            <li>Basic templates</li>
+            <li>Email support</li>
+          </ul>
+        </div>
+        <div class="pricing-tier pricing-tier-featured">
+          <div class="badge-pill">Popular</div>
+          <h3 class="heading-md">Pro</h3>
+          <p class="price"><span class="price-currency">$29</span><span class="price-period">/month</span></p>
+          <ul class="features-list">
+            <li>10,000 emails/month</li>
+            <li>Advanced templates</li>
+            <li>Priority support</li>
+            <li>Analytics dashboard</li>
+          </ul>
+        </div>
+        <div class="pricing-tier">
+          <h3 class="heading-md">Enterprise</h3>
+          <p class="price"><span class="price-currency">Custom</span><span class="price-period">/month</span></p>
+          <ul class="features-list">
+            <li>Unlimited emails</li>
+            <li>Custom infrastructure</li>
+            <li>Dedicated support</li>
+            <li>SLA guarantee</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-column">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">API Reference</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Guides</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <p class="copyright">&copy; 2024 Resend. All rights reserved.</p>
+      </div>
     </div>
   </footer>
-
-  <script src="app.js"></script>
 </body>
 </html>

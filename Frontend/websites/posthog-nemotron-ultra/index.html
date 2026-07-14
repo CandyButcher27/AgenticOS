@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PostHog Design Analysis — A Warm Cream Homage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="primary-nav" role="banner">
+    <div class="nav-container">
+      <a href="/" class="logo" aria-label="PostHog home">
+        <svg class="hedgehog-logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="25" r="12" fill="#4d4f46"/>
+          <path d="M8 25 Q12 18 20 18 Q28 18 32 25" stroke="#4d4f46" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="16" cy="23" r="1.5" fill="#eeefe9"/>
+          <circle cx="24" cy="23" r="1.5" fill="#eeefe9"/>
+          <ellipse cx="20" cy="28" rx="3" ry="1.5" fill="#eeefe9"/>
+        </svg>
+        <span class="wordmark">PostHog</span>
+      </a>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#docs" class="nav-link">Docs</a>
+        <a href="#community" class="nav-link">Community</a>
+        <a href="#company" class="nav-link">Company</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+        <a href="#signup" class="nav-link login-link">Log in</a>
+        <a href="#signup" class="btn btn-primary" id="cta-get-started">Get started — free</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="#pricing" class="mobile-nav-link">Pricing</a>
+      <a href="#docs" class="mobile-nav-link">Docs</a>
+      <a href="#community" class="mobile-nav-link">Community</a>
+      <a href="#company" class="mobile-nav-link">Company</a>
+      <div class="mobile-divider"></div>
+      <a href="#signup" class="mobile-nav-link">Log in</a>
+      <a href="#signup" class="btn btn-primary mobile-cta">Get started — free</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <p class="hero-eyebrow">THE NEW WAY TO BUILD PRODUCTS</p>
+            <h1 id="hero-title" class="hero-title">Product analytics, session replay, feature flags, and surveys — all in one platform.</h1>
+            <p class="hero-description">Join 25,000+ companies building better products with PostHog. Open source, self-hostable, and free for up to 1M events/month.</p>
+            <div class="hero-ctas">
+              <a href="#signup" class="btn btn-primary btn-lg">Get started — free</a>
+              <a href="#docs" class="btn btn-secondary btn-lg">Read the docs</a>
+            </div>
+            <p class="hero-trust">No credit card · 14-day full trial · Cancel anytime</p>
+          </div>
+          <div class="hero-illustration" aria-hidden="true">
+            <svg class="hedgehog-hero" viewBox="0 0 400 350" fill="none">
+              <!-- Hedgehog at terminal -->
+              <circle cx="200" cy="200" r="80" fill="#4d4f46"/>
+              <path d="M120 200 Q150 140 200 140 Q250 140 280 200" stroke="#4d4f46" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <circle cx="170" cy="185" r="6" fill="#eeefe9"/>
+              <circle cx="230" cy="185" r="6" fill="#eeefe9"/>
+              <ellipse cx="200" cy="210" rx="12" ry="6" fill="#eeefe9"/>
+              <!-- Terminal -->
+              <rect x="290" y="120" width="180" height="160" rx="8" fill="#23251d"/>
+              <rect x="300" y="130" width="160" height="24" rx="4" fill="#33342d"/>
+              <circle cx="315" cy="142" r="6" fill="#cd4239"/>
+              <circle cx="335" cy="142" r="6" fill="#f7a501"/>
+              <circle cx="355" cy="142" r="6" fill="#2c8c66"/>
+              <text x="310" y="175" font-family="ui-monospace" font-size="13" fill="#dceaf6">posthog.capture('</text>
+              <text x="310" y="195" font-family="ui-monospace" font-size="13" fill="#2c8c66">user_signed_up</text>
+              <text x="310" y="215" font-family="ui-monospace" font-size="13" fill="#dceaf6">')</text>
+              <text x="310" y="245" font-family="ui-monospace" font-size="13" fill="#e7d8ee">// Feature flag check</text>
+              <text x="310" y="265" font-family="ui-monospace" font-size="13" fill="#dceaf6">if (posthog.getFeatureFlag(</text>
+              <text x="310" y="285" font-family="ui-monospace" font-size="13" fill="#f7a501">'new-dashboard'</text>
+              <text x="310" y="285" font-family="ui-monospace" font-size="13" fill="#dceaf6">)) {</text>
+              <!-- Small hedgehog in corner -->
+              <circle cx="380" cy="300" r="25" fill="#4d4f46"/>
+              <path d="M355 300 Q365 285 380 285 Q395 285 405 300" stroke="#4d4f46" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="370" cy="293" r="2" fill="#eeefe9"/>
+              <circle cx="390" cy="293" r="2" fill="#eeefe9"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feature-section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-eyebrow">UNDERSTAND PRODUCT USAGE</p>
+          <h2 id="features-title" class="section-title">Everything you need to understand your users</h2>
+        </header>
+        <div class="card-grid">
+          <article class="card product-card hedgehog-card" data-hedgehog="lab-coat">
+            <div class="card-hedgehog" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="50" r="28" fill="#4d4f46"/>
+                <path d="M12 50 Q25 30 40 30 Q55 30 68 50" stroke="#4d4f46" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <rect x="20" y="38" width="40" height="16" rx="4" fill="#f7a501"/>
+                <circle cx="30" cy="44" r="3.5" fill="#eeefe9"/>
+                <circle cx="50" cy="44" r="3.5" fill="#eeefe9"/>
+                <ellipse cx="40" cy="52" rx="6" ry="3" fill="#eeefe9"/>
+                <!-- Lab coat -->
+                <path d="M18 65 Q18 55 30 55 Q50 55 50 65" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <line x1="40" y1="55" x2="40" y2="75" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Product Analytics</h3>
+            <p class="card-description">Funnels, retention, paths, stickiness, and SQL insights — all powered by ClickHouse for sub-second queries on billions of events.</p>
+            <a href="#docs" class="btn btn-tertiary card-link">Explore analytics →</a>
+          </article>
+
+          <article class="card product-card hedgehog-card" data-hedgehog="terminal">
+            <div class="card-hedgehog" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="50" r="28" fill="#4d4f46"/>
+                <path d="M12 50 Q25 30 40 30 Q55 30 68 50" stroke="#4d4f46" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="30" cy="44" r="3.5" fill="#eeefe9"/>
+                <circle cx="50" cy="44" r="3.5" fill="#eeefe9"/>
+                <ellipse cx="40" cy="52" rx="6" ry="3" fill="#eeefe9"/>
+                <!-- Terminal -->
+                <rect x="15" y="58" width="50" height="18" rx="3" fill="#23251d"/>
+                <text x="40" y="71" font-family="ui-monospace" font-size="8" fill="#dceaf6" text-anchor="middle">$ npm run dev</text>
+              </svg>
+            </div>
+            <h3 class="card-title">Session Replay</h3>
+            <p class="card-description">Watch exactly what users do. Filter by rage clicks, errors, or feature flag variants. Privacy-first with automatic masking.</p>
+            <a href="#docs" class="btn btn-tertiary card-link">Watch replays →</a>
+          </article>
+
+          <article class="card product-card hedgehog-card" data-hedgehog="magnifying">
+            <div class="card-hedgehog" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="50" r="28" fill="#4d4f46"/>
+                <path d="M12 50 Q25 30 40 30 Q55 30 68 50" stroke="#4d4f46" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="30" cy="44" r="3.5" fill="#eeefe9"/>
+                <circle cx="50" cy="44" r="3.5" fill="#eeefe9"/>
+                <ellipse cx="40" cy="52" rx="6" ry="3" fill="#eeefe9"/>
+                <!-- Magnifying glass -->
+                <circle cx="55" cy="40" r="12" fill="none" stroke="#f7a501" stroke-width="2.5"/>
+                <line x1="62" y1="47" x2="70" y2="55" stroke="#f7a501" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Feature Flags</h3>
+            <p class="card-description">Gradual rollouts, multivariate tests, and targeted releases. Decide in PostHog, deploy with confidence, measure impact automatically.</p>
+            <a href="#docs" class="btn btn-tertiary card-link">Try flags →</a>
+          </article>
+
+          <article class="card product-card hedgehog-card" data-hedgehog="lounge">
+            <div class="card-hedgehog" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="50" r="28" fill="#4d4f46"/>
+                <path d="M12 50 Q25 30 40 30 Q55 30 68 50" stroke="#4d4f46" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="30" cy="44" r="3.5" fill="#eeefe9"/>
+                <circle cx="50" cy="44" r="3.5" fill="#eeefe9"/>
+                <ellipse cx="40" cy="52" rx="6" ry="3" fill="#eeefe9"/>
+                <!-- Lounge chair -->
+                <path d="M15 65 Q15 50 30 50 Q40 50 40 65" stroke="#f7a501" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <line x1="40" y1="50" x2="40" y2="40" stroke="#f7a501" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Surveys</h3>
+            <p class="card-description">In-app surveys with targeting, branching, and localization. NPS, CSAT, or custom — all connected to your analytics.</p>
+            <a href="#docs" class="btn btn-tertiary card-link">Create surveys →</a>
+          </article>
+
+          <article class="card product-card hedgehog-card" data-hedgehog="hammock">
+            <div class="card-hedgehog" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="50" r="28" fill="#4d4f46"/>
+                <path d="M12 50 Q25 30 40 30 Q55 30 68 50" stroke="#4d4f46" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="30" cy="44" r="3.5" fill="#eeefe9"/>
+                <circle cx="50" cy="44" r="3.5" fill="#eeefe9"/>
+                <ellipse cx="40" cy="52" rx="6" ry="3" fill="#eeefe9"/>
+                <!-- Hammock -->
+                <path d="M10 60 Q40 40 70 60" stroke="#2c84e0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <line x1="20" y1="60" x2="20" y2="75" stroke="#2c84e0" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="60" y1="60" x2="60" y2="75" stroke="#2c84e0" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Experiments</h3>
+            <p class="card-description">A/B tests, multivariate experiments, and holdout groups. Statistical rigor built-in — no p-hacking, just clear decisions.</p>
+            <a href="#docs" class="btn btn-tertiary card-link">Run experiments →</a>
+          </article>
+
+          <article class="card product-card hedgehog-card" data-hedgehog="hat">
+            <div class="card-hedgehog" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="50" r="28" fill="#4d4f46"/>
+                <path d="M12 50 Q25 30 40 30 Q55 30 68 50" stroke="#4d4f46" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="30" cy="44" r="3.5" fill="#eeefe9"/>
+                <circle cx="50" cy="44" r="3.5" fill="#eeefe9"/>
+                <ellipse cx="40" cy="52" rx="6" ry="3" fill="#eeefe9"/>
+                <!-- Party hat -->
+                <path d="M55 25 L65 10 L75 25 Z" fill="#f7a501"/>
+                <circle cx="60" cy="10" r="3" fill="#cd4239"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Data Pipeline</h3>
+            <p class="card-description">Ingest from anywhere, transform with HogQL, export to your warehouse. One pipeline for product, marketing, and behavioral data.</p>
+            <a href="#docs" class="btn btn-tertiary card-link">Build pipelines →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section banner-section" aria-labelledby="banner-title">
+      <div class="container">
+        <div class="banner banner-tip-blue" role="region" aria-label="Tip">
+          <div class="banner-icon" aria-hidden="true">💡</div>
+          <div class="banner-content">
+            <p class="banner-label">Tip</p>
+            <p class="banner-text">All PostHog products share the same data model. Events captured for analytics automatically power session replay, feature flag evaluation, and experiment assignment — no duplicate instrumentation needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section workflows-section" id="workflows" aria-labelledby="workflows-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-eyebrow">BUILD STICKY HABITS</p>
+          <h2 id="workflows-title" class="section-title">Workflows that compound</h2>
+        </header>
+        <div class="workflow-grid">
+          <article class="card feature-tile">
+            <div class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect x="4" y="8" width="40" height="32" rx="4" stroke="#4d4f46" stroke-width="2"/>
+                <path d="M8 20 L20 32 L40 12" stroke="#2c8c66" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <h3 class="tile-title">Capture everything</h3>
+            <p class="tile-description">Autocapture clicks, form submissions, and pageviews. Add custom events with one line of code. No schema migrations, no tracking plans to maintain.</p>
+          </article>
+          <article class="card feature-tile">
+            <div class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="20" stroke="#4d4f46" stroke-width="2"/>
+                <path d="M24 8 V24 L34 30" stroke="#f7a501" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="4" fill="#4d4f46"/>
+              </svg>
+            </div>
+            <h3 class="tile-title">Ask questions fast</h3>
+            <p class="tile-description">HogQL lets you write SQL directly on your event data. Join with person properties, cohort definitions, or warehouse tables. Results in milliseconds.</p>
+          </article>
+          <article class="card feature-tile">
+            <div class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect x="8" y="12" width="32" height="28" rx="4" stroke="#4d4f46" stroke-width="2"/>
+                <rect x="12" y="16" width="24" height="4" rx="2" fill="#f7a501"/>
+                <rect x="12" y="24" width="18" height="4" rx="2" fill="#bfc1b7"/>
+                <rect x="12" y="32" width="22" height="4" rx="2" fill="#bfc1b7"/>
+              </svg>
+            </div>
+            <h3 class="tile-title">Ship with confidence</h3>
+            <p class="tile-description">Feature flags gate every rollout. Target by cohort, geography, or custom properties. Roll back instantly without a deploy.</p>
+          </article>
+          <article class="card feature-tile">
+            <div class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M8 40 L20 20 L32 30 L40 12" stroke="#2c84e0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="20" cy="20" r="4" fill="#2c84e0"/>
+                <circle cx="32" cy="30" r="4" fill="#2c84e0"/>
+                <circle cx="40" cy="12" r="4" fill="#2c84e0"/>
+              </svg>
+            </div>
+            <h3 class="tile-title">Measure what matters</h3>
+            <p class="tile-description">Experiments automatically compute statistical significance. Guardrail metrics prevent regressions. Decide faster with sequential testing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing-section" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-eyebrow">SIMPLE, TRANSPARENT PRICING</p>
+          <h2 id="pricing-title" class="section-title">Free for small teams, fair for everyone</h2>
+        </header>
+        <div class="pricing-toggle">
+          <span class="pricing-period">Monthly</span>
+          <label class="toggle-switch" for="billing-toggle">
+            <input type="checkbox" id="billing-toggle" role="switch" aria-label="Toggle annual billing">
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="pricing-period active">Annually</span>
+          <span class="pricing-save">Save 20%</span>
+        </div>
+        <div class="pricing-grid">
+          <article class="card pricing-tier-card">
+            <header class="tier-header">
+              <h3 class="tier-name">Free</h3>
+              <p class="tier-description">For hobby projects and small teams</p>
+            </header>
+            <div class="tier-price">
+              <span class="price-amount">$0</span>
+              <span class="price-period">/month</span>
+            </div>
+            <ul class="tier-features">
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> 1M events/month free</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Unlimited team members</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> All products included</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> 7-day data retention</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Community support</li>
+            </ul>
+            <a href="#signup" class="btn btn-secondary btn-block">Start free</a>
+          </article>
+          <article class="card pricing-tier-card popular">
+            <div class="popular-badge">Most popular</div>
+            <header class="tier-header">
+              <h3 class="tier-name">Pro</h3>
+              <p class="tier-description">For growing companies that need more</p>
+            </header>
+            <div class="tier-price">
+              <span class="price-amount">$360</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p class="tier-usage">Includes 5M events · $0.000072/event after</p>
+            <ul class="tier-features">
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> 30-day data retention</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Advanced cohort analysis</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Data export to warehouse</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> SSO & SCIM provisioning</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Email support (8hr SLA)</li>
+            </ul>
+            <a href="#signup" class="btn btn-primary btn-block">Start free trial</a>
+          </article>
+          <article class="card pricing-tier-card">
+            <header class="tier-header">
+              <h3 class="tier-name">Enterprise</h3>
+              <p class="tier-description">For teams with advanced requirements</p>
+            </header>
+            <div class="tier-price">
+              <span class="price-amount">Custom</span>
+            </div>
+            <ul class="tier-features">
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Unlimited retention</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Dedicated support engineer</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Custom contracts & billing</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></sql> Audit logs & compliance</li>
+              <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#2c8c66" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Self-hosted deployment</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary btn-block">Contact sales</a>
+          </article>
+        </div>
+        <p class="pricing-note">All plans include the full product suite. No feature gating. <a href="#pricing-details" class="link-inline">View full pricing details →</a></p>
+      </div>
+    </section>
+
+    <section class="section docs-section" id="docs" aria-labelledby="docs-title">
+      <div class="container">
+        <div class="docs-layout">
+          <aside class="doc-sidebar" aria-label="Documentation navigation">
+            <div class="sidebar-search">
+              <label for="ai-search" class="visually-hidden">Ask PostHog AI</label>
+              <input type="search" id="ai-search" class="search-input" placeholder="Ask PostHog AI..." aria-label="Ask PostHog AI">
+            </div>
+            <nav class="sidebar-nav" aria-label="Documentation sections">
+              <details class="sidebar-section open">
+                <summary class="sidebar-section-title">
+                  <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 20V10M12 20V4M6 20V16"/>
+                  </svg>
+                  Product Analytics
+                </summary>
+                <ul class="sidebar-items">
+                  <li><a href="#" class="sidebar-link active">Introduction</a></li>
+                  <li><a href="#" class="sidebar-link">Funnels</a></li>
+                  <li><a href="#" class="sidebar-link">Retention</a></li>
+                  <li><a href="#" class="sidebar-link">Paths</a></li>
+                  <li><a href="#" class="sidebar-link">Stickiness</a></li>
+                  <li><a href="#" class="sidebar-link">SQL Insights</a></li>
+                </ul>
+              </details>
+              <details class="sidebar-section">
+                <summary class="sidebar-section-title">
+                  <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+                    <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+                    <line x1="21" y1="12" x2="21" y2="22"/>
+                    <line x1="15" y1="5" x2="15" y2="22"/>
+                  </svg>
+                  Session Replay
+                </summary>
+                <ul class="sidebar-items">
+                  <li><a href="#" class="sidebar-link">Getting started</a></li>
+                  <li><a href="#" class="sidebar-link">Privacy & masking</a></li>
+                  <li><a href="#" class="sidebar-link">Console integration</a></li>
+                  <li><a href="#" class="sidebar-link">Network capture</a></li>
+                </ul>
+              </details>
+              <details class="sidebar-section">
+                <summary class="sidebar-section-title">
+                  <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M9 9h6v6H9z"/>
+                  </svg>
+                  Feature Flags
+                </summary>
+                <ul class="sidebar-items">
+                  <li><a href="#" class="sidebar-link">Quick start</a></li>
+                  <li><a href="#" class="sidebar-link">Multivariate flags</a></li>
+                  <li><a href="#" class="sidebar-link">Targeting rules</a></li>
+                  <li><a href="#" class="sidebar-link">Local evaluation</a></li>
+                </ul>
+              </details>
+              <details class="sidebar-section">
+                <summary class="sidebar-section-title">
+                  <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                  </svg>
+                  Experiments
+                </summary>
+                <ul class="sidebar-items">
+                  <li><a href="#" class="sidebar-link">A/B testing</a></li>
+                  <li><a href="#" class="sidebar-link">Holdout groups</a></li>
+                  <li><a href="#" class="sidebar-link">Sequential testing</a></li>
+                </ul>
+              </details>
+            </nav>
+            <div class="sidebar-cta">
+              <a href="#signup" class="btn btn-primary btn-block">Try PostHog free</a>
+            </div>
+          </aside>
+          <div class="doc-content">
+            <article class="doc-card">
+              <header class="doc-header">
+                <p class="doc-eyebrow">PRODUCT ANALYTICS</p>
+                <h1 class="doc-title">Introduction to Product Analytics</h1>
+                <p class="doc-meta">Learn how to capture, query, and visualize product usage data with PostHog.</p>
+              </header>
+              <div class="doc-body">
+                <p class="doc-paragraph">PostHog's product analytics gives you the tools to understand how users interact with your product. From simple event counting to complex multi-step funnels, retention cohorts, and SQL-powered insights — all backed by ClickHouse for sub-second queries on billions of events.</p>
+                
+                <h2 class="doc-h2">Quick start</h2>
+                <p class="doc-paragraph">Install the JavaScript snippet and start capturing events automatically:</p>
+                <pre class="code-block"><code>// Add to your <head>
+<script async src="https://us.i.posthog.com/static/array.js"></script>
+<script>
+  window.posthog = window.posthog || [];
+  posthog.init('<ph_project_api_key>', {
+    api_host: 'https://us.i.posthog.com',
+    autocapture: true,
+    capture_pageview: true,
+    capture_pageleave: true
+  });
+</script></code></pre>
+
+                <div class="banner banner-tip-green" role="region" aria-label="Success">
+                  <div class="banner-icon" aria-hidden="true">✅</div>
+                  <div class="banner-content">
+                    <p class="banner-label">Success</p>
+                    <p class="banner-text">Autocapture automatically tracks clicks, form submissions, and pageviews. No manual instrumentation required for basic analytics.</p>
+                  </div>
+                </div>
+
+                <h2 class="doc-h2">Core concepts</h2>
+                <p class="doc-paragraph">Understanding these three concepts will help you get the most out of PostHog:</p>
+                
+                <div class="concept-grid">
+                  <div class="concept-card">
+                    <h3 class="concept-title">Events</h3>
+                    <p class="concept-description">Actions users take in your product. Each event has a name (<code class="inline-code">$pageview</code>, <code class="inline-code">button_clicked</code>, <code class="inline-code">user_signed_up</code>) and properties.</p>
+                  </div>
+                  <div class="concept-card">
+                    <h3 class="concept-title">Persons</h3>
+                    <p class="concept-description">Unique users identified by a distinct ID. Persons accumulate properties (email, plan, company) and event history over time.</p>
+                  </div>
+                  <div class="concept-card">
+                    <h3 class="concept-title">Cohorts</h3>
+                    <p class="concept-description">Groups of users defined by behavior or properties. Use cohorts to filter insights, target feature flags, or sync to external tools.</p>
+                  </div>
+                </div>
+
+                <div class="banner banner-tip-blue" role="region" aria-label="Tip">
+                  <div class="banner-icon" aria-hidden="true">💡</div>
+                  <div class="banner-content">
+                    <p class="banner-label">Tip</p>
+                    <p class="banner-text">Use <code class="inline-code">posthog.identify()</code> to attach user properties after login. This connects pre-login anonymous activity to the identified user.</p>
+                  </div>
+                </div>
+
+                <h2 class="doc-h2">Querying with HogQL</h2>
+                <p class="doc-paragraph">HogQL is PostHog's SQL dialect for querying events and persons. It extends ClickHouse SQL with product analytics primitives:</p>
+                <pre class="code-block"><code>-- Funnel: Signup to Purchase
+SELECT
+  step,
+  count() as users
+FROM funnel(
+  distinct_id,
+  timestamp,
+  event = '$pageview' AND properties.$current_url LIKE '%signup%',
+  event = 'button_clicked' AND properties.$element_text = 'Get started',
+  event = 'purchase_completed'
+)
+GROUP BY step
+ORDER BY step</code></pre>
+
+                <div class="banner banner-tip-purple" role="region" aria-label="Note">
+                  <div class="banner-icon" aria-hidden="true">📘</div>
+                  <div class="banner-content">
+                    <p class="banner-label">Note</p>
+                    <p class="banner-text">The <code class="inline-code">funnel()</code> function handles multi-step conversion analysis natively in SQL. No need to write complex window functions.</p>
+                  </div>
+                </div>
+
+                <h2 class="doc-h2">Visualizing data</h2>
+                <p class="doc-paragraph">Build dashboards with these insight types:</p>
+                <ul class="doc-list">
+                  <li><strong>Trends</strong> — Line, bar, or area charts of event volume over time</li>
+                  <li><strong>Funnels</strong> — Multi-step conversion with dropoff analysis</li>
+                  <li><strong>Retention</strong> — Cohort-based returning user matrices</li>
+                  <li><strong>Paths</strong> — Sankey diagrams of user journeys</li>
+                  <li><strong>Stickiness</strong> — DAU/MAU ratios and frequency histograms</li>
+                  <li><strong>SQL Insights</strong> — Custom visualizations from raw HogQL</li>
+                </ul>
+
+                <div class="banner banner-tip-red" role="region" aria-label="Warning">
+                  <div class="banner-icon" aria-hidden="true">⚠️</div>
+                  <div class="banner-content">
+                    <p class="banner-label">Warning</p>
+                    <p class="banner-text">Free plan retains data for 7 days. Upgrade to Pro for 30-day retention or Enterprise for unlimited retention. Data beyond retention is permanently deleted.</p>
+                  </div>
+                </div>
+
+                <h2 class="doc-h2">Next steps</h2>
+                <div class="doc-next-steps">
+                  <a href="#" class="btn btn-primary">Create your first insight</a>
+                  <a href="#" class="btn btn-secondary">Explore the API reference</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section community-section" id="community" aria-labelledby="community-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-eyebrow">JOIN 25,000+ DEVELOPERS</p>
+          <h2 id="community-title" class="section-title">Built by engineers, for engineers</h2>
+        </header>
+        <div class="card-grid">
+          <article class="card product-card">
+            <h3 class="card-title">Open Source</h3>
+            <p class="card-description">PostHog is MIT licensed. Self-host on your infrastructure, audit the code, contribute features. 18k+ stars on GitHub.</p>
+            <a href="#" class="btn btn-tertiary card-link">View on GitHub →</a>
+          </article>
+          <article class="card product-card">
+            <h3 class="card-title">Community Slack</h3>
+            <p class="card-description">20,000+ members answering questions, sharing dashboards, and influencing the roadmap. Direct access to the core team.</p>
+            <a href="#" class="btn btn-tertiary card-link">Join Slack →</a>
+          </article>
+          <article class="card product-card">
+            <h3 class="card-title">Public Roadmap</h3>
+            <p class="card-description">Every feature request and bug is tracked publicly. Vote on issues, see what's shipping next, hold us accountable.</p>
+            <a href="#" class="btn btn-tertiary card-link">See roadmap →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="signup" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-hedgehog" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="75" r="40" fill="#4d4f46"/>
+              <path d="M20 75 Q40 45 60 45 Q80 45 100 75" stroke="#4d4f46" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <circle cx="45" cy="68" r="5" fill="#eeefe9"/>
+              <circle cx="75" cy="68" r="5" fill="#eeefe9"/>
+              <ellipse cx="60" cy="80" rx="10" ry="5" fill="#eeefe9"/>
+              <!-- Party hat -->
+              <path d="M85 40 L95 20 L105 40 Z" fill="#f7a501"/>
+              <circle cx="90" cy="20" r="4" fill="#cd4239"/>
+              <!-- Confetti -->
+              <circle cx="30" cy="30" r="3" fill="#f7a501"/>
+              <circle cx="100" cy="35" r="3" fill="#2c84e0"/>
+              <circle cx="25" cy="90" r="3" fill="#2c8c66"/>
+              <circle cx="105" cy="95" r="3" fill="#cd4239"/>
+            </svg>
+          </div>
+          <h2 id="cta-title" class="cta-title">Start analyzing in minutes</h2>
+          <p class="cta-description">Free up to 1M events/month. No credit card required. Self-host or use our cloud.</p>
+          <form class="cta-form" action="#signup" method="post">
+            <label for="email" class="visually-hidden">Email address</label>
+            <input type="email" id="email" class="text-input cta-input" placeholder="Enter your email" required aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Get started — free</button>
+          </form>
+          <p class="cta-trust">By signing up, you agree to our <a href="#" class="link-inline">Terms of Service</a> and <a href="#" class="link-inline">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-section" id="company" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo" aria-label="PostHog home">
+            <svg class="hedgehog-logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="25" r="12" fill="#4d4f46"/>
+              <path d="M8 25 Q12 18 20 18 Q28 18 32 25" stroke="#4d4f46" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="16" cy="23" r="1.5" fill="#eeefe9"/>
+              <circle cx="24" cy="23" r="1.5" fill="#eeefe9"/>
+              <ellipse cx="20" cy="28" rx="3" ry="1.5" fill="#eeefe9"/>
+            </svg>
+            <span class="wordmark">PostHog</span>
+          </a>
+          <p class="footer-tagline">The open source product analytics platform.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-column">
+            <h4 class="footer-heading">Product</h4>
+            <ul>
+              <li><a href="#" class="footer-link">Analytics</a></li>
+              <li><a href="#" class="footer-link">Session Replay</a></li>
+              <li><a href="#" class="footer-link">Feature Flags</a></li>
+              <li><a href="#" class="footer-link">Experiments</a></li>
+              <li><a href="#" class="footer-link">Surveys</a></li>
+              <li><a href="#" class="footer-link">Data Pipeline</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-heading">Resources</h4>
+            <ul>
+              <li><a href="#" class="footer-link">Documentation</a></li>
+              <li><a href="#" class="footer-link">API Reference</a></li>
+              <li><a href="#" class="footer-link">Tutorials</a></li>
+              <li><a href="#" class="footer-link">Blog</a></li>
+              <li><a href="#" class="footer-link">Handbook</a></li>
+              <li><a href="#" class="footer-link">Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-heading">Company</h4>
+            <ul>
+              <li><a href="#" class="footer-link">About</a></li>
+              <li><a href="#" class="footer-link">Careers</a></li>
+              <li><a href="#" class="footer-link">Press</a></li>
+              <li><a href="#" class="footer-link">Contact</a></li>
+              <li><a href="#" class="footer-link">Partners</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-heading">Community</h4>
+            <ul>
+              <li><a href="#" class="footer-link">GitHub</a></li>
+              <li><a href="#" class="footer-link">Slack</a></li>
+              <li><a href="#" class="footer-link">Forum</a></li>
+              <li><a href="#" class="footer-link">Events</a></li>
+              <li><a href="#" class="footer-link">Champions</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-heading">Pricing</h4>
+            <ul>
+              <li><a href="#" class="footer-link">Cloud Pricing</a></li>
+              <li><a href="#" class="footer-link">Self-hosted</a></li>
+              <li><a href="#" class="footer-link">Enterprise</a></li>
+              <li><a href="#" class="footer-link">Startup Program</a></li>
+              <li><a href="#" class="footer-link">Non-profit Discount</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-heading">Legal</h4>
+            <ul>
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">Terms of Service</a></li>
+              <li><a href="#" class="footer-link">Security</a></li>
+              <li><a href="#" class="footer-link">Cookies</a></li>
+              <li><a href="#" class="footer-link">GDPR</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© 2024 PostHog, Inc. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+          <a href="#" class="social-link" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
+          <a href="#" class="social-link" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -3,99 +3,248 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Replicate - Interactive Template</title>
+  <title>Replicate - AI Developer Platform</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=rb-freigeist-neue:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=basier-square:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Navigation Bar -->
-  <nav class="sub-nav-pill">
-    <div class="container navbar-wrapper">
-      <a href="#" style="font-weight: 700; font-size: 20px; color: var(--color-ink, #262626);">Replicate</a>
-      <ul class="menu">
-        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Features</a></li>
-        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Developers</a></li>
-        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Pricing</a></li>
-        <li><a href="#" class="menu-link" style="color: var(--color-muted, #6b6b6b);">Docs</a></li>
-      </ul>
-      <button class="button-primary-pressed" style="height: 36px; padding: 0 16px; font-size: 13px;">Get Started</button>
+  <header class="nav-bar">
+    <div class="nav-container">
+      <a href="#" class="logo">replicate</a>
+      <nav class="nav-links">
+        <a href="#">Explore</a>
+        <a href="#">Pricing</a>
+        <a href="#">Docs</a>
+        <a href="#">Blog</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="button-icon" aria-label="GitHub">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.807 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.841 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.204-6.086 8.204-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </button>
+        <a href="#" class="button-primary">Sign in</a>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero-band" style="padding: var(--spacing-section, 80px) 0;">
-    <div class="container hero-wrapper">
-      <h1 class="type-display-xl" style="color: var(--color-ink, #262626);">Integrate AI tools in seconds.</h1>
-      <p class="type-body-md" style="color: var(--color-muted, #6b6b6b); max-width: 600px;">
-        Connect your LLM applications to over 100+ platforms and services. Fully customizable, secure, and type-safe tool execution.
-      </p>
-      <div style="display: flex; gap: var(--spacing-md, 16px); margin-top: 16px;">
-        <button class="button-primary-pressed">Launch Console</button>
-        <button class="button-outline">Read Documentation</button>
+  <section class="hero-band">
+    <div class="hero-content">
+      <div class="hero-illustration">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <path d="M150 100 Q200 50 250 100 Q300 150 250 200 Q200 250 150 200 Q100 150 150 100 Z" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="200" cy="150" r="15" fill="none" stroke="white" stroke-width="6"/>
+          <rect x="180" y="170" width="40" height="30" fill="none" stroke="white" stroke-width="6" strokeLinecap="round"/>
+          <path d="M170 140 L230 140" stroke="white" stroke-width="6" strokeLinecap="round"/>
+          <path d="M170 180 L230 180" stroke="white" stroke-width="6" strokeLinecap="round"/>
+          <path d="M190 120 Q200 110 210 120" fill="none" stroke="white" stroke-width="6" strokeLinecap="round"/>
+        </svg>
+      </div>
+      <h1 class="hero-title">Imagine what you can build</h1>
+      <p class="hero-subtitle">Replicate powers the AI tools you love, from image generation to fine-tuned language models.</p>
+      <div class="hero-actions">
+        <button class="button-primary">Try a model</button>
+        <button class="button-outline">View docs</button>
+      </div>
+      <div class="hero-badges">
+        <span class="badge-tag">Text-to-image</span>
+        <span class="badge-tag">Video</span>
+        <span class="badge-tag">Audio</span>
       </div>
     </div>
   </section>
 
-  <!-- Console Mockup -->
-  <section style="padding: var(--spacing-lg, 24px) 0; background-color: var(--color-canvas-deep, #000000);">
-    <div class="container">
-      <div class="code-tab" style="max-width: 800px; margin: 0 auto;">
-        <div class="terminal-header">
-          <div class="terminal-dot" style="background-color: #ff5f56;"></div>
-          <div class="terminal-dot" style="background-color: #ffbd2e;"></div>
-          <div class="terminal-dot" style="background-color: #27c93f;"></div>
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Featured Models</h2>
+      <p class="section-description">Explore what the community is building.</p>
+      <div class="model-grid">
+        <div class="model-card">
+          <div class="model-thumbnail" style="background-image: url('https://placehold.co/300x300')"></div>
+          <div class="model-info">
+            <h3 class="model-name">Stable Diffusion</h3>
+            <p class="model-owner">Stability AI</p>
+            <p class="model-description">Generate images from text prompts with this powerful diffusion model.</p>
+            <div class="model-tags">
+              <span class="badge-tag">text-to-image</span>
+            </div>
+            <span class="badge-status">running</span>
+          </div>
         </div>
-        <div class="terminal-line"><span class="terminal-prompt">$</span>npm install @replicate/sdk</div>
-        <div class="terminal-line" style="color: var(--color-muted, #888888);">+ @replicate/sdk@1.4.2 added in 2.1s</div>
-        <div class="terminal-line"><span class="terminal-prompt">$</span>python -c "import replicate; print(replicate.version)"</div>
-        <div class="terminal-line" style="color: var(--color-success, #22c55e);">v1.4.2 (Connected to Local Server)</div>
+        <div class="model-card">
+          <div class="model-thumbnail" style="background-image: url('https://placehold.co/300x300')"></div>
+          <div class="model-info">
+            <h3 class="model-name">Whisper</h3>
+            <p class="model-owner">OpenAI</p>
+            <p class="model-description">Speech recognition model that can translate between languages.</p>
+            <div class="model-tags">
+              <span class="badge-tag">audio</span>
+              <span class="badge-tag">text</span>
+            </div>
+            <span class="badge-status">running</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-thumbnail" style="background-image: url('https://placehold.co/300x300')"></div>
+          <div class="model-info">
+            <h3 class="model-name">GPT-4</h3>
+            <p class="model-owner">OpenAI</p>
+            <p class="model-description">The most capable model we've ever trained.</p>
+            <div class="model-tags">
+              <span class="badge-tag">text</span>
+            </div>
+            <span class="badge-status">running</span>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-thumbnail" style="background-image: url('https://placehold.co/300x300')"></div>
+          <div class="model-info">
+            <h3 class="model-name">DALL-E 3</h3>
+            <p class="model-owner">OpenAI</p>
+            <p class="model-description">The latest version of our flagship image generation model.</p>
+            <div class="model-tags">
+              <span class="badge-tag">text-to-image</span>
+            </div>
+            <span class="badge-status">running</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Cards Grid -->
-  <section style="padding: var(--spacing-section, 80px) 0;">
-    <div class="container">
-      <h2 class="type-display-lg" style="text-align: center; color: var(--color-ink, #262626);">Product Offerings</h2>
-      <div class="grid-3">
-
-        <div class="model-card">
-          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 1</h3>
-          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
-            Describe the tool integrations and seamless workflows enabled by this visual component.
-          </p>
-          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
+  <section class="code-section">
+    <div class="section-container">
+      <div class="code-story">
+        <div class="code-narrative">
+          <h2 class="section-title">How it works</h2>
+          <p>Replicate runs machine learning models in containers with GPU acceleration. Our platform provides a simple API for inference, training, and deployment.</p>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h3 class="feature-title">Simple API</h3>
+              <p>Make requests with curl, Python, or Node.js. No complex setup required.</p>
+            </div>
+            <div class="feature-card">
+              <h3 class="feature-title">GPU Acceleration</h3>
+              <p>Models run on NVIDIA A100 GPUs with automatic scaling.</p>
+            </div>
+            <div class="feature-card">
+              <h3 class="feature-title">Version Control</h3>
+              <p>Track model versions and deployments with git-like semantics.</p>
+            </div>
+          </div>
         </div>
+        <div class="code-block">
+          <div class="code-tabs">
+            <button class="code-tab code-tab-active" data-language="Python">Python</button>
+            <button class="code-tab" data-language="Node.js">Node.js</button>
+            <button class="code-tab" data-language="cURL">cURL</button>
+          </div>
+          <pre class="code-content"><code>import replicate
 
-        <div class="model-card">
-          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 2</h3>
-          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
-            Describe the tool integrations and seamless workflows enabled by this visual component.
-          </p>
-          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
+output = replicate.run(
+  "stability-ai/stable-diffusion:latest",
+  input={"prompt": "a fantasy landscape"}
+)
+print(output)</code></pre>
         </div>
-
-        <div class="model-card">
-          <h3 class="type-title-md" style="color: var(--color-ink, #262626); margin-bottom: 8px;">Feature 3</h3>
-          <p class="type-body-sm" style="color: var(--color-muted, #6b6b6b); margin-bottom: 16px;">
-            Describe the tool integrations and seamless workflows enabled by this visual component.
-          </p>
-          <a href="#" class="type-button" style="color: var(--color-primary); font-weight: 600;">Learn More &rarr;</a>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Footer Section -->
-  <footer class="footer" style="padding: var(--spacing-section, 80px) 0; border-top: 1px solid var(--color-hairline, #e6e6e6);">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
-      <span class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">&copy; 2026 Replicate Inc.</span>
-      <ul class="footer-links">
-        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">Terms</a></li>
-        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">Privacy</a></li>
-        <li><a href="#" class="type-body-sm" style="color: var(--color-muted, #6b6b6b);">GitHub</a></li>
-      </ul>
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Scale on Replicate</h2>
+      <div class="pricing-grid">
+        <div class="pricing-tier">
+          <h3 class="pricing-name">Free</h3>
+          <p class="pricing-price">$0</p>
+          <p class="pricing-description">Access basic models and limited compute.</p>
+          <ul class="pricing-features">
+            <li>100 inferences/month</li>
+            <li>CPU execution</li>
+            <li>Community support</li>
+          </ul>
+          <button class="button-ghost">Get started</button>
+        </div>
+        <div class="pricing-tier pricing-tier-featured">
+          <h3 class="pricing-name">Pro</h3>
+          <p class="pricing-price">$99/mo</p>
+          <p class="pricing-description">Unlimited access to all models with GPU acceleration.</p>
+          <ul class="pricing-features">
+            <li>Unlimited inferences</li>
+            <li>A100 GPU acceleration</li>
+            <li>Priority support</li>
+            <li>Custom deployments</li>
+          </ul>
+          <button class="button-dark">Get started</button>
+        </div>
+        <div class="pricing-tier">
+          <h3 class="pricing-name">Enterprise</h3>
+          <p class="pricing-price">Contact sales</p>
+          <p class="pricing-description">Dedicated infrastructure and SLA.</p>
+          <ul class="pricing-features">
+            <li>Private deployments</li>
+            <li>Custom models</li>
+            <li>99.9% uptime SLA</li>
+            <li>Dedicated support</li>
+          </ul>
+          <button class="button-ghost">Contact sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Community</h2>
+      <div class="contributor-mosaic">
+        <div class="contributor-avatar" style="background-image: url('https://placehold.co/150x150')"></div>
+        <div class="contributor-avatar" style="background-image: url('https://placehold.co/150x150')"></div>
+        <div class="contributor-avatar" style="background-image: url('https://placehold.co/150x150')"></div>
+        <div class="contributor-avatar" style="background-image: url('https://placehold.co/150x150')"></div>
+        <div class="contributor-avatar" style="background-image: url('https://placehold.co/150x150')"></div>
+        <div class="contributor-avatar" style="background-image: url('https://placehold.co/150x150')"></div>
+        <div class="contributor-avatar" style="background-image: url('https://placehold.co/150x150')"></div>
+        <div class="contributor-avatar" style="background-image: url('https://placehold.co/150x150')"></div>
+      </div>
+      <button class="button-outline" style="margin-top: 32px">View all contributors</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API Reference</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Connect</h4>
+          <ul class="footer-links">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Discord</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <hr class="footer-divider">
+        <p>&copy; 2024 Replicate. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
