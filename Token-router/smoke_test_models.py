@@ -1,14 +1,8 @@
-import os
 import sys
 import time
 import litellm
 from catalog import load_catalog
-
-KEY_ENV = {
-    "groq": "GROQ_API_KEY",
-    "openrouter": "OPENROUTER_API_KEY",
-    "gemini": "GEMINI_API_KEY",
-}
+from chat_core import SERVER_KEYS, PROVIDER_KEY_ENV
 
 if __name__ == "__main__":
     delay = float(sys.argv[1]) if len(sys.argv) > 1 else 0
@@ -16,9 +10,9 @@ if __name__ == "__main__":
     for i, entry in enumerate(entries):
         model_id = entry["id"]
         provider = entry["provider"]
-        key = os.environ.get(KEY_ENV.get(provider, ""))
+        key = SERVER_KEYS.get(provider)
         if not key:
-            print(f"SKIP  {model_id} (no {KEY_ENV.get(provider)} in env)", flush=True)
+            print(f"SKIP  {model_id} (no {PROVIDER_KEY_ENV.get(provider)} in env)", flush=True)
             continue
         try:
             response = litellm.completion(

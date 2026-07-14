@@ -1724,6 +1724,7 @@ dependencies = [
     { name = "litellm" },
     { name = "mcp" },
     { name = "pytest" },
+    { name = "python-dotenv" },
     { name = "pyyaml" },
     { name = "uvicorn", extra = ["standard"] },
 ]
@@ -1735,6 +1736,7 @@ requires-dist = [
     { name = "litellm", specifier = ">=1.92.0" },
     { name = "mcp", specifier = ">=1.0.0" },
     { name = "pytest", specifier = ">=8.0.0" },
+    { name = "python-dotenv", specifier = ">=1.0.0" },
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.30.0" },
 ]
