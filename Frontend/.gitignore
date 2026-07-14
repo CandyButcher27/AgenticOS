@@ -1,0 +1,6 @@
+.env
+.venv/
+__pycache__/
+DESIGN-*.md
+design.md
+graphify-out/

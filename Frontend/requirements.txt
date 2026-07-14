@@ -1,0 +1,4 @@
+playwright
+ollama
+pyyaml
+python-dotenv
