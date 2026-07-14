@@ -16,8 +16,6 @@ TRAILING_TOOL_CALL_GARBAGE = re.compile(r"(</[\w:]+>\s*)+\Z")
 
 REVIEW_ITERATIONS = 3
 
-VISION_MODEL_TAGS = {"vision"}
-
 PROMPT_TEMPLATE = """You are generating a static single-page website homage based on the design spec below.
 Output exactly three files, and nothing else (no explanations, no markdown code fences).
 
