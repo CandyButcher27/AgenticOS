@@ -7,7 +7,7 @@ tracing and handle the logic with calling the llm.
 import os
 from dotenv import load_dotenv
 
-load_dotenv(os.path.join(os.path.dirname(__file__), ".env"), override=True)
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"), override=True)
 
 import litellm
 
@@ -25,6 +25,7 @@ PROVIDER_KEY_ENV = {
     "openrouter": "OPENROUTER_API_KEY",
     "gemini": "GEMINI_API_KEY",
     "ollama": "OLLAMA_API_KEY",
+    "nvidia": "NVIDIA_API_KEY",
 }
 
 SERVER_KEYS = {
@@ -47,15 +48,15 @@ class PromptTooLargeError(Exception):
 
 
 def _fits_tpm(prompt: str, entry: dict) -> bool:
-    
-    ''' 
+
+    '''
     This funcition is used to estimate the number of tokens per minute that a prompt will use, we use the internal
-    litellm tokken counter for this, we are assuming that we do not have the information for the same in the catalog 
+    litellm tokken counter for this, we are assuming that we do not have the information for the same in the catalog
     then we will assume it can pass through and we accept it.
     '''
 
     tpm = (entry.get("rate_limits") or {}).get("tpm")
-    if tpm is None: 
+    if tpm is None:
         return True
     estimated_tokens = litellm.token_counter(
         model=entry["id"], messages=[{"role": "user", "content": prompt}]
