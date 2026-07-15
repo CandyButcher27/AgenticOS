@@ -1,5 +1,9 @@
+'''
+Main file from where all the requests and everything is made
+'''
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel,Field
+from typing import Optional
 
 from chat_core import handle_chat, NoSupportedProviderError, AllModelsRateLimitedError, PromptTooLargeError
 
@@ -8,8 +12,8 @@ app = FastAPI()
 
 class ChatRequest(BaseModel):
     prompt: str
-    keys: dict[str, str] = {}
-    task_type: str | None = None
+    keys: dict[str, str] = Field(default_factory=dict)    
+    task_type: Optional[str] = None
 
 
 @app.post("/chat")

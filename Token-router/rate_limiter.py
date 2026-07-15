@@ -1,3 +1,7 @@
+'''
+THis file ensures that we are thorough with the rate limiting part of things, it ensures that we are not unnescessarily 
+wasting calls on prompts which we know are going to fail
+'''
 import json
 import os
 import time
@@ -50,6 +54,10 @@ def _prune(key: str, now: float, window: float) -> None:
 
 
 def is_available(entry: dict) -> bool:
+    '''
+    This is the main function of the rate limiter it checks for the prd and prm while also ensuring that for the openrouter
+    key we are merging all of the rate limits, and also that we have the largest window before we even touch pruning
+    '''
     limits = entry.get("rate_limits") or {}
     rpm, rpd = limits.get("rpm"), limits.get("rpd")
     if rpm is None and rpd is None:

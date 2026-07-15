@@ -1,3 +1,7 @@
+'''
+Helper file for loading and filtering the catalog, takes care of the buisness logic for the catalog
+'''
+
 import os
 import yaml
 

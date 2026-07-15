@@ -1,3 +1,9 @@
+'''
+File where all the pre filters are applied as well as the logic is applied for the router to be called , in later stages 
+we will be having a seperate file for all the filtering part and then this file will just be getting the keys checking for 
+tracing and handle the logic with calling the llm. 
+'''
+
 import os
 from dotenv import load_dotenv
 
@@ -41,8 +47,15 @@ class PromptTooLargeError(Exception):
 
 
 def _fits_tpm(prompt: str, entry: dict) -> bool:
+    
+    ''' 
+    This funcition is used to estimate the number of tokens per minute that a prompt will use, we use the internal
+    litellm tokken counter for this, we are assuming that we do not have the information for the same in the catalog 
+    then we will assume it can pass through and we accept it.
+    '''
+
     tpm = (entry.get("rate_limits") or {}).get("tpm")
-    if tpm is None:
+    if tpm is None: 
         return True
     estimated_tokens = litellm.token_counter(
         model=entry["id"], messages=[{"role": "user", "content": prompt}]
@@ -50,11 +63,24 @@ def _fits_tpm(prompt: str, entry: dict) -> bool:
     return estimated_tokens <= tpm
 
 
-def _prefilter_candidates(prompt: str, filtered: list[dict]) -> list[dict]:
+def _prefilter_candidates_by_ratelimit_and_tpm(prompt: str, filtered: list[dict]) -> list[dict]:
+
+    '''
+    This function essentially pre filters the candidates that are present by a rate limiter as well as the above function 
+    which checks for the number of tokens per minute
+    '''
+
     return [e for e in filtered if rate_limiter.is_available(e) and _fits_tpm(prompt, e)]
 
 
 def _narrow_by_task_type(filtered: list[dict], task_type: str | None) -> list[dict]:
+
+    '''
+    This function makes a futher filtered list having only the model with the task types, this ensures that our llm model 
+    can only choose fromt he filtered set making it more accurate. A fallback is that we give the entire dictionary if
+    we dont get any filtered set
+    '''
+
     if not task_type:
         return filtered
     narrowed = [e for e in filtered if task_type in e["tags"] or e["type"] == task_type]
@@ -62,6 +88,12 @@ def _narrow_by_task_type(filtered: list[dict], task_type: str | None) -> list[di
 
 
 def _ranked_candidates(prompt: str, filtered: list[dict], house_key: str) -> list[dict]:
+
+    '''
+    This function essentially chooses one model for us, but lets say for some reason this model has been rate limited, we 
+    then instead try to find another model of the same family instead of dropping the model all together, also here we tend
+    to choose from the same family first instead of going into a random family
+    '''
     chosen_id = select_model(prompt, filtered, house_key)
     chosen = next(e for e in filtered if e["id"] == chosen_id)
 
@@ -75,13 +107,22 @@ def _ranked_candidates(prompt: str, filtered: list[dict], house_key: str) -> lis
 
 
 def handle_chat(prompt: str, keys: dict[str, str] | None = None, task_type: str | None = None) -> dict:
+
+    '''
+    This is essentially unpacking of the dictionary what we are doing is that we take in client keys and we have our own 
+    server keys and we unpack both the dictionaries together, one bug over here is that when unpacking if lets say the 
+    clinet hasnt provided us with the groq key then we use our own server key for that. Ideally we should be omitting
+    the entirety of the groq family itself and only search for the keys that have been provided by the clinet.
+    '''
+
     keys = {**SERVER_KEYS, **(keys or {})}
     filtered = filter_catalog(CATALOG, set(keys.keys()))
     filtered = _narrow_by_task_type(filtered, task_type)
     if not filtered:
         raise NoSupportedProviderError("no supported provider keys")
 
-    pre_filtered = _prefilter_candidates(prompt, filtered)
+    pre_filtered = _prefilter_candidates_by_ratelimit_and_tpm(prompt, filtered)
+    
     if not pre_filtered:
         if any(not rate_limiter.is_available(e) for e in filtered):
             raise AllModelsRateLimitedError("all matching models are rate-limited, try again later")

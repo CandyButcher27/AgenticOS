@@ -1,3 +1,8 @@
+'''
+We are using this file for just calling a model adn asking it for the best model, this cane asily be done in a 
+deterministic fashion instead of using am odel, we can instead use a model for something better like sentiment analysis
+or something of the same sort
+'''
 import litellm
 
 ROUTER_MODEL = "groq/llama-3.1-8b-instant"

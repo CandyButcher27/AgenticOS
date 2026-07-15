@@ -5,3 +5,4 @@ __pycache__/
 *.log
 catalog.yaml
 rate_limiter_state.json
+learning/
