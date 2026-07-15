@@ -2,7 +2,7 @@ import re
 import sys
 from pathlib import Path
 
-TOKEN_ROUTER = Path(__file__).resolve().parents[2] / "Token-router"
+TOKEN_ROUTER = Path(__file__).resolve().parents[2] / "Token-router" / "scripts"
 sys.path.insert(0, str(TOKEN_ROUTER))
 from chat_core import handle_chat  # noqa: E402
 from playwright.sync_api import sync_playwright

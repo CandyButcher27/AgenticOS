@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-TOKEN_ROUTER = Path(__file__).resolve().parents[2] / "Token-router"
+TOKEN_ROUTER = Path(__file__).resolve().parents[2] / "Token-router" / "scripts"
 sys.path.insert(0, str(TOKEN_ROUTER))
 import litellm  # noqa: E402
 from chat_core import SERVER_KEYS  # noqa: E402
