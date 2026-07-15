@@ -16,14 +16,14 @@ vars: `GROQ_API_KEY`, `OPENROUTER_API_KEY`, `GEMINI_API_KEY`, plus
 `LANGSMITH_*` for tracing). Then:
 
 ```bash
-.venv/Scripts/python.exe smoke_test_models.py     # verify every catalog entry is real and callable
+.venv/Scripts/python.exe scripts/smoke_test_models.py     # verify every catalog entry is real and callable
 ```
 
 ## Two ways to use it
 
 **HTTP:**
 ```bash
-.venv/Scripts/python.exe -m uvicorn app:app --port 8000
+.venv/Scripts/python.exe -m uvicorn app:app --app-dir scripts --port 8000
 curl -X POST http://localhost:8000/chat \
   -H "Content-Type: application/json" \
   -d '{"prompt": "What is the capital of France?"}'
@@ -32,13 +32,13 @@ curl -X POST http://localhost:8000/chat \
 
 **MCP tool** (for Claude Code or any MCP client):
 ```bash
-claude mcp add token-router -- "<path-to>/.venv/Scripts/python.exe" "<path-to>/mcp_server.py"
+claude mcp add token-router -- "<path-to>/.venv/Scripts/python.exe" "<path-to>/scripts/mcp_server.py"
 ```
 Exposes `delegate_task(prompt, keys=None, task_type=None)`.
 
 ## How routing works
 
-1. Filter the catalog (`catalog.yaml`, gitignored/locally maintained) to models
+1. Filter the catalog (`config/catalog.yaml`, gitignored/locally maintained) to models
    whose provider you have a key for (server `.env` or per-request).
 2. Pre-filter out anything currently rate-limited or whose token-per-minute cap
    can't fit this prompt.
