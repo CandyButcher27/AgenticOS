@@ -23,7 +23,7 @@ def merge_daily(spy, vix, irx):
     ).dropna()
 
 
-def generate_weeks(spy, vix, irx, strike_increment=1, stop_loss_factor=0.95):
+def generate_weeks(spy, vix, irx, strike_increment=1):
     merged = merge_daily(spy, vix, irx)
     merged["iso_year"] = merged.index.isocalendar().year
     merged["iso_week"] = merged.index.isocalendar().week
@@ -51,11 +51,6 @@ def generate_weeks(spy, vix, irx, strike_increment=1, stop_loss_factor=0.95):
         premium_put = blackscholes.put_price(spot_entry, strike_put, T, rate, iv_proxy)
         premium_call = blackscholes.call_price(spot_entry, strike_call, T, rate, iv_proxy)
 
-        stop_move = expected_move * stop_loss_factor
-        L_stop, U_stop = round_stop_bounds(
-            spot_entry - stop_move, spot_entry + stop_move, strike_increment
-        )
-
         rows.append(
             {
                 "entry_date": entry_date,
@@ -72,9 +67,17 @@ def generate_weeks(spy, vix, irx, strike_increment=1, stop_loss_factor=0.95):
                 "strike_call": strike_call,
                 "premium_put": premium_put,
                 "premium_call": premium_call,
-                "L_stop": L_stop,
-                "U_stop": U_stop,
             }
         )
 
     return pd.DataFrame(rows)
+
+
+def add_stop_bounds(weeks_df, stop_loss_factor=0.95, strike_increment=1):
+    df = weeks_df.copy()
+    stop_move = df["expected_move"] * stop_loss_factor
+    L_stop_raw = df["spot_entry"] - stop_move
+    U_stop_raw = df["spot_entry"] + stop_move
+    df["L_stop"] = (L_stop_raw / strike_increment).apply(math.ceil) * strike_increment
+    df["U_stop"] = (U_stop_raw / strike_increment).apply(math.floor) * strike_increment
+    return df
