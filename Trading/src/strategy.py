@@ -1,5 +1,6 @@
 import math
 
+import numpy as np
 import pandas as pd
 
 import blackscholes
@@ -80,4 +81,11 @@ def add_stop_bounds(weeks_df, stop_loss_factor=0.95, strike_increment=1):
     U_stop_raw = df["spot_entry"] + stop_move
     df["L_stop"] = (L_stop_raw / strike_increment).apply(math.ceil) * strike_increment
     df["U_stop"] = (U_stop_raw / strike_increment).apply(math.floor) * strike_increment
+    return df
+
+
+def disable_stop(weeks_df):
+    df = weeks_df.copy()
+    df["L_stop"] = -np.inf
+    df["U_stop"] = np.inf
     return df
