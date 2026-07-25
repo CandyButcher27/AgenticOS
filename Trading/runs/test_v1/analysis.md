@@ -2,6 +2,41 @@
 
 314 weekly trades. Full config: see `../../docs/superpowers/specs/2026-07-26-spy-strangle-backtest-design.md`.
 
+**This run is the baseline.** Subsequent runs (`test_v2`, ...) are measured
+against the numbers on this page.
+
+## How it works (mechanics, not just formulas)
+
+Each week, independently:
+
+1. **Entry day** = the week's first trading day (normally Monday). Read
+   that day's SPY close (`spot`), `^VIX` close, and `^IRX` close. These are
+   read fresh every week — VIX is not held constant across weeks or months.
+2. **Expected move**: `EM = spot × (VIX/100) × sqrt(days_to_expiry/365)`.
+   `VIX/100` converts VIX's percentage-point quote (e.g. 20.5) into the
+   decimal fraction Black-Scholes expects (0.205). `EM` is a 1-standard-deviation
+   move estimate over the life of the trade.
+3. **Band**: `L = spot - EM`, `U = spot + EM`.
+4. **Strike selection**: `strike_put = floor(L)` to the nearest $1,
+   `strike_call = ceil(U)` to the nearest $1. Rounding always pushes the
+   strike further from spot, so the real strikes traded sit just outside
+   the 1-SD band, not exactly on L/U.
+5. **Premium**: Black-Scholes price *at the rounded strike* (not at L/U),
+   using that week's `spot`, `T = days_to_expiry/365`, `r = IRX/100`,
+   `sigma = VIX/100`. This is a theoretical/synthetic premium — there is
+   no historical options chain to pull a real quoted price from.
+6. **Position**: **sell** 1 put contract + 1 call contract (short strangle,
+   not a purchase). Each option contract represents 100 shares — that's
+   where the ×100 in P&L math comes from, not a quantity of "100 lots."
+   Premium is collected upfront.
+7. **Expiry day** = the week's last trading day (normally Friday). Read
+   that day's SPY close (`spot_expiry`). No mid-week mark-to-market, no
+   early close, no stop-loss — the position is held to expiry every time.
+8. **Settlement**: at expiry we owe back `max(0, strike_put - spot_expiry) × 100`
+   on the put side and `max(0, spot_expiry - strike_call) × 100` on the call
+   side (intrinsic value on whichever leg finished in-the-money, zero if
+   both finished out-of-the-money). `pnl = premium_collected - payout`.
+
 ## Headline numbers
 
 | metric | value |
