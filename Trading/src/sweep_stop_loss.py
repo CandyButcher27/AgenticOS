@@ -46,18 +46,22 @@ def plot(results, out_path):
     fig.suptitle("Stop-loss factor sweep — SPY weekly strangle, 2020-2025")
 
     panels = [
-        ("stop_rate", "Stop-trigger rate", "{:.0%}"),
-        ("sharpe_ratio", "Sharpe ratio (annualized)", "{:.2f}"),
-        ("total_pnl", "Total P&L ($)", "${:,.0f}"),
+        ("stop_rate", "Stop-trigger rate", "% of 314 trades exited early"),
+        ("sharpe_ratio", "Sharpe ratio (annualized)", "Sharpe ratio"),
+        ("total_pnl", "Total P&L ($)", "P&L, USD, all 314 trades"),
     ]
-    for ax, (col, title, fmt) in zip(axes, panels):
+    for ax, (col, title, ylabel) in zip(axes, panels):
         if degenerate_cutoff is not None:
             ax.axvspan(FACTORS.min(), degenerate_cutoff, color=GRID, alpha=0.6, zorder=0)
         ax.plot(results["stop_loss_factor"], results[col], color=ACCENT, linewidth=2, zorder=2)
         ax.axvline(best["stop_loss_factor"], color=PEAK, linewidth=1, linestyle="--", alpha=0.6, zorder=1)
         ax.set_title(title, loc="left", fontsize=10)
+        ax.set_ylabel(ylabel, fontsize=9)
         ax.grid(color=GRID, linewidth=0.8)
         ax.spines[["top", "right"]].set_visible(False)
+
+    axes[0].yaxis.set_major_formatter(lambda v, _: f"{v:.0%}")
+    axes[2].yaxis.set_major_formatter(lambda v, _: f"${v:,.0f}")
 
     axes[0].annotate(
         f"stop-rate ≥ {DEGENERATE_STOP_RATE:.0%}:\nnear-immediate exit,\nnot a meaningful stop",
@@ -76,7 +80,7 @@ def plot(results, out_path):
         fontsize=8,
         color=PEAK,
     )
-    axes[-1].set_xlabel("stop_loss_factor (x expected move)")
+    axes[-1].set_xlabel("stop_loss_factor  (stop band width, as a multiple of the expected move)")
     fig.tight_layout()
     fig.savefig(out_path, dpi=150)
     return best, naive_best
