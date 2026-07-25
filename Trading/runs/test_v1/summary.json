@@ -1,0 +1,15 @@
+{
+  "run": "test_v1",
+  "ticker": "SPY",
+  "period": ["2020-01-01", "2025-12-31"],
+  "strike_increment": 1,
+  "num_trades": 314,
+  "total_pnl": 4521.699876220688,
+  "avg_trade_return_pct": 0.0002752043775090923,
+  "win_rate": 0.802547770700637,
+  "max_drawdown": -6663.887659421818,
+  "sharpe_ratio": 0.22848016511111663,
+  "worst_trade_pnl": -3868.355745674404,
+  "tail_loss_5pct": -567.6579356910306,
+  "return_on_capital": 0.0003220744535853417
+}
