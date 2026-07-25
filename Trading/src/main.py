@@ -13,7 +13,7 @@ RESULTS_DIR = Path(__file__).parent.parent / "results"
 def main():
     raw = data.get_all(START, END)
     weeks = strategy.generate_weeks(raw["spy"], raw["vix"], raw["irx"])
-    trades = backtest.run(weeks)
+    trades = backtest.run(weeks, raw["spy"], raw["vix"], raw["irx"])
 
     RESULTS_DIR.mkdir(exist_ok=True)
     trades.to_csv(RESULTS_DIR / "trades.csv", index=False)
