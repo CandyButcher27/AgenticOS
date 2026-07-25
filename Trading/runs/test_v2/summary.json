@@ -1,0 +1,20 @@
+{
+  "run": "test_v2",
+  "change_from_baseline": "added stop-loss at 0.95x expected move (tighter band inside the sold strikes, rounded toward spot)",
+  "ticker": "SPY",
+  "period": ["2020-01-01", "2025-12-31"],
+  "strike_increment": 1,
+  "stop_loss_factor": 0.95,
+  "num_trades": 314,
+  "total_pnl": 6094.961293582662,
+  "avg_trade_return_pct": 0.00038312247846231145,
+  "win_rate": 0.6942675159235668,
+  "max_drawdown": -3247.3540546966897,
+  "sharpe_ratio": 0.48025797809921505,
+  "worst_trade_pnl": -1531.6461043381385,
+  "tail_loss_5pct": -388.6003434694651,
+  "return_on_capital": 0.000434135697191645,
+  "stop_loss_trade_count": 87,
+  "expiry_trade_count": 227,
+  "stop_loss_net_effect_vs_holding": 1573.2614173619675
+}
