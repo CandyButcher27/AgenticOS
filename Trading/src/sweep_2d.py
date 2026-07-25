@@ -14,7 +14,7 @@ from sweep_stop_loss import START, END
 
 OUT_DIR = Path(__file__).parent.parent / "runs" / "sweep_2d"
 
-SD_MULTIPLIERS = np.round(np.arange(0.5, 2.0001, 0.2), 2)
+SD_MULTIPLIERS = np.round(np.arange(0.1, 2.0001, 0.2), 2)
 STOP_FACTORS = np.round(np.arange(0.5, 2.0001, 0.1), 2)
 DEGENERATE_STOP_RATE = 0.5
 

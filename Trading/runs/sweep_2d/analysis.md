@@ -5,16 +5,19 @@ Two parameters now vary together, both on the combined 2020-2025 period:
 - **`sd_multiplier`**: how far the sold strikes sit from spot, as a
   multiple of the 1-SD expected move. Every prior run in this project used
   `sd_multiplier=1.0` implicitly (strikes at `spot ± 1×EM`) — that number
-  was never actually tested against alternatives until now. Swept 0.5 to
-  2.0, step 0.2 (8 values: 0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 1.7, 1.9 — note
-  1.0 itself isn't a grid point at this step size).
+  was never actually tested against alternatives until now. Swept 0.1 to
+  2.0, step 0.2 (10 values: 0.1, 0.3, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 1.7,
+  1.9 — note 1.0 itself isn't a grid point at this step size). Originally
+  swept from 0.5; extended down to 0.1 to check whether tighter strikes
+  keep improving results or plateau (see "Does it keep improving below
+  0.5?" below).
 - **`stop_loss_factor`**: unchanged meaning, but now measured as a
   fraction of the *actual* strike distance (`strike_distance =
   expected_move × sd_multiplier`) rather than the raw 1-SD move, so it
   stays comparable across different `sd_multiplier` values. Swept 0.5 to
   2.0, step 0.1 (16 values).
 
-128 combinations, ~26s to run. Full grid: `grid_results.csv`. Heatmap:
+160 combinations, ~32s to run. Full grid: `grid_results.csv`. Heatmap:
 `grid_heatmap.png` (P&L and Sharpe side by side; `x` marks degenerate
 cells, stop-rate ≥ 50%; `★` marks the best practical cell in each panel).
 
@@ -42,7 +45,28 @@ The best `sd=0.5` cell roughly **doubles** the P&L of anything found in
 every prior 1D stop-loss-only sweep (`runs/sweep_stop_loss/`'s best was
 $7,080 at sd=1.0, stop=0.85).
 
-## Why this makes sense, and why it's not free
+## Does it keep improving below 0.5?
+
+No — it plateaus and then collapses into the same degenerate trap the
+1D sweep found at `stop_loss_factor=0.10`, just triggered from the
+strike-distance axis instead. Raw numbers at `sd=0.1` and `sd=0.3` look
+like the best in the whole grid (Sharpe up to 1.10, P&L up to $12,842) —
+but every single cell in those two rows is degenerate (stop-rate 90-99%).
+At `sd=0.1`, adjacent stop factors even produce **byte-identical P&L**
+(`stop=0.6` and `stop=0.7` both give exactly $9,761.11) — the tell that
+almost every trade is being stopped out on day one regardless of the
+exact factor, because strikes that close to spot make even a "loose"
+stop factor correspond to a tiny absolute price band that the underlying
+blows through immediately most weeks. This isn't a strangle-with-a-stop
+anymore, it's "collect a sliver of premium and bail almost immediately,
+every week" — same failure mode as before, different axis.
+
+`sd_multiplier=0.5` is a genuine edge of the meaningful region, not an
+arbitrary stopping point: it's the tightest strike distance in this sweep
+where a normal spread of stop-rates (24-93%) still exists across the
+stop-factor range, rather than every cell being pinned near 100%.
+
+## Why sd=0.5 makes sense, and why it's not free
 
 Selling strikes closer to spot (`sd_multiplier=0.5`) collects far more
 option premium up front — the strikes are much closer to the money, so
