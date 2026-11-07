@@ -9,8 +9,7 @@ Monorepo for a collection of independent projects, most still early-stage or pla
   catalog (Groq, OpenRouter, Gemini, Ollama Cloud), calls it via litellm, and returns the
   response. Exposed as a FastAPI endpoint and an MCP tool. See `Token-router/CLAUDE.md` for
   architecture and current state.
-- **`Frontend/`** — website/design generation project, driven through Token-router. See
-  `Frontend/README.md` and `Frontend/CLAUDE.md`.
+- **Frontend** — moved to its own repository: https://github.com/CandyButcher27/pixi
 - **`RagForge/`** — planning-only so far (no code yet): a 12-level adaptive-retrieval RAG
   curriculum project. See `RagForge/RAG.md` for the PRD.
 - **`CyberSecrity/`**, **`Scraper/`** — empty, placeholders for future work.
